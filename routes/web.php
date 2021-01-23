@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\DataController;
+use App\Http\Controllers\ProfilController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,3 +35,6 @@ Route::get('/data_buku', [DataController::class, 'tampilDataBuku']);
 Route::get('/data_anggota', [DataController::class, 'tampilDataAnggota']);
 Route::get('/data_peraga', [DataController::class, 'tampilDataPeraga']);
 Route::get('/struktur_org', [DataController::class, 'tampilStruktur']);
+
+//profil
+Route::get('/edit_profil', [ProfilController::class, 'tampilProfil']);
