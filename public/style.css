@@ -187,3 +187,23 @@ header{
 	margin-bottom: 0px;
 	width: 250px;
 }
+.form-cari .form-control{
+	border-color: #37474F;
+	border-width: 2px;
+}
+
+/*Data Anggota*/
+.fa-edit{
+	color: #1976D2;
+	margin-right: 20px;
+	padding-left: 10px;
+}
+.fa-edit:hover{
+	color: blue;
+}
+.fa-trash-alt{
+	color: #B71C1C;
+}
+.fa-trash-alt:hover{
+	color: red;
+}

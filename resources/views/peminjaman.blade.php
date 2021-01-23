@@ -41,7 +41,7 @@
 					</div>
 					</div>
 					<div class="form-group form-cari">
-		                <input class="form-control" style="border-color: #37474F;border-width: 2px" id="username" type="text" placeholder="Cari"/>
+		                <input class="form-control" id="username" type="text" placeholder="Cari"/>
 		            </div>
 	            </div>
             </div>
@@ -49,8 +49,8 @@
                 <div class="card-header">
                     <i class="fas fa-table mr-1"></i>
                     Tabel Peminjaman Buku
-                    <div class="form-group" style="float: right;margin-bottom: 0">
-		                <a href="" class="btn btn-primary">TAMBAH BARU <i class="fas fa-plus-circle"></i></a>
+                    <div class="form-group" style="float: right;margin-bottom: 0;">
+		                <a href="" class="btn btn-primary pb-1 pt-1">TAMBAH BARU <i class="fas fa-plus-circle"></i></a>
 		            </div>
                 </div>
                 <div class="card-body">
