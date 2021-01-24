@@ -28,12 +28,20 @@ Route::get('/dashboard', [DashboardController::class, 'tampilDashboard']);
 
 //transaksi
 Route::get('/peminjaman', [TransaksiController::class, 'tampilPeminjaman']);
+Route::get('/tambah_peminjaman', [TransaksiController::class, 'tambahPeminjaman']);
 Route::get('/pengembalian', [TransaksiController::class, 'tampilPengembalian']);
 
 //data
 Route::get('/data_buku', [DataController::class, 'tampilDataBuku']);
+
 Route::get('/data_anggota', [DataController::class, 'tampilDataAnggota']);
+Route::get('/tambah_anggota', [DataController::class, 'tambahDataAnggota']);
+Route::get('/edit_anggota', [DataController::class, 'editDataAnggota']);
+
 Route::get('/data_peraga', [DataController::class, 'tampilDataPeraga']);
+Route::get('/tambah_peraga', [DataController::class, 'tambahDataPeraga']);
+Route::get('/edit_peraga', [DataController::class, 'editDataPeraga']);
+
 Route::get('/struktur_org', [DataController::class, 'tampilStruktur']);
 
 //profil

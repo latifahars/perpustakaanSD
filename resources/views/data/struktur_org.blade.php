@@ -1,6 +1,4 @@
 @extends('partial.auth')
-<link href="orgchart/orgchart.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="orgchart/orgchart.js"></script>
 
 @section('title','Struktur Organisasi')
 

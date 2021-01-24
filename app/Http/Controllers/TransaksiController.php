@@ -8,9 +8,13 @@ use Illuminate\Http\Request;
 class TransaksiController extends Controller
 {
     public function tampilPeminjaman() {
-        return view('peminjaman');
+        return view('transaksi.peminjaman');
     }
     public function tampilPengembalian() {
-        return view('pengembalian');
+        return view('transaksi.pengembalian');
     }
+    public function tambahPeminjaman() {
+        return view('transaksi.tambah_peminjaman');
+    }
+
 }
