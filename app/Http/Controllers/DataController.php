@@ -10,6 +10,16 @@ class DataController extends Controller
     public function tampilDataBuku() {
         return view('data.data_buku');
     }
+    public function tambahDataBuku() {
+        return view('data.tambah_buku');
+    }
+    public function editDataBuku() {
+        return view('data.edit_buku');
+    }
+    public function detailDataBuku() {
+        return view('data.detail_buku');
+    }
+
 
     // data anggota
     public function tampilDataAnggota() {

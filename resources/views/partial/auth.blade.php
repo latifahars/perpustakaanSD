@@ -29,7 +29,50 @@
         </nav>
     </header>
 
-    @yield('menu')
+    <ul class="sidebar" style="padding: 0">
+        <li>
+            <div class="keterangan">Dashboard</div>
+            <a href="/dashboard" class="{{ Request::path() === 'dashboard' ? 'active' : '' }}">
+                <span><i class="fas fa-desktop"></i>Dashboard</span></a>
+        </li>
+        <li><div class="keterangan">Transaksi</div></li>
+        <li>
+            <a href="/peminjaman" class="{{ Request::is('peminjaman*') ? 'active' : '' }}">
+                <span><i class="fas fa-file-signature"></i>Peminjaman Buku</span></a>
+        </li>
+        <li>
+            <a href="/pengembalian" class="{{ Request::is('pengembalian*') ? 'active' : '' }}">
+                <span><i class="fas fa-history"></i>Pengembalian Buku</span></a>
+            <div class="keterangan">Data</div>
+        </li> 
+        <li>
+            <a href="/data_buku" class="{{ Request::is('data_buku*') ? 'active' : '' }}">
+                <span><i class="fas fa-book"></i>  Data Buku</span></a>
+        </li>
+        <li>
+            <a href="/data_anggota" class="{{ Request::is('data_anggota*') ? 'active' : '' }}">
+                <span><i class="fas fa-users"></i>Data Anggota</span></a>
+        </li>
+        <li>
+            <a href="/data_peraga" class="{{ Request::is('data_peraga*') ? 'active' : '' }}">
+                <span><i class="fas fa-shapes"></i>  Data Alat Peraga</span></a>
+        </li>
+        <li>
+            <a href="/struktur_org" class="{{ Request::is('struktur_org*') ? 'active' : '' }}">
+                <span><i class="fas fa-sitemap"></i>Struktur Organisasi</span></a>
+        </li>
+        <li><div class="keterangan">Profil</div></li>
+        <li>
+            <a href="/edit_profil" class="{{ Request::is('edit_profil*') ? 'active' : '' }}">
+                <span><i class="fas fa-user-edit"></i>Edit Profil</span></a>
+        </li>
+    </ul>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script type="text/javascript">
+        $(document).on('click', 'ul li' , function(){
+            $(this).addClass('active').removeClass('active')
+        })
+    </script>
 
     <div class="content">
 

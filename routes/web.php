@@ -28,19 +28,22 @@ Route::get('/dashboard', [DashboardController::class, 'tampilDashboard']);
 
 //transaksi
 Route::get('/peminjaman', [TransaksiController::class, 'tampilPeminjaman']);
-Route::get('/tambah_peminjaman', [TransaksiController::class, 'tambahPeminjaman']);
+Route::get('peminjaman/tambah_peminjaman', [TransaksiController::class, 'tambahPeminjaman']);
 Route::get('/pengembalian', [TransaksiController::class, 'tampilPengembalian']);
 
 //data
 Route::get('/data_buku', [DataController::class, 'tampilDataBuku']);
+Route::get('data_buku/tambah_buku', [DataController::class, 'tambahDataBuku']);
+Route::get('data_buku/edit_buku', [DataController::class, 'editDataBuku']);
+Route::get('data_buku/detail_buku', [DataController::class, 'detailDataBuku']);
 
 Route::get('/data_anggota', [DataController::class, 'tampilDataAnggota']);
-Route::get('/tambah_anggota', [DataController::class, 'tambahDataAnggota']);
-Route::get('/edit_anggota', [DataController::class, 'editDataAnggota']);
+Route::get('data_anggota/tambah_anggota', [DataController::class, 'tambahDataAnggota']);
+Route::get('data_anggota/edit_anggota', [DataController::class, 'editDataAnggota']);
 
 Route::get('/data_peraga', [DataController::class, 'tampilDataPeraga']);
-Route::get('/tambah_peraga', [DataController::class, 'tambahDataPeraga']);
-Route::get('/edit_peraga', [DataController::class, 'editDataPeraga']);
+Route::get('data_peraga/tambah_peraga', [DataController::class, 'tambahDataPeraga']);
+Route::get('data_peraga/edit_peraga', [DataController::class, 'editDataPeraga']);
 
 Route::get('/struktur_org', [DataController::class, 'tampilStruktur']);
 

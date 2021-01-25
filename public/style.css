@@ -94,7 +94,6 @@ header{
 	margin-left: 260px; 
 	padding-top: 80px;
 	padding-left: 10px;
-	width: 100%
 	height: 100%;
 	size: 100%;
 }
@@ -199,20 +198,36 @@ header{
 	border-color: #37474F;
 	border-width: 2px;
 }
-.btn-info{
+.btn-kategori{
+	background-color: #B0BEC5;
+}
+.btn-kategori:hover{
 	background-color: #546E7A;
-	border-color:  #546E7A;
+	color: white;
+}
+.fa-chevron-circle-left{
+	font-size: 17px;
 }
 
 /*Data Anggota*/
 .table-anggota thead tr th{
 	padding-right: 0px;
 }
+.aksi-buku{
+	padding-left: 0;
+	padding-right: 0;
+}
+.fa-eye{
+	font-size: 25px;
+	color: #43A047;
+}
+.fa-eye:hover{
+	color: green;
+}
 .fa-edit{
 	color: #1976D2;
-	margin-right: 20px;
-	padding-left: 20px;
 	font-size: 25px;
+	margin-left: 6px;	
 }
 .fa-edit:hover{
 	color: blue;
@@ -220,6 +235,7 @@ header{
 .fa-trash-alt{
 	color: #B71C1C;
 	font-size: 25px;
+	margin-left: 6px;
 }
 .fa-trash-alt:hover{
 	color: red;
@@ -250,9 +266,12 @@ table{
 .btn-tambahbuku:hover{
 	background-color: #00B0FF;
 }
+.table-detailbuku tr{
+	height: 20px;
+}
 
 /*Data peraga*/
-.table-tambahperaga tr td label{
+.table-tambah tr td label{
 	padding-right: 9px;
 	padding-bottom: 7px;
 }
