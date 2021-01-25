@@ -38,29 +38,29 @@
                         <table class="table table-bordered table-anggota" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                	<th width="5%">No</th>
-                                	<th width="10%">Id Transaksi</th>
-                                    <th width="14%">NIS</th>
+                                	<th width="6%">No</th>
+                                	<th width="11%">Id Transaksi</th>
+                                    <th width="7%">NIS</th>
                                     <th width="20%">Nama</th>
-                                    <th width="25%">Judul Buku</th>
-                                    <th width="10%">Tgl Pinjam</th>
-                                    <th width="10%">Kembali</th>
+                                    <th width="30%">Judul Buku</th>
+                                    <th width="11%">Tgl Pinjam</th>
+                                    <th width="15%">Tgl Kembali</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td>1</td>
                                     <td>12345</td>
-                                    <td>24060118130080</td>
+                                    <td>12345</td>
                                     <td>Latifah Arum Sari123</td>
                                     <td>Budidaya Ikan Lele dengan Mudah dan Murah</td>
                                     <td>2021-01-04</td>
-                                    <td>2021-01-04</td>
+                                    <td>2021-01-04 08:19</td>
                                 </tr>
                                 <tr>
                                     <td>1</td>
                                     <td>12345</td>
-                                    <td>24060118130080</td>
+                                    <td>12345</td>
                                     <td>Latifah Arum S</td>
                                     <td>Kancil dan Buaya</td>
                                     <td>2021-01-04</td>

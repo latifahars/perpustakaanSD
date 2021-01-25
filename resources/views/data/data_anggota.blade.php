@@ -29,7 +29,7 @@
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                    <th width="5%">No</th>
+                                    <th width="4%">No</th>
                                     <th width="13%">NIS</th>
                                     <th width="25%">Nama</th>
                                     <th width="10%">Kelas</th>
