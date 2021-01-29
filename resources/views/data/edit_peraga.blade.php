@@ -45,10 +45,10 @@
                             </td>
                         </tr>
                         <tr>
-                            <td><label for="sumber">Sumber</label></td>
+                            <td><label for="asal">Asal Perolehan</label></td>
                             <td>
                                <div class="form-group">
-                                    <input class="form-control py-3" id="sumber" type="text" placeholder="" />
+                                    <input class="form-control py-3" id="asal" type="text" placeholder="" />
                                 </div> 
                             </td>
                         </tr>

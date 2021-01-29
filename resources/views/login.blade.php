@@ -11,53 +11,27 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('style.css') }}">
 	<title>Login</title>
 </head>
-<body>
-	@if ($errors->any())
-        @foreach ($errors->all() as $error)
-            <div>
-                {{ $error }}
-            </div>
-        @endforeach
-    @endif
-    <div class="card shadow-lg border-0 rounded-lg card-login">
-        <div class="card-header header-login">
-        	<h3 class="text-center font-weight-light mt-2 mb-0">Selamat Datang!</h3>
-        	<h5 class="text-center mt-1"> Sistem Informasi Perpustakaan SDN Tayuban</h5>
-        </div>
-        <div class="card-body">
-            <form>
-            	@csrf
-
-	            @if ($errors->any())
-	                @foreach ($errors->all() as $error)
-	                    {{ $error }}
-	                @endforeach
-	            @endif
-                <div class="form-group">
-                    <label class="mb-1" for="username">Username</label>
-                    <input class="form-control py-3" id="username" type="text" placeholder="Masukkan Username" autofocus />
-                </div>
-                <div class="form-group">
-                    <label class="mb-1" for="password">Password</label>
-                    <input class="form-control py-3" id="password" type="password" placeholder="Masukkan Password" />
-                </div>
-                <div class="form-group mt-4 mb-0">
-                    <center><a class="btn btn-primary" href="index.html">Login</a></center>
-                </div>
-            </form>
-        </div>
+<body class="body-login">
+    <div class="login">
+      <div class="login-triangle"></div>
+      <div class="login-header">
+        <h2>Selamat Datang!</h2>
+        <h6>Perpustakaan SDN Tayuban</h6>
+      </div>
+      <form class="login-container">
+        <p><input type="text" placeholder="Username"></p>
+        <p><input type="password" placeholder="Password"></p>
+        <p><input type="submit" value="Login"></p>
+      </form>
     </div>
-
-
-<!-- 		    <div id="layoutAuthentication_footer">
-		        <footer class="py-3 bg-light mt-auto">
-		            <div class="container-fluid">
-		                <div class="small">
-		                    <div class="text-muted" style="text-align: center;">Copyright &copy; Perpustakaan SDN Tayuban 2021</div>
-		                </div>
-		            </div>
-		        </footer>
-		    </div> -->
-
+    <div style="bottom: auto; margin-top: 188px">
+        <footer class="py-3 bg-light mt-auto">
+            <div class="container-fluid">
+                <div class="small">
+                    <div class="text-muted" style="text-align: center;">Copyright &copy; Perpustakaan SDN Tayuban 2021</div>
+                </div>
+            </div>
+        </footer>
+    </div>
 </body>
 </html>

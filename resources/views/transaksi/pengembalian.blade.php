@@ -9,24 +9,29 @@
                 <li class="breadcrumb-item"><a href="">Transaksi</a></li>
                 <li class="breadcrumb-item">Pengembalian Buku</li>
             </ol>
-            <div class="card mb-4 p-3">
-            	<div class="row row-peminjaman">
+            <div class="card mb-4 p-2">
+            	<div class="row row-peminjaman pb-1">
             		<div class="col-sm-9" style="padding-left: 0">
-	                <div class="dropdown">
-						  <button class="btn btn-kategori dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						    Berdasarkan Kategori
-						  </button>
-						  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-						    <a class="dropdown-item" href="#">Buku Pelajaran</a>
-						    <a class="dropdown-item" href="#">Buku Cerita</a>
-						    <a class="dropdown-item" href="#">Kamus</a>
-						  </div>
-					</div>
+                        <a href="" class="btn btn-success pb-1 pt-1">
+                            CETAK PEMINJAMAN BUKU <i class="fas fa-print"></i>
+                        </a>
 					</div>
 					<div class="form-group form-cari">
 		                <input class="form-control" id="username" type="text" placeholder="Cari"/>
 		            </div>
 	            </div>
+                <div class="row row-peminjaman">
+                    <div class="dropdown">
+                          <button class="btn btn-kategori dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Berdasarkan Kategori
+                          </button>
+                          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">Buku Pelajaran</a>
+                            <a class="dropdown-item" href="#">Buku Cerita</a>
+                            <a class="dropdown-item" href="#">Kamus</a>
+                          </div>
+                    </div>
+                </div>
             </div>
             <div class="card mb-4">
                 <div class="card-header">

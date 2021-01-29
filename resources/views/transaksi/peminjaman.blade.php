@@ -9,7 +9,7 @@
                 <li class="breadcrumb-item"><a href="">Transaksi</a></li>
                 <li class="breadcrumb-item">Peminjaman Buku</li>
             </ol>
-            <div class="card mb-4 p-3">
+            <div class="card mb-4 p-2">
             	<div class="row row-peminjaman">
             		<div class="col-sm-9" style="padding-left: 0">
 	                <div class="dropdown">

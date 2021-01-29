@@ -9,12 +9,20 @@
                 <li class="breadcrumb-item"><a href="">Data</a></li>
                 <li class="breadcrumb-item">Data Anggota</li>
             </ol>
-            <div class="card mb-4 p-3">
-            	<div class="row row-peminjaman">
-					<div class="form-group form-cari">
-		                <input class="form-control" id="username" type="text" placeholder="Cari"/>
-		            </div>
-	            </div>
+             <div class="card mb-4 p-2">
+                <div class="row row-peminjaman">
+                    <div class="col-sm-9" style="padding-left: 0">
+                        <a href="" class="btn btn-import pb-1 pt-1">
+                            IMPORT EXCEL <i class="fas fa-file-upload"></i>
+                        </a>
+                    </div>
+                    <div class="form-group form-cari">
+                        <input class="form-control" id="username" type="text" placeholder="Cari"/>
+                    </div>
+                </div>
+                <div class="row row-peminjaman">
+                    <a href="" class="btn btn-success pb-1 pt-1">CETAK KARTU <i class="fas fa-print"></i></a>
+                </div>    
             </div>
             <div class="card mb-4">
                 <div class="card-header">

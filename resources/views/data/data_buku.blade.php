@@ -9,27 +9,32 @@
                 <li class="breadcrumb-item"><a href="">Data</a></li>
                 <li class="breadcrumb-item">Data Buku</li>
             </ol>
-            <div class="card mb-4 p-3">
+            <div class="card mb-4 p-2">
             	<div class="row row-peminjaman">
-            		<div class="col-sm-9" style="padding-left: 0">
-                        <form method="post" action="">
-                            @csrf
-                            <table>
-                                <tr>
-                                    <td>
-                                        <input type="text" class="form-control" name="nama" placeholder="Nama Kategori">
-                                    </td>
-                                    <td>
-                                        <button class="btn btn-tambahbuku" type="submit"><i class="fas fa-plus"></i> Tambah</button>
-                                    </td>
-                                </tr>
-                            </table>
-                        </form>
+            		<div class="col-sm-9" style="padding-left: 0;margin-bottom: 10px">
+                        <a href="" class="btn btn-import pb-1 pt-1">
+                            IMPORT EXCEL <i class="fas fa-file-upload"></i>
+                        </a>
 					</div>
 					<div class="form-group form-cari">
 		                <input class="form-control" id="username" type="text" placeholder="Cari"/>
 		            </div>
 	            </div>
+                <div class="row row-peminjaman">
+                    <form method="post" action="">
+                        @csrf
+                        <table>
+                            <tr>
+                                <td>
+                                    <input type="text" class="form-control" name="nama" placeholder="Nama Kategori">
+                                </td>
+                                <td>
+                                    <button class="btn btn-tambahbuku pb-1 pt-1" type="submit"><i class="fas fa-plus"></i> Tambah</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
             </div>
             <div class="card mb-4">
                 <div class="card-header">
@@ -50,7 +55,7 @@
                                     <th width="10%">Penerbit</th>
                                     <th width="8%">Halaman</th>
                                     <th width="9%">Eksemplar</th>
-                                    <th width="15%">Sumber</th>
+                                    <th width="15%">Asal Perolehan</th>
                                     <th width="11%">Aksi</th>
                                 </tr>
                             </thead>

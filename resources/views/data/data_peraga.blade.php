@@ -9,7 +9,7 @@
                 <li class="breadcrumb-item"><a href="">Data</a></li>
                 <li class="breadcrumb-item">Data Alat Peraga</li>
             </ol>
-            <div class="card mb-4 p-3">
+            <div class="card mb-4 p-2">
             	<div class="row row-peminjaman">
             		<div class="col-sm-9" style="padding-left: 0">
 	                <form method="post" action="">
@@ -49,7 +49,7 @@
                                     <th width="25%">Nama</th>
                                     <th width="9%">Kategori</th>
                                     <th width="7%">Jumlah</th>
-                                    <th width="14%">Sumber</th>
+                                    <th width="14%">Asal Perolehan</th>
                                     <th width="11%">Tgl Diterima</th>
                                     <th width="8%">Aksi</th>
                                 </tr>

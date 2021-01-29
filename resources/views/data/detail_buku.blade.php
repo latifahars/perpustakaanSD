@@ -50,7 +50,7 @@
                             <td>pppppppppppppppppp</td>
                         </tr>
                         <tr>
-                            <td>Sumber</td>
+                            <td>Asal Perolehan</td>
                             <td>:</td>
                             <td>pppppppppppppppppp</td>
                         </tr>
