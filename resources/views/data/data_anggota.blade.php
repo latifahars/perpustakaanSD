@@ -12,8 +12,8 @@
              <div class="card mb-4 p-2">
                 <div class="row row-peminjaman">
                     <div class="col-sm-9" style="padding-left: 0">
-                        <a href="" class="btn btn-import pb-1 pt-1">
-                            IMPORT EXCEL <i class="fas fa-file-upload"></i>
+                        <a href="data_anggota/import_anggota" class="btn btn-import pb-1 pt-1">
+                            IMPORT ANGGOTA <i class="fas fa-file-upload"></i>
                         </a>
                     </div>
                     <div class="form-group form-cari">
