@@ -9,13 +9,13 @@ class AnggotaController extends Controller
     public function tampilAnggota() {
         return view('data.data_anggota');
     }
-    public function tambahAnggota() {
+    public function tampilTambahAnggota() {
         return view('data.tambah_anggota');
     }
-    public function editAnggota() {
+    public function tampilEditAnggota() {
         return view('data.edit_anggota');
     }
-    public function ImportAnggota() {
+    public function tampilImportAnggota() {
         return view('data.import_anggota');
     }
 }

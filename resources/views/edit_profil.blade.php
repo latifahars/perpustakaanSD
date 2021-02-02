@@ -15,6 +15,10 @@
                     Edit Profil
                 </div>
                 <div class="card-body">
+                    <div class="form-group">
+                        <label class="mb-1" for="username">Username</label>
+                        <input class="form-control py-3" id="username" type="text" placeholder="Masukkan Username" autofocus />
+                    </div>
 	                <div class="form-group">
 	                    <label class="mb-1" for="username">Username</label>
 	                    <input class="form-control py-3" id="username" type="text" placeholder="Masukkan Username" autofocus />

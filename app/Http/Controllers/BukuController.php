@@ -9,16 +9,16 @@ class BukuController extends Controller
     public function tampilBuku() {
         return view('data.data_buku');
     }
-    public function tambahBuku() {
+    public function tampilTambahBuku() {
         return view('data.tambah_buku');
     }
-    public function editBuku() {
+    public function tampilEditBuku() {
         return view('data.edit_buku');
     }
-    public function detailBuku() {
+    public function tampilDetailBuku() {
         return view('data.detail_buku');
     }
-    public function importBuku() {
+    public function tampilImportBuku() {
         return view('data.import_buku');
     }
 }

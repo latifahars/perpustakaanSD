@@ -19,8 +19,8 @@
         <h6>Perpustakaan SDN Tayuban</h6>
       </div>
       <form class="login-container">
-        <p><input type="text" placeholder="Username"></p>
-        <p><input type="password" placeholder="Password"></p>
+        <p><input type="email" placeholder="Email" required></p>
+        <p><input type="password" placeholder="Password" required></p>
         <p><input type="submit" value="Login"></p>
       </form>
     </div>

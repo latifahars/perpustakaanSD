@@ -1,0 +1,53 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class KategoriBukuController extends Controller
+{
+    public function tampilKategori()
+    {
+        // SELECT * FROM Kategori
+        $kategori = KategoriBuku::all();
+        
+        return view('kategori.kategori', compact('kategori'));
+    }
+
+    public function tambahKategori(Request $request)
+	{
+		$request->validate([
+	    'nama' => 'required'],
+		);
+
+		$kategori = new KategoriBuku();
+		$kategori->nama = $request->nama;
+		$kategori->save();
+
+		return redirect('data_buku/kategori');
+	}
+
+	public function tampilEditKategori($idkategori)
+	{
+		$kategori = KategoriBuku::find($idkategori);
+		return view('kategori.edit_kategori', compact('kategori'));
+	}
+
+	public function editKategori(Request $request, $idkategori)
+	{
+		$kategori = KategoriBuku::find($idkategori);
+	    $kategori->nama =$request->nama;
+
+		$kategori->save();
+		return redirect('data_buku/kategori');
+	}
+
+	public function hapusKategori($idkategori) {
+    	$kategori = KategoriBuku::find($idkategori);
+    	if ($kategori) {
+    		$kategori->delete();
+    	}
+
+    	return redirect('data_buku/kategori');
+    }
+}

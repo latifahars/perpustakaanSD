@@ -6,13 +6,13 @@ use Illuminate\Http\Request;
 
 class PeragaController extends Controller
 {
-   	public function tampilDataPeraga() {
+   	public function tampilPeraga() {
         return view('data.data_peraga');
     }
-    public function tambahDataPeraga() {
+    public function tampilTambahPeraga() {
         return view('data.tambah_peraga');
     }
-    public function editDataPeraga() {
+    public function tampilEditPeraga() {
         return view('data.edit_peraga');
     }
 

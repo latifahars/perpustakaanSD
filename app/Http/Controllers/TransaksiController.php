@@ -13,7 +13,7 @@ class TransaksiController extends Controller
     public function tampilPengembalian() {
         return view('transaksi.pengembalian');
     }
-    public function tambahPeminjaman() {
+    public function tampilTambahPeminjaman() {
         return view('transaksi.tambah_peminjaman');
     }
 
