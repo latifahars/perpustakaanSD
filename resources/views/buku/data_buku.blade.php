@@ -21,19 +21,11 @@
 		            </div>
 	            </div>
                 <div class="row row-peminjaman">
-                    <form method="post" action="">
-                        @csrf
-                        <table>
-                            <tr>
-                                <td>
-                                    <input type="text" class="form-control" name="nama" placeholder="Nama Kategori">
-                                </td>
-                                <td>
-                                    <button class="btn btn-tambahbuku pb-1 pt-1" type="submit"><i class="fas fa-plus"></i> Tambah</button>
-                                </td>
-                            </tr>
-                        </table>
-                    </form>
+                    <div class="form-group mb-0">
+                        <a href="data_buku/kategori" class="btn btn-tambahbuku pb-1 pt-1" type="submit">
+                            KELOLA KATEGORI BUKU
+                        </a>
+                    </div>
                 </div>
             </div>
             <div class="card mb-4">

@@ -8,6 +8,7 @@ use App\Http\Controllers\BukuController;
 use App\Http\Controllers\KategoriBukuController;
 use App\Http\Controllers\AnggotaController;
 use App\Http\Controllers\PeragaController;
+use App\Http\Controllers\KategoriPeragaController;
 use App\Http\Controllers\StrukturController;
 use App\Http\Controllers\ProfilController;
 
@@ -56,6 +57,10 @@ Route::get('data_anggota/import_anggota', [AnggotaController::class, 'tampilImpo
 Route::get('data_peraga', [PeragaController::class, 'tampilPeraga']);
 Route::get('data_peraga/tambah_peraga', [PeragaController::class, 'tampilTambahPeraga']);
 Route::get('data_peraga/edit_peraga', [PeragaController::class, 'tampilEditPeraga']);
+
+Route::get('data_peraga/kategori', [KategoriPeragaController::class, 'tampilKategori']);
+Route::get('data_peraga/edit_kategori', [KategoriPeragaController::class, 'tampilEditKategori']);
+
 
 Route::get('struktur_org', [StrukturController::class, 'tampilStruktur']);
 

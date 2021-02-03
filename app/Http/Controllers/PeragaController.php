@@ -7,13 +7,13 @@ use Illuminate\Http\Request;
 class PeragaController extends Controller
 {
    	public function tampilPeraga() {
-        return view('data.data_peraga');
+        return view('peraga.data_peraga');
     }
     public function tampilTambahPeraga() {
-        return view('data.tambah_peraga');
+        return view('peraga.tambah_peraga');
     }
     public function tampilEditPeraga() {
-        return view('data.edit_peraga');
+        return view('peraga.edit_peraga');
     }
 
 }

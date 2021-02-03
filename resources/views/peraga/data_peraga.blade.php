@@ -12,19 +12,13 @@
             <div class="card mb-4 p-2">
             	<div class="row row-peminjaman">
             		<div class="col-sm-9" style="padding-left: 0">
-	                <form method="post" action="">
-                            @csrf
-                            <table>
-                                <tr>
-                                    <td>
-                                        <input type="text" class="form-control" name="nama" placeholder="Nama Kategori">
-                                    </td>
-                                    <td>
-                                        <button class="btn btn-tambahbuku" type="submit"><i class="fas fa-plus"></i> Tambah</button>
-                                    </td>
-                                </tr>
-                            </table>
-                        </form>
+	                <div class="row row-peminjaman">
+                    <div class="form-group mb-0">
+                        <a href="data_peraga/kategori" class="btn btn-tambahbuku" type="submit">
+                            KELOLA KATEGORI PERAGA
+                        </a>
+                    </div>
+                </div>
 					</div>
 					<div class="form-group form-cari">
 		                <input class="form-control" id="username" type="text" placeholder="Cari"/>

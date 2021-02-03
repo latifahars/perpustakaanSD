@@ -332,10 +332,12 @@ table{
 	font-size: 21px;
 }
 .btn-tambahbuku{
-	background-color: #90A4AE;
+	background-color: #00796B;
+	color: white;
 }
 .btn-tambahbuku:hover{
-	background-color: #00B0FF;
+	background-color: #004D40;
+	color: white;
 }
 .table-detailbuku tr{
 	height: 20px;

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\KategoriBuku;
 
 class KategoriBukuController extends Controller
 {
@@ -11,17 +12,19 @@ class KategoriBukuController extends Controller
         // SELECT * FROM Kategori
         $kategori = KategoriBuku::all();
         
-        return view('kategori.kategori', compact('kategori'));
+        return view('buku.kategori_buku', compact('kategori'));
     }
 
     public function tambahKategori(Request $request)
 	{
 		$request->validate([
-	    'nama' => 'required'],
-		);
+	    'nama' => 'required',
+	    'deadline' => 'required'
+		]);
 
 		$kategori = new KategoriBuku();
 		$kategori->nama = $request->nama;
+		$kategori->deadline =$request->deadline;
 		$kategori->save();
 
 		return redirect('data_buku/kategori');
@@ -30,13 +33,14 @@ class KategoriBukuController extends Controller
 	public function tampilEditKategori($idkategori)
 	{
 		$kategori = KategoriBuku::find($idkategori);
-		return view('kategori.edit_kategori', compact('kategori'));
+		return view('buku.edit_kategori', compact('kategori'));
 	}
 
 	public function editKategori(Request $request, $idkategori)
 	{
 		$kategori = KategoriBuku::find($idkategori);
 	    $kategori->nama =$request->nama;
+	    $kategori->deadline =$request->deadline;
 
 		$kategori->save();
 		return redirect('data_buku/kategori');

@@ -7,15 +7,15 @@ use Illuminate\Http\Request;
 class AnggotaController extends Controller
 {
     public function tampilAnggota() {
-        return view('data.data_anggota');
+        return view('anggota.data_anggota');
     }
     public function tampilTambahAnggota() {
-        return view('data.tambah_anggota');
+        return view('anggota.tambah_anggota');
     }
     public function tampilEditAnggota() {
-        return view('data.edit_anggota');
+        return view('anggota.edit_anggota');
     }
     public function tampilImportAnggota() {
-        return view('data.import_anggota');
+        return view('anggota.import_anggota');
     }
 }
