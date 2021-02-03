@@ -10,4 +10,13 @@ class Peminjaman extends Model
     use HasFactory;
 
     protected $table = 'peminjaman';
+
+    public function buku()
+    {
+        return $this->belongsTo(Buku::class);
+    }
+    public function anggota()
+    {
+        return $this->belongsTo(Anggota::class);
+    }
 }

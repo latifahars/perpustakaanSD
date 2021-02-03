@@ -10,4 +10,9 @@ class Penerbit extends Model
     use HasFactory;
     
     protected $table = 'penerbit';
+
+    public function buku()
+    {
+        return $this->hasMany(Buku::class);
+    }
 }

@@ -10,4 +10,9 @@ class KategoriBuku extends Model
     use HasFactory;
 
     protected $table = 'kategori_buku';
+
+    public function buku()
+    {
+        return $this->hasMany(Buku::class);
+    }
 }

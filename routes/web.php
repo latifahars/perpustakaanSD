@@ -11,6 +11,7 @@ use App\Http\Controllers\PeragaController;
 use App\Http\Controllers\KategoriPeragaController;
 use App\Http\Controllers\StrukturController;
 use App\Http\Controllers\ProfilController;
+use App\Http\Controllers\FlashMessageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -66,3 +67,7 @@ Route::get('struktur_org', [StrukturController::class, 'tampilStruktur']);
 
 //profil
 Route::get('edit_profil', [ProfilController::class, 'tampilProfil']);
+Route::post('edit_profil', [ProfilController::class, 'simpanProfil']);
+
+Route::get('/pesan', [FlashMessageController::class, 'index']);
+Route::get('/get-pesan', [FlashMessageController::class, 'pesan']);

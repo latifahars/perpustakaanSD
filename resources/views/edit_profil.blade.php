@@ -15,22 +15,30 @@
                     Edit Profil
                 </div>
                 <div class="card-body">
-                    <div class="form-group">
-                        <label class="mb-1" for="username">Username</label>
-                        <input class="form-control py-3" id="username" type="text" placeholder="Masukkan Username" autofocus />
-                    </div>
-	                <div class="form-group">
-	                    <label class="mb-1" for="username">Username</label>
-	                    <input class="form-control py-3" id="username" type="text" placeholder="Masukkan Username" autofocus />
-	                </div>
-	                <div class="form-group">
-	                    <label class="mb-1" for="password">Password</label>
-	                    <input class="form-control py-3" id="password" type="password" placeholder="Masukkan Password" />
-	                </div>
-	                <div class="form-group mt-4 mb-0">
-	                	<a class="btn btn-danger" style="float: left;" href="">Batal</a>
-	                    <a class="btn btn-success" style="float: right;" href="">Simpan</a>
-	                </div>
+                    <form method="post" action="">
+                        @csrf
+                        <div class="form-group">
+                            <label class="mb-1" for="username">Username</label>
+                            <input class="form-control py-3" id="username" type="text" name="name" value="{{ $user->name }}" autofocus required />
+                        </div>
+    	                <div class="form-group">
+    	                    <label class="mb-1" for="email">Email</label>
+    	                    <input class="form-control py-3" id="email" type="email" name="email" value="{{ $user->email }}" required/>
+    	                </div>
+    	                <div class="form-group">
+    	                    <label class="mb-1" for="password">Password</label>
+    	                    <input class="form-control py-3" id="password" type="password" name="password" />
+    	                </div>
+    	                <div class="form-group mt-4 mb-0">
+    	                	<button class="btn btn-danger" style="float: left;" >Batal</button>
+    	                    <button class="btn btn-success" style="float: right;" value="submit">Simpan</button>
+                            @if ($message = Session::get('success'))
+                              <div class="alert alert-success alert-block">
+                                  <h4 style="margin-bottom: 0px">{{ $message }}</h4>
+                              </div>
+                            @endif
+    	                </div>
+                    </form>
                 </div>
             </div>
         </div>

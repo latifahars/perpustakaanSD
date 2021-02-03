@@ -18,13 +18,20 @@
         <h2>Selamat Datang!</h2>
         <h6>Perpustakaan SDN Tayuban</h6>
       </div>
-      <form class="login-container">
-        <p><input type="email" placeholder="Email" required></p>
-        <p><input type="password" placeholder="Password" required></p>
-        <p><input type="submit" value="Login"></p>
+      <form name="login" method="post" action="{{ url('login') }}" class="login-container">
+        @csrf
+
+        @if ($errors->any())
+                @foreach ($errors->all() as $error)
+                    {{ $error }}
+                @endforeach
+        @endif
+        <p><input type="email" name="email" placeholder="Email" required></p>
+        <p><input type="password" name="password" placeholder="Password" required></p>
+        <p><button type="submit" name="login">Login</button></p>
       </form>
     </div>
-    <div style="bottom: auto; margin-top: 188px">
+    <div style="bottom: auto; margin-top: 189px">
         <footer class="py-3 bg-light mt-auto">
             <div class="container-fluid">
                 <div class="small">

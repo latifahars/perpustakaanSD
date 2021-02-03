@@ -10,4 +10,9 @@ class Peraga extends Model
     use HasFactory;
     
     protected $table = 'peraga';
+
+     public function kategori()
+    {
+    	return $this->belongsTo(KategoriPeraga::class);
+	}
 }

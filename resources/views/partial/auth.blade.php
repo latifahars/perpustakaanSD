@@ -24,7 +24,7 @@
             <h3>Perpustakaan <span>SDN Tayuban</span></h3>
             <div class="right_area">
                 <i class="fas fa-user-tie" style="margin-right: 10px"></i>
-                Latifah Arum Sari
+                {{ auth()->user()->name }}
                 <a href="/logout" class="btn btn-danger btn-logout">Logout</a>
             </div>
         </nav>

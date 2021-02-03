@@ -8,5 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class SumberBuku extends Model
 {
     use HasFactory;
+
     protected $table = 'sumber_buku';
+
+    public function buku()
+    {
+        return $this->hasMany(Buku::class);
+    }
 }
