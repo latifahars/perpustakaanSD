@@ -12,7 +12,8 @@
                 </div>
                 <div class="card-body">
                     <div class="card mb-4 p-2">
-                        Choose File<br>Upload 
+                        Choose File<br>Upload
+                        @include('partial.error')
                     </div>
                     <div class="card mb-4 p-2">
                         <h4>Petunjuk Import</h4>

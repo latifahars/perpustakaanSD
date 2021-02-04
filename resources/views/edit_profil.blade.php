@@ -9,17 +9,14 @@
                 <li class="breadcrumb-item"><a href="">Profil</a></li>
                 <li class="breadcrumb-item">Edit Profil</li>
             </ol>
-            @if(session('status'))
-                <div class="alert alert-success">
-                    {{ session('status') }}
-                </div>
-            @endif
+            @include('partial.alert')
             <div class="card mb-4">
                 <div class="card-header">
                     <i class="fas fa-table mr-1"></i>
                     Edit Profil
                 </div>
                 <div class="card-body">
+                    @include('partial.error')
                     <form method="post" action="">
                         @csrf
                         <div class="form-group">

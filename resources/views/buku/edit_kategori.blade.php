@@ -10,6 +10,7 @@
                      <a href="/data_buku/kategori"><i class="fas fa-chevron-circle-left"></i></a>Edit Kategori {{ $kategori->nama }}
                 </div>
                 <div class="card-body">
+                    @include('partial.error')
                     <form method="post" action="">
                         @csrf
                         <div class="form-group">

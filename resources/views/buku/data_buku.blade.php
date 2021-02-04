@@ -23,11 +23,12 @@
                 <div class="row row-peminjaman">
                     <div class="form-group mb-0">
                         <a href="data_buku/kategori" class="btn btn-tambahbuku pb-1 pt-1" type="submit">
-                            KELOLA KATEGORI BUKU
+                            KATEGORI BUKU
                         </a>
                     </div>
                 </div>
             </div>
+            @include('partial.error')
             <div class="card mb-4">
                 <div class="card-header">
                     <i class="fas fa-table mr-1"></i>

@@ -56,16 +56,24 @@ Route::get('data_buku/hapus_kategori/{idkategori}', [KategoriBukuController::cla
 
 Route::get('data_anggota', [AnggotaController::class, 'tampilAnggota']);
 Route::get('data_anggota/tambah_anggota', [AnggotaController::class, 'tampilTambahAnggota']);
-Route::get('data_anggota/edit_anggota', [AnggotaController::class, 'tampilEditAnggota']);
+Route::post('data_anggota/tambah_anggota', [AnggotaController::class, 'tambahAnggota']);
+Route::get('data_anggota/edit_anggota/{idanggota}', [AnggotaController::class, 'tampilEditAnggota']);
+Route::post('data_anggota/edit_anggota/{idanggota}', [AnggotaController::class, 'editAnggota']);
+Route::get('data_anggota/hapus_anggota/{idanggota}', [AnggotaController::class, 'hapusAnggota']);
 Route::get('data_anggota/import_anggota', [AnggotaController::class, 'tampilImportAnggota']);
 
 Route::get('data_peraga', [PeragaController::class, 'tampilPeraga']);
 Route::get('data_peraga/tambah_peraga', [PeragaController::class, 'tampilTambahPeraga']);
-Route::get('data_peraga/edit_peraga', [PeragaController::class, 'tampilEditPeraga']);
+Route::post('data_peraga/tambah_peraga', [PeragaController::class, 'tambahPeraga']);
+Route::get('data_peraga/edit_peraga/{idperaga}', [PeragaController::class, 'tampilEditPeraga']);
+Route::post('data_peraga/edit_peraga/{idperaga}', [PeragaController::class, 'editPeraga']);
+Route::get('data_peraga/hapus_peraga/{idperaga}', [PeragaController::class, 'hapusPeraga']);
 
 Route::get('data_peraga/kategori', [KategoriPeragaController::class, 'tampilKategori']);
-Route::get('data_peraga/edit_kategori', [KategoriPeragaController::class, 'tampilEditKategori']);
-
+Route::post('data_peraga/kategori', [KategoriPeragaController::class, 'tambahKategori']);
+Route::get('data_peraga/edit_kategori/{idkategori}', [KategoriPeragaController::class, 'tampilEditKategori']);
+Route::post('data_peraga/edit_kategori/{idkategori}', [KategoriPeragaController::class, 'editKategori']);
+Route::get('data_peraga/hapus_kategori/{idkategori}', [KategoriPeragaController::class, 'hapusKategori']);
 
 Route::get('struktur_org', [StrukturController::class, 'tampilStruktur']);
 

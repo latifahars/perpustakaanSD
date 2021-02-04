@@ -16,6 +16,7 @@ class BuatTabelPeraga extends Migration
         Schema::create('peraga', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
+            $table->string('kode');
             $table->unsignedBigInteger('kategori_peraga_id');
             $table->string('sumber');
             $table->date('tgl_diterima');

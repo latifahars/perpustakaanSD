@@ -13,6 +13,7 @@
                 </div>
                 <center>
                     <div class="card-body">
+                        @include('partial.error')
                         <img src="{{ asset('Struktur Organisasi2.png') }}" style="width: 950px;">
                     </div>
                 </center>

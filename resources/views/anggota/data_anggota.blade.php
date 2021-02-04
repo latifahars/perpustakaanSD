@@ -9,6 +9,7 @@
                 <li class="breadcrumb-item"><a href="">Data</a></li>
                 <li class="breadcrumb-item">Data Anggota</li>
             </ol>
+            @include('partial.error')
              <div class="card mb-4 p-2">
                 <div class="row row-peminjaman">
                     <div class="col-sm-9" style="padding-left: 0">
@@ -24,6 +25,7 @@
                     <a href="" class="btn btn-success pb-1 pt-1">CETAK KARTU <i class="fas fa-print"></i></a>
                 </div>    
             </div>
+            @include('partial.alert')
             <div class="card mb-4">
                 <div class="card-header">
                     <i class="fas fa-table mr-1"></i>
@@ -45,16 +47,18 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach ($anggota as $a)
                                 <tr>
-                                    <td>1000</td>
-                                    <td>24060118130080</td>
-                                    <td>Latifah Arum Sari123</td>
-                                    <td>Kelas 1</td>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $a->nis }}</td>
+                                    <td>{{ $a->nama }}</td>
+                                    <td>{{ $a->kelas }}</td>
                                     <td>
-                                    	<a href="data_anggota/edit_anggota"><i class="fas fa-edit" style="margin-right: 20px;margin-left: 15px"></i></a>
-                                    	<a href=""><i class="fas fa-trash-alt"></i></a>
+                                    	<a href="{{ url('data_anggota/edit_anggota/' . $a->id) }}"><i class="fas fa-edit" style="margin-right: 20px;margin-left: 15px"></i></a>
+                                    	<a href="{{ url('data_anggota/hapus_anggota/' . $a->id) }}" data-toggle="tooltip" onclick="return konfirmasi()" id="pesan"><i class="fas fa-trash-alt"></i></a>
                                     </td>
                                 </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -62,5 +66,17 @@
             </div>
         </div>
     </main>
-
+    <script>
+      function konfirmasi(){
+         var tanya = confirm("Apakah Anda Yakin Akan Menghapus Data Anggota ini?");
+ 
+         if(tanya === true) {
+            return true;
+         }else{
+            return false;
+         }
+ 
+         document.getElementById("pesan");
+      }
+    </script>
 @endsection

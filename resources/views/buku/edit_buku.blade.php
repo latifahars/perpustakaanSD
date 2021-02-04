@@ -11,6 +11,7 @@
                     Edit Buku [judul]
                 </div>
                 <div class="card-body pb-1 pt-1">
+                    @include('partial.error')
                     <table class="table-tambahbuku">
                         <tr>
                             <td><label for="kode">Kode</label></td>

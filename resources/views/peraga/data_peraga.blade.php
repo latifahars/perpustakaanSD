@@ -15,7 +15,7 @@
 	                <div class="row row-peminjaman">
                     <div class="form-group mb-0">
                         <a href="data_peraga/kategori" class="btn btn-tambahbuku" type="submit">
-                            KELOLA KATEGORI PERAGA
+                            KATEGORI PERAGA
                         </a>
                     </div>
                 </div>
@@ -25,6 +25,8 @@
 		            </div>
 	            </div>
             </div>
+            @include('partial.error')
+            @include('partial.alert')
             <div class="card mb-4">
                 <div class="card-header">
                     <i class="fas fa-table mr-1"></i>
@@ -40,28 +42,30 @@
                                 <tr>
                                 	<th width="5%">No</th>
                                 	<th width="9%">Kode</th>
-                                    <th width="25%">Nama</th>
-                                    <th width="9%">Kategori</th>
+                                    <th width="20%">Nama</th>
+                                    <th width="12%">Kategori</th>
                                     <th width="7%">Jumlah</th>
-                                    <th width="14%">Asal Perolehan</th>
+                                    <th width="15%">Asal Perolehan</th>
                                     <th width="11%">Tgl Diterima</th>
                                     <th width="8%">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach ($peraga as $p)
                                 <tr>
-                                    <td>1</td>
-                                    <td>2221111</td>
-                                    <td>Tengkorak Manusia</td>
-                                    <td>IPA</td>
-                                    <td>1</td>
-                                    <td>Beli</td>
-                                    <td>2020-12-02</td>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $p-> kode }}</td>
+                                    <td>{{ $p-> nama }}</td>
+                                    <td>{{ $p-> kategori-> nama }}</td>
+                                    <td>{{ $p-> jumlah }}</td>
+                                    <td>{{ $p-> sumber }}</td>
+                                    <td>{{ $p-> tgl_diterima }}</td>
                                     <td>
-                                    	<a href="data_peraga/edit_peraga"><i class="fas fa-edit"></i></a>
-                                    	<a href=""><i class="fas fa-trash-alt"></i></a>
+                                    	<a href="{{ url('data_peraga/edit_peraga/' . $p->id) }}"><i class="fas fa-edit"></i></a>
+                                    	<a href="{{ url('data_peraga/hapus_peraga/' . $p->id) }}" data-toggle="tooltip" onclick="return konfirmasi()" id="pesan"><i class="fas fa-trash-alt"></i></a>
                                     </td>
                                 </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -69,5 +73,18 @@
             </div>
         </div>
     </main>
+    <script>
+      function konfirmasi(){
+         var tanya = confirm("Apakah Anda Yakin Akan Menghapus Data Peraga ini?");
+ 
+         if(tanya === true) {
+            return true;
+         }else{
+            return false;
+         }
+ 
+         document.getElementById("pesan");
+      }
+    </script>
 
 @endsection

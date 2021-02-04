@@ -21,11 +21,7 @@
       <form name="login" method="post" action="{{ url('login') }}" class="login-container">
         @csrf
 
-        @if ($errors->any())
-                @foreach ($errors->all() as $error)
-                    {{ $error }}
-                @endforeach
-        @endif
+        @include('partial.error')
         <p><input type="email" name="email" placeholder="Email" required></p>
         <p><input type="password" name="password" placeholder="Password" required></p>
         <p><button type="submit" name="login">Login</button></p>

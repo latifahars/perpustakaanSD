@@ -29,6 +29,6 @@ class ProfilController extends Controller
 		}
 
 		$user->save();
-    	return back()->with('status', 'Edit Profil Berhasil!');
+    	return back()->with('sukses', 'Edit Profil Berhasil!');
 	}
 }

@@ -12,13 +12,6 @@
 	<title>@yield('title')</title>
 </head>
 <body>
-    @if ($errors->any())
-        @foreach ($errors->all() as $error)
-            <div>
-                {{ $error }}
-            </div>
-        @endforeach
-    @endif
     <header>
         <nav class="navbar navbar-default navbar-fixed-top left_area">
             <h3>Perpustakaan <span>SDN Tayuban</span></h3>

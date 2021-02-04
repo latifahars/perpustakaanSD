@@ -13,6 +13,6 @@ class Peraga extends Model
 
      public function kategori()
     {
-    	return $this->belongsTo(KategoriPeraga::class);
+    	return $this->belongsTo(KategoriPeraga::class, 'kategori_peraga_id');
 	}
 }

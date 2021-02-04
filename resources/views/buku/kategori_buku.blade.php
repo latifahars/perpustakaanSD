@@ -10,6 +10,7 @@
                     <form method="post" action="">
                         <i class="fas fa-table mr-1" style="margin-top: 12px"></i>Daftar Kategori
                         @csrf
+                        @include('partial.error')
                         <table style="float: right;">
                             <tr>
                                 <td>

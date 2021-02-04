@@ -5,10 +5,13 @@
 @section('content')
 	<main>
         <div class="container-fluid">
+            @include('partial.alert')
+            @include('partial.error')
             <div class="card mb-4">
                 <div class="card-header">
                     <form method="post" action="">
-                        <i class="fas fa-table mr-1" style="margin-top: 12px"></i>Daftar Kategori
+                         <a href="{{ url('data_peraga') }}"><i class="fas fa-chevron-circle-left mt-2 mr-1"></i></a>
+                         Daftar Kategori
                         @csrf
                         <table style="float: right;">
                             <tr>
@@ -34,17 +37,17 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                
+                                @foreach ($kategori as $k)
                                 <tr>
-                                    <td></td>
-                                    <td></td>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $k->nama }}</td>
                                     <td></td>
                                     <td>
-                                        <a href="data_peraga/edit_kategori"><i class="fas fa-edit" style="margin-right: 20px;margin-left: 15px"></i></a>
-                                        <a href=""><i class="fas fa-trash-alt"></i></a>
+                                        <a href="{{ url('data_peraga/edit_kategori/' . $k->id) }}"><i class="fas fa-edit" style="margin-right: 20px;margin-left: 15px"></i></a>
+                                        <a href="{{ url('data_peraga/hapus_kategori/' . $k->id) }}" data-toggle="tooltip" onclick="return konfirmasi()" id="pesan"><i class="fas fa-trash-alt"></i></a>
                                     </td>
                                 </tr>
-                                
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -52,5 +55,17 @@
             </div>
         </div>
     </main>
-
+    <script>
+      function konfirmasi(){
+         var tanya = confirm("Apakah Anda Yakin Akan Menghapus Kategori ini?");
+ 
+         if(tanya === true) {
+            return true;
+         }else{
+            return false;
+         }
+ 
+         document.getElementById("pesan");
+      }
+    </script>
 @endsection
