@@ -9,6 +9,11 @@
                 <li class="breadcrumb-item"><a href="">Profil</a></li>
                 <li class="breadcrumb-item">Edit Profil</li>
             </ol>
+            @if(session('status'))
+                <div class="alert alert-success">
+                    {{ session('status') }}
+                </div>
+            @endif
             <div class="card mb-4">
                 <div class="card-header">
                     <i class="fas fa-table mr-1"></i>
@@ -30,13 +35,7 @@
     	                    <input class="form-control py-3" id="password" type="password" name="password" />
     	                </div>
     	                <div class="form-group mt-4 mb-0">
-    	                	<button class="btn btn-danger" style="float: left;" >Batal</button>
     	                    <button class="btn btn-success" style="float: right;" value="submit">Simpan</button>
-                            @if ($message = Session::get('success'))
-                              <div class="alert alert-success alert-block">
-                                  <h4 style="margin-bottom: 0px">{{ $message }}</h4>
-                              </div>
-                            @endif
     	                </div>
                     </form>
                 </div>

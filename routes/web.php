@@ -28,6 +28,10 @@ use App\Http\Controllers\FlashMessageController;
 //login
 Route::view('login', 'login');
 Route::post('login', [AuthenticationController::class, 'login']);
+Route::get('/logout', function () {
+    auth()->logout();
+    return redirect('login');
+});
 
 //dashboard
 Route::get('dashboard', [DashboardController::class, 'tampilDashboard']);
@@ -68,6 +72,3 @@ Route::get('struktur_org', [StrukturController::class, 'tampilStruktur']);
 //profil
 Route::get('edit_profil', [ProfilController::class, 'tampilProfil']);
 Route::post('edit_profil', [ProfilController::class, 'simpanProfil']);
-
-Route::get('/pesan', [FlashMessageController::class, 'index']);
-Route::get('/get-pesan', [FlashMessageController::class, 'pesan']);
