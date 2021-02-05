@@ -17,9 +17,13 @@
                             IMPORT ANGGOTA <i class="fas fa-file-upload"></i>
                         </a>
                     </div>
-                    <div class="form-group form-cari">
-                        <input class="form-control" id="username" type="text" placeholder="Cari"/>
-                    </div>
+                    <form action="data_anggota/cari" method="get">
+                        @csrf
+                        <div class="form-group form-cari">
+                            <input class="form-control" name="cari" type="text" placeholder="Cari" value="{{ old('cari') }}" />
+                            <button type="submit">Cari</button>
+                        </div>
+                    </form>
                 </div>
                 <div class="row row-peminjaman">
                     <a href="" class="btn btn-success pb-1 pt-1">CETAK KARTU <i class="fas fa-print"></i></a>

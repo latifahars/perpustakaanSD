@@ -30,7 +30,7 @@ class PeragaController extends Controller
         'kategori' => 'required',
         'sumber' => 'required',
         'tgl_diterima' => 'required|date',
-        'jumlah' => 'required',
+        'jumlah' => 'required|numeric',
         ]);
 
         $peraga = new Peraga();

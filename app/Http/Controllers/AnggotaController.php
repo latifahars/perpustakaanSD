@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Models\Anggota;
 
 class AnggotaController extends Controller
@@ -18,6 +19,20 @@ class AnggotaController extends Controller
     public function tampilTambahAnggota() 
     {
         return view('anggota.tambah_anggota');
+    }
+
+    public function cariAnggota(Request $request)
+    {
+        // menangkap data pencarian
+        $cari = $request->cari;
+ 
+        $anggota = DB::table('anggota')
+        ->where('nama','like',"%".$cari."%")
+        ->paginate();
+ 
+            // mengirim data
+        return view('anggota.tambah_anggota',['anggota' => $anggota]);
+ 
     }
 
     public function tambahAnggota(Request $request) 

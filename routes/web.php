@@ -55,6 +55,7 @@ Route::post('data_buku/edit_kategori/{idkategori}', [KategoriBukuController::cla
 Route::get('data_buku/hapus_kategori/{idkategori}', [KategoriBukuController::class, 'hapusKategori']);
 
 Route::get('data_anggota', [AnggotaController::class, 'tampilAnggota']);
+Route::get('data_anggota/cari', [AnggotaController::class, 'cariAnggota']);
 Route::get('data_anggota/tambah_anggota', [AnggotaController::class, 'tampilTambahAnggota']);
 Route::post('data_anggota/tambah_anggota', [AnggotaController::class, 'tambahAnggota']);
 Route::get('data_anggota/edit_anggota/{idanggota}', [AnggotaController::class, 'tampilEditAnggota']);

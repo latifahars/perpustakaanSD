@@ -41,7 +41,7 @@
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $k->nama }}</td>
-                                    <td></td>
+                                    <td>{{ $k->peraga_count }}</td>
                                     <td>
                                         <a href="{{ url('data_peraga/edit_kategori/' . $k->id) }}"><i class="fas fa-edit" style="margin-right: 20px;margin-left: 15px"></i></a>
                                         <a href="{{ url('data_peraga/hapus_kategori/' . $k->id) }}" data-toggle="tooltip" onclick="return konfirmasi()" id="pesan"><i class="fas fa-trash-alt"></i></a>

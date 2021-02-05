@@ -4,12 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\KategoriPeraga;
+use App\Models\Peraga;
+use Illuminate\Support\Facades\DB;
+
 
 class KategoriPeragaController extends Controller
 {
     public function tampilKategori() {
 
-    	$kategori = KategoriPeraga::all();
+    	$kategori = KategoriPeraga::withCount('peraga')->get();
 
     	return view('peraga.kategori_peraga', compact('kategori'));
     }
