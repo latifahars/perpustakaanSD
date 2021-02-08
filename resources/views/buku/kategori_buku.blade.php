@@ -8,7 +8,7 @@
             <div class="card mb-4">
                 <div class="card-header">
                     <form method="post" action="">
-                        <i class="fas fa-table mr-1" style="margin-top: 12px"></i>Daftar Kategori
+                        <a href="{{ url('data_buku') }}"><i class="fas fa-chevron-circle-left mt-2 mr-1"></i></a></i>Daftar Kategori
                         @csrf
                         @include('partial.error')
                         <table style="float: right;">

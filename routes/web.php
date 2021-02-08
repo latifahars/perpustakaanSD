@@ -44,8 +44,11 @@ Route::get('pengembalian', [TransaksiController::class, 'tampilPengembalian']);
 //data
 Route::get('data_buku', [BukuController::class, 'tampilBuku']);
 Route::get('data_buku/tambah_buku', [BukuController::class, 'tampilTambahBuku']);
-Route::get('data_buku/edit_buku', [BukuController::class, 'tampilEditBuku']);
-Route::get('data_buku/detail_buku', [BukuController::class, 'tampilDetailBuku']);
+Route::post('data_buku/tambah_buku', [BukuController::class, 'tambahBuku']);
+Route::get('data_buku/edit_buku/{idbuku}', [BukuController::class, 'tampilEditBuku']);
+Route::post('data_buku/edit_buku/{idbuku}', [BukuController::class, 'editBuku']);
+Route::get('data_buku/hapus_buku/{idbuku}', [BukuController::class, 'hapusBuku']);
+Route::get('data_buku/detail_buku/{idbuku}', [BukuController::class, 'tampilDetailBuku']);
 Route::get('data_buku/import_buku', [BukuController::class, 'tampilImportBuku']);
 
 Route::get('data_buku/kategori', [KategoriBukuController::class, 'tampilKategori']);

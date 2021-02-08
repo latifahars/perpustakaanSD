@@ -16,11 +16,6 @@ class AnggotaController extends Controller
         return view('anggota.data_anggota', compact('anggota'));
     }
 
-    public function tampilTambahAnggota() 
-    {
-        return view('anggota.tambah_anggota');
-    }
-
     public function cariAnggota(Request $request)
     {
         // menangkap data pencarian
@@ -32,7 +27,11 @@ class AnggotaController extends Controller
  
             // mengirim data
         return view('anggota.tambah_anggota',['anggota' => $anggota]);
- 
+    }
+
+    public function tampilTambahAnggota() 
+    {
+        return view('anggota.tambah_anggota');
     }
 
     public function tambahAnggota(Request $request) 

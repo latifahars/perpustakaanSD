@@ -29,6 +29,7 @@
                 </div>
             </div>
             @include('partial.error')
+            @include('partial.alert')
             <div class="card mb-4">
                 <div class="card-header">
                     <i class="fas fa-table mr-1"></i>
@@ -53,20 +54,22 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach ($buku as $b)
                                 <tr>
-                                    <td>9-12-CKB-B</td>
-                                    <td>Budidaya Ikan Lele dengan Mudah dan Murah</td>
-                                    <td>Buku Paket</td>
-                                    <td>Cita Karya Bangsa</td>
-                                    <td>23</td>
-                                    <td>3</td>
-                                    <td>Dinas Pariwista Kota Yogyakarta</td>
+                                    <td>{{ $b-> kode }}</td>
+                                    <td>{{ $b-> judul }}</td>
+                                    <td>{{ $b-> kategori-> nama }}</td>
+                                    <td>{{ $b-> penerbit }}</td>
+                                    <td>{{ $b-> halaman }}</td>
+                                    <td>{{ $b-> eksemplar }}</td>
+                                    <td>{{ $b-> sumber }}</td>
                                     <td class="aksi-buku">
-                                        <a href="data_buku/detail_buku"><i class="fas fa-eye"></i></a>
-                                    	<a href="data_buku/edit_buku"><i class="fas fa-edit"></i></a>
-                                    	<a href=""><i class="fas fa-trash-alt"></i></a>
+                                        <a href="{{ url('data_buku/detail_buku/' . $b->id) }}"><i class="fas fa-eye"></i></a>
+                                    	<a href="{{ url('data_buku/edit_buku/' . $b->id) }}"><i class="fas fa-edit"></i></a>
+                                    	<a href="{{ url('data_buku/hapus_buku/' . $b->id) }}" data-toggle="tooltip" onclick="return konfirmasi()" id="pesan"><i class="fas fa-trash-alt"></i></a>
                                     </td>
                                 </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -74,5 +77,18 @@
             </div>
         </div>
     </main>
+    <script>
+      function konfirmasi(){
+         var tanya = confirm("Apakah Anda Yakin Akan Menghapus Data Buku ini?");
+ 
+         if(tanya === true) {
+            return true;
+         }else{
+            return false;
+         }
+ 
+         document.getElementById("pesan");
+      }
+    </script>
 
 @endsection

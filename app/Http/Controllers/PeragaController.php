@@ -40,8 +40,8 @@ class PeragaController extends Controller
         $peraga->sumber = $request->sumber;
         $peraga->tgl_diterima = $request->tgl_diterima;
         $peraga->jumlah = $request->jumlah;
-        $peraga->save();
 
+        $peraga->save();
         return redirect('/data_peraga')->with('sukses', 'Tambah Peraga Berhasil!');
     }
 
