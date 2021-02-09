@@ -18,15 +18,12 @@ class AnggotaController extends Controller
 
     public function cariAnggota(Request $request)
     {
-        // menangkap data pencarian
-        $cari = $request->cari;
+        $anggota = Anggota::where('nama', 'like', '%' . $request->cari . '%')
+                            ->orWhere('kelas', 'like', '%' . $request->cari . '%')
+                            ->orWhere('nis', 'like', '%' . $request->cari . '%')
+                            ->get();
  
-        $anggota = DB::table('anggota')
-        ->where('nama','like',"%".$cari."%")
-        ->paginate();
- 
-            // mengirim data
-        return view('anggota.tambah_anggota',['anggota' => $anggota]);
+        return view('anggota.cari_anggota', compact('anggota'));
     }
 
     public function tampilTambahAnggota() 

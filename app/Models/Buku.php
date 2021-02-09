@@ -21,7 +21,7 @@ class Buku extends Model
 	}
 	public function sumber()
     {
-    	return $this->belongsTo(SumberBuku::class);
+    	return $this->belongsTo(SumberBuku::class, 'sumber_buku_id');
 	}
 	public function peminjaman()
     {

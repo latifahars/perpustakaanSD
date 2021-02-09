@@ -11,14 +11,26 @@
             </ol>
             <div class="card mb-4 p-2">
             	<div class="row row-peminjaman">
-            		<div class="col-sm-9" style="padding-left: 0;margin-bottom: 10px">
+            		<div class="col-sm-8" style="padding-left: 0">
                         <a href="data_buku/import_buku" class="btn btn-import pb-1 pt-1">
                             IMPORT BUKU <i class="fas fa-file-upload"></i>
                         </a>
 					</div>
-					<div class="form-group form-cari">
-		                <input class="form-control" id="username" type="text" placeholder="Cari"/>
-		            </div>
+					<table style="margin-right: 0" class="col-sm-4 mr-0">
+                        <form action="data_buku/cari" method="get" >
+                        @csrf
+                            <tr>
+                                <td width="40%">
+                                    <div class="form-group form-cari pr-0 mr-0">
+                                        <input class="form-control" id="username" type="text" name="cari" placeholder="Cari"/>
+                                    </div> 
+                                </td>
+                                <td width="10%">
+                                     <button class="btn-search" type="submit"><i class="fas fa-search"></i></button>
+                                </td>
+                            </tr>
+                        </form>
+                    </table>   
 	            </div>
                 <div class="row row-peminjaman">
                     <div class="form-group mb-0">
@@ -46,10 +58,10 @@
                                 	<th width="10%">Kode Buku</th>
                                     <th width="25%">Judul Buku</th>
                                     <th>Kategori</th>
-                                    <th width="10%">Penerbit</th>
+                                    <th width="13%">Penerbit</th>
                                     <th width="8%">Halaman</th>
                                     <th width="9%">Eksemplar</th>
-                                    <th width="15%">Asal Perolehan</th>
+                                    <th width="12%">Asal Perolehan</th>
                                     <th width="11%">Aksi</th>
                                 </tr>
                             </thead>
@@ -59,10 +71,10 @@
                                     <td>{{ $b-> kode }}</td>
                                     <td>{{ $b-> judul }}</td>
                                     <td>{{ $b-> kategori-> nama }}</td>
-                                    <td>{{ $b-> penerbit }}</td>
+                                    <td>{{ $b-> penerbit-> nama }}</td>
                                     <td>{{ $b-> halaman }}</td>
                                     <td>{{ $b-> eksemplar }}</td>
-                                    <td>{{ $b-> sumber }}</td>
+                                    <td>{{ $b-> sumber-> nama }}</td>
                                     <td class="aksi-buku">
                                         <a href="{{ url('data_buku/detail_buku/' . $b->id) }}"><i class="fas fa-eye"></i></a>
                                     	<a href="{{ url('data_buku/edit_buku/' . $b->id) }}"><i class="fas fa-edit"></i></a>

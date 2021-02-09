@@ -264,13 +264,16 @@ header{
 	margin-left: 5px;
 }
 .form-cari{
-	float: right;
 	margin-bottom: 0px;
-	width: 250px;
+	width:100%;
 }
 .form-cari .form-control{
 	border-color: #78909C;
 	border-width: 1px;
+}
+.btn-search{
+	width: 50px;
+	height: 35px;
 }
 .btn-kategori{
 	background-color: #B0BEC5;

@@ -11,18 +11,28 @@
             </ol>
             <div class="card mb-4 p-2">
             	<div class="row row-peminjaman">
-            		<div class="col-sm-9" style="padding-left: 0">
-	                <div class="row row-peminjaman">
-                    <div class="form-group mb-0">
-                        <a href="data_peraga/kategori" class="btn btn-tambahbuku" type="submit">
-                            KATEGORI PERAGA
-                        </a>
-                    </div>
-                </div>
+            		<div class="col-sm-8" style="padding-left: 0">
+                        <div class="form-group mb-0">
+                            <a href="data_peraga/kategori" class="btn btn-tambahbuku" type="submit">
+                                KATEGORI PERAGA
+                            </a>
+                        </div>
 					</div>
-					<div class="form-group form-cari">
-		                <input class="form-control" id="username" type="text" placeholder="Cari"/>
-		            </div>
+					<table style="margin-right: 0" class="col-sm-4 mr-0">
+                        <form action="data_peraga/cari" method="get" >
+                        @csrf
+                            <tr>
+                                <td width="40%">
+                                    <div class="form-group form-cari pr-0 mr-0">
+                                        <input class="form-control" id="username" type="text" name="cari" placeholder="Cari"/>
+                                    </div> 
+                                </td>
+                                <td width="10%">
+                                     <button class="btn-search" type="submit"><i class="fas fa-search"></i></button>
+                                </td>
+                            </tr>
+                        </form>
+                    </table> 
 	            </div>
             </div>
             @include('partial.error')

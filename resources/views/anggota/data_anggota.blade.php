@@ -12,18 +12,26 @@
             @include('partial.error')
              <div class="card mb-4 p-2">
                 <div class="row row-peminjaman">
-                    <div class="col-sm-9" style="padding-left: 0">
+                    <div class="col-sm-8" style="padding-left: 0">
                         <a href="data_anggota/import_anggota" class="btn btn-import pb-1 pt-1">
                             IMPORT ANGGOTA <i class="fas fa-file-upload"></i>
                         </a>
                     </div>
-                    <form action="data_anggota/cari" method="get">
+                    <table style="margin-right: 0" class="col-sm-4 mr-0">
+                        <form action="data_anggota/cari" method="get" >
                         @csrf
-                        <div class="form-group form-cari">
-                            <input class="form-control" name="cari" type="text" placeholder="Cari" value="{{ old('cari') }}" />
-                            <button type="submit">Cari</button>
-                        </div>
-                    </form>
+                            <tr>
+                                <td width="40%">
+                                    <div class="form-group form-cari pr-0 mr-0">
+                                        <input class="form-control" id="username" type="text" name="cari" placeholder="Cari"/>
+                                    </div> 
+                                </td>
+                                <td width="10%">
+                                     <button class="btn-search" type="submit"><i class="fas fa-search"></i></button>
+                                </td>
+                            </tr>
+                        </form>
+                    </table>   
                 </div>
                 <div class="row row-peminjaman">
                     <a href="" class="btn btn-success pb-1 pt-1">CETAK KARTU <i class="fas fa-print"></i></a>

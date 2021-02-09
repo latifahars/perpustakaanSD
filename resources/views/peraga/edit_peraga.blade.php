@@ -19,7 +19,7 @@
                                 <td><label for="kode">Kode</label></td>
                                 <td width="100%">
                                     <div class="form-group">
-                                        <input class="form-control py-3" id="kode" name="kode" type="text" value="{{ $peraga->kode }}" autofocus />
+                                        <input class="form-control py-3" id="kode" name="kode" type="text" value="{{ $peraga->kode }}" />
                                     </div>
                                 </td>
                             </tr>
@@ -36,9 +36,12 @@
                                 <td>
                                     <div class="form-group">
                                         <select name="kategori" style="width: 100%;height: 40px;">
-                                                <option value="{{ $peraga-> kategori-> id }}">{{ $peraga-> kategori-> nama }}</option>
                                             @foreach ($kategori as $k)
-                                                <option value="{{ $k->id }}">{{ $k->nama }}</option>
+                                                @if ($k->idkategori == $peraga->idkategori)
+                                                    <option value="{{ $k->id }}" selected>{{ $k->nama }}</option>
+                                                @else
+                                                    <option value="{{ $k->id }}">{{ $k->nama }}</option>
+                                                @endif
                                             @endforeach
                                         </select>
                                     </div> 

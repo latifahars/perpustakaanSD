@@ -12,9 +12,26 @@ class BukuController extends Controller
 {
     public function tampilBuku() {
 
-        $buku = Buku::with('kategori')->get();
+        $buku = Buku::with('kategori','sumber')->get();
 
         return view('buku.data_buku', compact('buku'));
+    }
+
+    public function cariBuku(Request $request)
+    {
+        $buku = Buku::whereHas('kategori', function($query) use ($request){
+            return $query->where('nama','like', '%' . $request->cari . '%')
+            ->orWhere('judul', 'like', '%' . $request->cari . '%')
+            ->orWhere('tgl_diterima', 'like', '%' . $request->cari . '%')
+            ->orWhere('kode', 'like', '%' . $request->cari . '%');
+        })->orWhereHas('penerbit', function($query) use ($request){
+            return $query->where('nama','like', '%' . $request->cari . '%')
+            ->orWhere('kota','like', '%' . $request->cari . '%');
+        })->orWhereHas('sumber', function($query) use ($request){
+            return $query->where('nama','like', '%' . $request->cari . '%');
+        })->get();
+ 
+        return view('buku.cari_buku', compact('buku'));
     }
 
     public function tampilTambahBuku() {
@@ -46,21 +63,21 @@ class BukuController extends Controller
             $penerbit->save();
         }
         if ($sumber = SumberBuku::where('nama', $request->sumber)->first()){
+            
+        } else{
             $sumber = new SumberBuku();
             $sumber->nama = $request->sumber;
             $sumber->save();
-        } else{
-            $sumber = SumberBuku::where('nama', $request->sumber)->first();
         }
 
         $buku = new Buku();
         $buku->kode = $request->kode;
         $buku->judul = $request->judul;
         $buku->kategori_buku_id = $request->kategori;
-        $penerbit->id;
+        $buku->penerbit_id = $penerbit->id;
         $buku->eksemplar = $request->eksemplar;
         $buku->halaman = $request->halaman;
-        $sumber->id;
+        $buku->sumber_buku_id = $sumber->id;
         $buku->tgl_diterima = $request->tgl_diterima;
         
         $buku->save();
@@ -70,20 +87,38 @@ class BukuController extends Controller
     public function tampilEditBuku($idbuku) 
     {
         $buku = Buku::find($idbuku);
+        $kategori= KategoriBuku::all();
 
-        return view('buku.edit_buku', compact('buku'));
+        return view('buku.edit_buku', compact('buku','kategori'));
     }
 
     public function editBuku(Request $request, $idbuku)
     {
         $buku = Buku::find($idbuku);
+
+        if ($penerbit = Penerbit::where('nama', $request->penerbit)->first()){
+            
+        } else{
+            $penerbit = new Penerbit();
+            $penerbit->nama = $request->penerbit;
+            $penerbit->kota = $request->kota;
+            $penerbit->save();
+        }
+        if ($sumber = SumberBuku::where('nama', $request->sumber)->first()){
+            
+        } else{
+            $sumber = new SumberBuku();
+            $sumber->nama = $request->sumber;
+            $sumber->save();
+        }
+
         $buku->kode = $request->kode;
         $buku->judul = $request->judul;
-        $buku->kategori = $request->kategori;
-        $buku->penerbit = $request->penerbit;
+        $buku->kategori_buku_id = $request->kategori;
+        $buku->penerbit_id = $penerbit->id;
         $buku->eksemplar = $request->eksemplar;
         $buku->halaman = $request->halaman;
-        $buku->sumber = $request->sumber;
+        $buku->sumber_buku_id = $sumber->id;
         $buku->tgl_diterima = $request->tgl_diterima;
 
         $buku->save();
@@ -97,7 +132,7 @@ class BukuController extends Controller
             $buku->delete();
         }
 
-        return redirect('data_anggota')->with('hapus', 'Hapus Anggota Berhasil!');
+        return redirect('data_buku')->with('hapus', 'Hapus Buku Berhasil!');
     }
 
     public function tampilDetailBuku($idbuku) 
