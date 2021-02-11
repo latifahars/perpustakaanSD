@@ -28,6 +28,8 @@
 		            </div>
 	            </div>
             </div>
+            @include('partial.error')
+            @include('partial.alert')
             <div class="card mb-4">
                 <div class="card-header">
                     <i class="fas fa-table mr-1"></i>
@@ -41,7 +43,6 @@
                         <table class="table table-bordered table-anggota" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                	<th width="5%">No</th>
                                 	<th width="11%">Id Transaksi</th>
                                     <th width="8%">NIS</th>
                                     <th width="20%">Nama</th>
@@ -50,25 +51,16 @@
                                     <th width="8%">Kembali</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>12345</td>
-                                    <td>12345</td>
-                                    <td>Latifah Arum Sari123</td>
-                                    <td>Budidaya Ikan Lele dengan Mudah dan Murah</td>
-                                    <td>2021-01-04</td>
-                                    <td><a href="" ><i class="fa-2x fas fa-check-square"></i></a></td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>12345</td>
-                                    <td>12345</td>
-                                    <td>Latifah Arum S</td>
-                                    <td>Kancil dan Buaya</td>
-                                    <td>2021-01-04</td>
-                                    <td><a href="" ><i class="fa-2x fas fa-check-square"></i></a></td>
-                                </tr>
+                                @foreach($peminjaman as $p)
+                                    <tr>
+                                        <td>{{ $p-> id }}</td>
+                                        <td>{{ $p-> anggota-> nis }}</td>
+                                        <td>{{ $p-> anggota-> nama }}</td>
+                                        <td>{{ $p-> buku-> judul }}</td>
+                                        <td>{{ $p-> tgl_pinjam }}</td>
+                                        <td><a href="" ><i class="fa-2x fas fa-check-square"></i></a></td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

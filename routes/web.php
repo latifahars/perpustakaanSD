@@ -39,6 +39,7 @@ Route::get('dashboard', [DashboardController::class, 'tampilDashboard']);
 //transaksi
 Route::get('peminjaman', [TransaksiController::class, 'tampilPeminjaman']);
 Route::get('peminjaman/tambah_peminjaman', [TransaksiController::class, 'tampilTambahPeminjaman']);
+Route::post('peminjaman/tambah_peminjaman', [TransaksiController::class, 'tambahPeminjaman']);
 Route::get('pengembalian', [TransaksiController::class, 'tampilPengembalian']);
 
 //data

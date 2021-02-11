@@ -18,7 +18,7 @@ class BuatTabelPeminjaman extends Migration
             $table->unsignedBigInteger('buku_id');
             $table->unsignedBigInteger('anggota_id');
             $table->date('tgl_pinjam');
-            $table->datetime('tgl_kembali');
+            $table->datetime('tgl_kembali')->nullable();
             $table->date('deadline');
             $table->timestamps();
         });
