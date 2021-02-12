@@ -27,7 +27,7 @@ class KategoriBukuController extends Controller
 		$kategori->deadline =$request->deadline;
 		$kategori->save();
 
-		return redirect('data_buku/kategori');
+		return back()->with('sukses', 'Tambah Kategori Berhasil!');
 	}
 
 	public function tampilEditKategori($idkategori)

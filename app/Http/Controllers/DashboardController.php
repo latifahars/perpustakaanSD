@@ -16,7 +16,9 @@ class DashboardController extends Controller
 
     	$peraga = DB::table('peraga')->sum('jumlah');
     	$anggota = DB::table('anggota')->count();
+    	$buku = DB::table('buku')->sum('eksemplar');
+    	$peminjaman = DB::table('peminjaman')->where('tgl_kembali', null)->count();
 
-    	return view('dashboard', compact('peraga','anggota'));
+    	return view('dashboard', compact('peraga','anggota', 'peminjaman', 'buku'));
     }
 }

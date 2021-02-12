@@ -11,21 +11,26 @@
             </ol>
             <div class="card mb-4 p-2">
             	<div class="row row-peminjaman">
-            		<div class="col-sm-9" style="padding-left: 0">
-	                <div class="dropdown">
-						  <button class="btn btn-kategori dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						    Berdasarkan Kategori
-						  </button>
-						  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-						    <a class="dropdown-item" href="#">Buku Pelajaran</a>
-						    <a class="dropdown-item" href="#">Buku Cerita</a>
-						    <a class="dropdown-item" href="#">Kamus</a>
-						  </div>
-					</div>
-					</div>
-					<div class="form-group form-cari">
-		                <input class="form-control" id="username" type="text" placeholder="Cari"/>
-		            </div>
+            		<div class="col-sm-8" style="padding-left: 0;margin-bottom: 0">
+                        <a href="peminjaman/buku_pelajaran" class="btn btn-tambahbuku pb-2 pt-2">
+                            Data Peminjaman Buku Pelajaran
+                        </a>
+                    </div>
+					<table style="margin-right: 0" class="col-sm-4 mr-0">
+                        <form action="peminjaman/cari_peminjaman" method="get" >
+                        @csrf
+                            <tr>
+                                <td width="40%">
+                                    <div class="form-group form-cari pr-0 mr-0">
+                                        <input class="form-control" id="username" type="text" name="cari" placeholder="Cari"/>
+                                    </div> 
+                                </td>
+                                <td width="10%">
+                                     <button class="btn-search" type="submit"><i class="fas fa-search"></i></button>
+                                </td>
+                            </tr>
+                        </form>
+                    </table>  
 	            </div>
             </div>
             @include('partial.error')
@@ -43,22 +48,25 @@
                         <table class="table table-bordered table-anggota" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                	<th width="11%">Id Transaksi</th>
-                                    <th width="8%">NIS</th>
-                                    <th width="20%">Nama</th>
-                                    <th width="33%">Judul Buku</th>
+                                	<th width="9%">Id Transaksi</th>
+                                    <th width="6%">NIS</th>
+                                    <th width="15%">Nama</th>
+                                    <th width="20%">Judul Buku</th>
+                                    <th width="13%">Kategori</th>
                                     <th width="10%">Tgl Pinjam</th>
                                     <th width="8%">Kembali</th>
                                 </tr>
                             </thead>
+                            <tbody>
                                 @foreach($peminjaman as $p)
                                     <tr>
-                                        <td>{{ $p-> id }}</td>
+                                        <td>{{ $p->id }}</td>
                                         <td>{{ $p-> anggota-> nis }}</td>
                                         <td>{{ $p-> anggota-> nama }}</td>
                                         <td>{{ $p-> buku-> judul }}</td>
+                                        <td>{{ $p-> buku-> kategori-> nama }}</td>
                                         <td>{{ $p-> tgl_pinjam }}</td>
-                                        <td><a href="" ><i class="fa-2x fas fa-check-square"></i></a></td>
+                                        <td><a href="{{ url('peminjaman/kembali' . $p->id) }}" data-toggle="tooltip" onclick="return konfirmasi()" id="pesan"><i class="fa-2x fas fa-check-square"></i></a></td>
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -68,4 +76,17 @@
             </div>
         </div>
     </main>
+    <script>
+      function konfirmasi(){
+         var tanya = confirm("Apakah Anda Yakin ingin Melakukan Pengembalian?");
+ 
+         if(tanya === true) {
+            return true;
+         }else{
+            return false;
+         }
+ 
+         document.getElementById("pesan");
+      }
+    </script>
 @endsection

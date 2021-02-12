@@ -5,6 +5,7 @@
 @section('content')
 	<main>
         <div class="container-fluid">
+            @include('partial.alert')
             <div class="card mb-4">
                 <div class="card-header">
                     <form method="post" action="">

@@ -56,7 +56,7 @@
     </main>
     <script>
       function konfirmasi(){
-         var tanya = confirm("Apakah Anda Yakin Akan Menghapus Data Anggota ini?");
+         var tanya = confirm("Apakah Anda Yakin Akan Menghapus Data Peraga ini?");
  
          if(tanya === true) {
             return true;

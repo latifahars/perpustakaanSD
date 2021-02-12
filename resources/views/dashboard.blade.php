@@ -8,7 +8,7 @@
 		<div class="card card_jumlah card_1">
 		  <div class="card-body" style="padding-bottom: 0">
 		  	<i class="fa-5x fas fa-file-signature"></i>
-		  	<h3></h3>
+		  	<h3>{{ $peminjaman }}</h3>
 		  	<p>Peminjaman Buku</p>
 		  </div>
 		  <a href="{{ url('peminjaman')}}">
@@ -36,7 +36,7 @@
 		<div class="card card_jumlah card_3">
 		  <div class="card-body">
 		  	<i class="fa-5x fas fa-book"></i>
-		  	<h3></h3>
+		  	<h3>{{ $buku }}</h3>
 		  	<p>Data Buku</p>
 		  </div>
 		  <a href="{{ url('data_buku')}}">

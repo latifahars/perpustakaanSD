@@ -35,8 +35,8 @@
                 <span><i class="fas fa-file-signature"></i>Peminjaman Buku</span></a>
         </li>
         <li>
-            <a href="/pengembalian" class="{{ Request::is('pengembalian*') ? 'active' : '' }}">
-                <span><i class="fas fa-history"></i>Pengembalian Buku</span></a>
+            <a href="/riwayat" class="{{ Request::is('riwayat*') ? 'active' : '' }}">
+                <span><i class="fas fa-history"></i>Riwayat Peminjaman</span></a>
             <div class="keterangan">Data</div>
         </li> 
         <li>

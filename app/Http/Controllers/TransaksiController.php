@@ -7,6 +7,7 @@ use App\Models\Peminjaman;
 use App\Models\Anggota;
 use App\Models\Buku;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 
@@ -14,7 +15,7 @@ class TransaksiController extends Controller
 {
     public function tampilPeminjaman() 
     {
-    	$peminjaman = Peminjaman::all();
+    	$peminjaman = Peminjaman::where('tgl_kembali', null)->get();
 
         return view('transaksi.peminjaman', compact('peminjaman'));
     }
@@ -43,11 +44,56 @@ class TransaksiController extends Controller
         $peminjaman->tgl_pinjam = Carbon::today();
         $peminjaman->deadline = $date->addWeeks($buku->kategori->deadline); 
         $peminjaman->save();
-        return view('transaksi.peminjaman', compact('peminjaman'));
+
+        return redirect('/peminjaman')->with('sukses', 'Tambah Peminjaman Berhasil!');
     }
 
-    public function tampilPengembalian() 
+    public function cariPeminjaman(Request $request)
     {
-        return view('transaksi.pengembalian');
+        $peminjaman = Peminjaman::where('tgl_kembali', null)
+            ->whereHas('buku', function($query) use ($request){
+            return $query->where('judul','like', '%' . $request->cari . '%');
+        })->orWhereHas('anggota', function($query) use ($request){
+            return $query->where('nama','like', '%' . $request->cari . '%')
+            ->orWhere('nis','like', '%' . $request->cari . '%')
+            ->orWhere('kelas','like', '%' . $request->cari . '%');
+        })
+            ->orWhere('id', 'like', '%' . $request->cari . '%')
+            ->orWhere('tgl_pinjam', 'like', '%' . $request->cari . '%')
+            ->get();
+ 
+        return view('transaksi.cari_peminjaman', compact('peminjaman'));
+    }
+
+    public function pengembalian($idtransaksi) 
+    {
+        $peminjaman = Peminjaman::find($idtransaksi);
+        $peminjaman->tgl_kembali = new \DateTime();
+        $peminjaman->save();
+        return redirect('peminjaman')->with('sukses', 'Pengembalian Buku Berhasil!');
+    }
+
+    public function tampilRiwayat() 
+    {
+        $riwayat = Peminjaman::whereNotNull('tgl_kembali')->get();
+
+        return view('transaksi.riwayat', compact('riwayat'));
+    }
+
+    public function cariRiwayat(Request $request)
+    {
+        $riwayat = Peminjaman::whereNotNull('tgl_kembali')
+            ->whereHas('buku', function($query) use ($request){
+            return $query->where('judul','like', '%' . $request->cari . '%');
+        })->orWhereHas('anggota', function($query) use ($request){
+            return $query->where('nama','like', '%' . $request->cari . '%')
+            ->orWhere('nis','like', '%' . $request->cari . '%')
+            ->orWhere('kelas','like', '%' . $request->cari . '%');
+        })
+            ->orWhere('id', 'like', '%' . $request->cari . '%')
+            ->orWhere('tgl_pinjam', 'like', '%' . $request->cari . '%')
+            ->get();
+ 
+        return view('transaksi.cari_riwayat', compact('riwayat'));
     }
 }

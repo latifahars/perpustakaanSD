@@ -55,10 +55,10 @@
                         <table class="table table-bordered table-buku" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                	<th width="10%">Kode Buku</th>
-                                    <th width="25%">Judul Buku</th>
+                                	<th width="9%">Kode Buku</th>
+                                    <th width="24%">Judul Buku</th>
                                     <th>Kategori</th>
-                                    <th width="13%">Penerbit</th>
+                                    <th width="14%">Penerbit</th>
                                     <th width="8%">Halaman</th>
                                     <th width="9%">Eksemplar</th>
                                     <th width="12%">Asal Perolehan</th>
