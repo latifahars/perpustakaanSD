@@ -1,56 +1,29 @@
 @extends('partial.auth')
 
-@section('title','Peminjaman')
+@section('title','Peminjaman Buku')
 
 @section('content')
     <main>
         <div class="container-fluid">
-            <ol class="breadcrumb mb-4">
+            <ol class="breadcrumb mb-3">
                 <li class="breadcrumb-item"><a href="">Transaksi</a></li>
                 <li class="breadcrumb-item">Peminjaman Buku</li>
             </ol>
-            <div class="card mb-4 p-2">
-            	<div class="row row-peminjaman">
-            		<div class="col-sm-8" style="padding-left: 0;margin-bottom: 0">
-                        <a href="peminjaman/buku_pelajaran" class="btn btn-tambahbuku pb-2 pt-2">
-                            Data Peminjaman Buku Pelajaran
-                        </a>
-                    </div>
-					<table style="margin-right: 0" class="col-sm-4 mr-0">
-                        <form action="peminjaman/cari_peminjaman" method="get" >
-                        @csrf
-                            <tr>
-                                <td width="40%">
-                                    <div class="form-group form-cari pr-0 mr-0">
-                                        <input class="form-control" id="username" type="text" name="cari" placeholder="Cari"/>
-                                    </div> 
-                                </td>
-                                <td width="10%">
-                                     <button class="btn-search" type="submit"><i class="fas fa-search"></i></button>
-                                </td>
-                            </tr>
-                        </form>
-                    </table>  
-	            </div>
+            
+            <div class="form-group mb-2">
+                <a href="peminjaman/tambah_peminjaman" class="btn btn-primary pb-1 pt-1">TAMBAH PEMINJAMAN <i class="fas fa-plus-circle"></i></a>
             </div>
             @include('partial.error')
             @include('partial.alert')
             <div class="card mb-4">
-                <div class="card-header">
-                    <i class="fas fa-table mr-1"></i>
-                    Tabel Peminjaman Buku
-                    <div class="form-group" style="float: right;margin-bottom: 0;">
-		                <a href="peminjaman/tambah_peminjaman" class="btn btn-primary pb-1 pt-1">TAMBAH BARU <i class="fas fa-plus-circle"></i></a>
-		            </div>
-                </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-bordered table-anggota" id="dataTable" width="100%" cellspacing="0">
+                        <table class="table table-bordered table-buku" id="datatable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                	<th width="9%">Id Transaksi</th>
+                                	<th width="10%">Id Transaksi</th>
                                     <th width="6%">NIS</th>
-                                    <th width="15%">Nama</th>
+                                    <th width="13%">Nama</th>
                                     <th width="20%">Judul Buku</th>
                                     <th width="13%">Kategori</th>
                                     <th width="10%">Tgl Pinjam</th>

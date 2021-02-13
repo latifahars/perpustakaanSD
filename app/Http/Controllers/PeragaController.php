@@ -15,18 +15,6 @@ class PeragaController extends Controller
         return view('peraga.data_peraga', compact('peraga'));
     }
 
-    public function cariPeraga(Request $request)
-    {
-        $peraga = Peraga::whereHas('kategori', function($query) use ($request){
-            return $query->where('nama','like', '%' . $request->cari . '%');
-        })  ->orWhere('nama', 'like', '%' . $request->cari . '%')
-            ->orWhere('kode', 'like', '%' . $request->cari . '%')
-            ->orWhere('sumber', 'like', '%' . $request->cari . '%')
-            ->orWhere('tgl_diterima', 'like', '%' . $request->cari . '%')->get();
- 
-        return view('peraga.cari_peraga', compact('peraga'));
-    }
-
     public function tampilTambahPeraga() {
 
     	$kategori= KategoriPeraga::all();
@@ -67,7 +55,14 @@ class PeragaController extends Controller
 
     public function editPeraga(Request $request, $idperaga)
     {
-
+        $request->validate([
+        'nama' => 'required','max:30',
+        'kode' => 'required',
+        'kategori' => 'required',
+        'sumber' => 'required',
+        'tgl_diterima' => 'required|date',
+        'jumlah' => 'required|numeric',
+        ]);
        	$peraga = Peraga::find($idperaga);
 
         $peraga->nama = $request->nama;

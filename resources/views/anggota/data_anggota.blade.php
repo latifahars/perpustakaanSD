@@ -5,50 +5,29 @@
 @section('content')
 	<main>
         <div class="container-fluid">
-            <ol class="breadcrumb mb-4">
+            <ol class="breadcrumb mb-3">
                 <li class="breadcrumb-item"><a href="">Data</a></li>
                 <li class="breadcrumb-item">Data Anggota</li>
             </ol>
             @include('partial.error')
-             <div class="card mb-4 p-2">
+             <div class="card mb-2 p-2">
                 <div class="row row-peminjaman">
-                    <div class="col-sm-8" style="padding-left: 0">
+                    <div class="form-group mb-0 pl-1 col-sm-10">
+                        <a href="data_anggota/tambah_anggota" class="btn btn-primary pb-1 pt-1">TAMBAH ANGGOTA <i class="fas fa-plus-circle"></i></a>
                         <a href="data_anggota/import_anggota" class="btn btn-import pb-1 pt-1">
                             IMPORT ANGGOTA <i class="fas fa-file-upload"></i>
                         </a>
                     </div>
-                    <table style="margin-right: 0" class="col-sm-4 mr-0">
-                        <form action="data_anggota/cari" method="get" >
-                        @csrf
-                            <tr>
-                                <td width="40%">
-                                    <div class="form-group form-cari pr-0 mr-0">
-                                        <input class="form-control" id="username" type="text" name="cari" placeholder="Cari"/>
-                                    </div> 
-                                </td>
-                                <td width="10%">
-                                     <button class="btn-search" type="submit"><i class="fas fa-search"></i></button>
-                                </td>
-                            </tr>
-                        </form>
-                    </table>   
-                </div>
-                <div class="row row-peminjaman">
-                    <a href="" class="btn btn-success pb-1 pt-1">CETAK KARTU <i class="fas fa-print"></i></a>
+                    <div class="pl-0 mr-2">
+                        <a href="" class="btn btn-success pb-1 pt-1">CETAK KARTU <i class="fas fa-print"></i></a>
+                    </div>
                 </div>    
             </div>
             @include('partial.alert')
             <div class="card mb-4">
-                <div class="card-header">
-                    <i class="fas fa-table mr-1"></i>
-                    Tabel Data Anggota
-                    <div class="form-group" style="float: right;margin-bottom: 0;">
-		                <a href="data_anggota/tambah_anggota" class="btn btn-primary pb-1 pt-1">TAMBAH BARU <i class="fas fa-plus-circle"></i></a>
-		            </div>
-                </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <table class="table table-bordered" id="datatable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
                                     <th width="4%">No</th>

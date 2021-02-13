@@ -9,6 +9,7 @@
     <script src="bootstrap/js/bootstrap.min.js"></script>
 	<link href="{{ asset('fontawesome/css/all.min.css') }}" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="{{ asset('style.css') }}">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/dataTables.bootstrap4.min.css">
 	<title>@yield('title')</title>
 </head>
 <body>
@@ -72,15 +73,13 @@
 
         @yield('content')
 
-        <!-- <div id="layoutAuthentication_footer">
-        <footer class="py-3 bg-light mt-auto">
-                <div class="container-fluid">
-                    <div class="small">
-                        <div class="text-muted" style="text-align: center;">Copyright &copy; Perpustakaan SDN Tayuban 2021</div>
-                    </div>
-                </div>
-            </footer>
-        </div> -->
     </div>
+    <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.23/js/dataTables.bootstrap4.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var table = $('#datatable').DataTable();
+        })
+    </script>
 </body>
 </html>

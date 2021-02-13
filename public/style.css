@@ -255,7 +255,7 @@ header{
 }
 .fa-check-square{
 	color: green;
-	margin-left: 17px;
+	margin-left: 25px;
 }
 .fa-check-square:hover{
 	color: #64DD17;
@@ -285,6 +285,7 @@ header{
 .fa-chevron-circle-left{
 	font-size: 17px;
 }
+
 
 /*Data Anggota*/
 .table-anggota thead tr th{

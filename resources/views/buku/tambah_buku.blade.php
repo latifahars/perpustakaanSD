@@ -7,7 +7,7 @@
         <div class="container-fluid" style="padding-top: 0px">
             <div class="card mb-4" >
                 <div class="card-header">
-                    <a href="/data_buku"><i class="fas fa-chevron-circle-left"></i></a>
+                    <a href="/data_buku"><i class="fas fa-chevron-circle-left mr-2"></i></a>
                     Tambah Buku Perpustakaan
                 </div>
                 <div class="card-body pb-1 pt-1">

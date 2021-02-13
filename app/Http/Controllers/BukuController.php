@@ -17,23 +17,6 @@ class BukuController extends Controller
         return view('buku.data_buku', compact('buku'));
     }
 
-    public function cariBuku(Request $request)
-    {
-        $buku = Buku::whereHas('kategori', function($query) use ($request){
-            return $query->where('nama','like', '%' . $request->cari . '%')
-            ->orWhere('judul', 'like', '%' . $request->cari . '%')
-            ->orWhere('tgl_diterima', 'like', '%' . $request->cari . '%')
-            ->orWhere('kode', 'like', '%' . $request->cari . '%');
-        })->orWhereHas('penerbit', function($query) use ($request){
-            return $query->where('nama','like', '%' . $request->cari . '%')
-            ->orWhere('kota','like', '%' . $request->cari . '%');
-        })->orWhereHas('sumber', function($query) use ($request){
-            return $query->where('nama','like', '%' . $request->cari . '%');
-        })->get();
- 
-        return view('buku.cari_buku', compact('buku'));
-    }
-
     public function tampilTambahBuku() {
 
         $kategori = KategoriBuku::all();
@@ -93,7 +76,19 @@ class BukuController extends Controller
     }
 
     public function editBuku(Request $request, $idbuku)
-    {
+    {   
+        $request->validate([
+        'kode' => 'required',
+        'judul' => 'required',
+        'kategori' => 'required',
+        'penerbit' => 'required',
+        'kota' => 'required',
+        'eksemplar' => 'required|numeric',
+        'halaman' => 'required|numeric',
+        'sumber' => 'required',
+        'tgl_diterima' => 'required|date',
+        ]);
+        
         $buku = Buku::find($idbuku);
 
         if ($penerbit = Penerbit::where('nama', $request->penerbit)->first()){

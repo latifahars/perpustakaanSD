@@ -7,7 +7,7 @@
         <div class="container-fluid">
             <div class="card mb-4">
                 <div class="card-header">
-                    <a href="/data_anggota"><i class="fas fa-chevron-circle-left"></i></a>
+                    <a href="/data_anggota"><i class="fas fa-chevron-circle-left mr-2"></i></a>
                     Import Data Anggota
                 </div>
                 <div class="card-body">

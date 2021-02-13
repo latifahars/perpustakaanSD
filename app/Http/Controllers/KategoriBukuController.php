@@ -38,12 +38,17 @@ class KategoriBukuController extends Controller
 
 	public function editKategori(Request $request, $idkategori)
 	{
+		
+		$request->validate([
+	    'nama' => 'required',
+	    'deadline' => 'required'
+		]);
 		$kategori = KategoriBuku::find($idkategori);
 	    $kategori->nama =$request->nama;
 	    $kategori->deadline =$request->deadline;
 
 		$kategori->save();
-		return redirect('data_buku/kategori');
+		return redirect('data_buku/kategori')->with('sukses', 'Edit Kategori Berhasil!');
 	}
 
 	public function hapusKategori($idkategori) {
@@ -52,6 +57,6 @@ class KategoriBukuController extends Controller
     		$kategori->delete();
     	}
 
-    	return redirect('data_buku/kategori');
+    	return back()->with('hapus', 'Hapus Kategori Berhasil!');
     }
 }

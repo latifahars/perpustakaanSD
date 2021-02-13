@@ -7,10 +7,10 @@
         <div class="container-fluid" style="padding-top: 0px">
             <div class="card mb-4" >
                 <div class="card-header">
-                    <a href="/data_buku"><i class="fas fa-chevron-circle-left"></i></a>
+                    <a href="/data_buku"><i class="fas fa-chevron-circle-left mr-2"></i></a>
                     Edit Buku
                 </div>
-                <div class="card-body pb-1 pt-1">
+                <div class="card-body">
                     @include('partial.error')
                     <form method="post" action="">
                         @csrf
@@ -100,9 +100,9 @@
                                 </td>
                             </tr>
                         </table>
-                        <div class="form-group mt-3">
-                            <a class="btn btn-danger pb-1 pt-1" style="float: left;" href="">Batal</a>
-                            <button class="btn btn-success pb-1 pt-1" style="float: right;" href="" type="submit">Simpan</button>
+                        <div class="form-group mt-3 mb-2">
+                            <a class="btn btn-danger pb-1 pt-1" style="float: left;" href="{{url('data_buku')}}">Batal</a>
+                            <button class="btn btn-success pb-1 pt-1" style="float: right;" type="submit">Simpan</button>
                         </div>
                     </form>
                 </div> 

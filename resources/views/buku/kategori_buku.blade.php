@@ -29,13 +29,13 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-bordered table-buku" id="dataTable" width="100%" cellspacing="0">
+                        <table class="table table-bordered" id="datatable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                	<th width="5%">No</th>
+                                	<th width="7%">No</th>
                                     <th width="40%">Nama Kategori</th>
-                                    <th width="30%">Batas Peminjaman (minggu)</th>
-                                    <th width="10%">Aksi</th>
+                                    <th width="28%">Batas Peminjaman (minggu)</th>
+                                    <th width="12%">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -46,7 +46,7 @@
                                     <td>{{ $k->deadline }}</td>
                                     <td>
                                         <a href="{{ url('data_buku/edit_kategori/' . $k->id) }}"><i class="fas fa-edit" style="margin-right: 20px;margin-left: 15px"></i></a>
-                                        <a href="{{ url('data_buku/hapus_kategori/' . $k->id) }}"><i class="fas fa-trash-alt"></i></a>
+                                        <a href="{{ url('data_buku/hapus_kategori/' . $k->id) }}"><i class="fas fa-trash-alt" data-toggle="tooltip" onclick="return konfirmasi()" id="pesan"></i></a>
                                     </td>
                                 </tr>
                                 @endforeach
@@ -57,5 +57,18 @@
             </div>
         </div>
     </main>
+    <script>
+      function konfirmasi(){
+         var tanya = confirm("Apakah Anda Yakin Akan Menghapus Kategori ini?");
+ 
+         if(tanya === true) {
+            return true;
+         }else{
+            return false;
+         }
+ 
+         document.getElementById("pesan");
+      }
+    </script>
 
 @endsection

@@ -16,16 +16,6 @@ class AnggotaController extends Controller
         return view('anggota.data_anggota', compact('anggota'));
     }
 
-    public function cariAnggota(Request $request)
-    {
-        $anggota = Anggota::where('nama', 'like', '%' . $request->cari . '%')
-                            ->orWhere('kelas', 'like', '%' . $request->cari . '%')
-                            ->orWhere('nis', 'like', '%' . $request->cari . '%')
-                            ->get();
- 
-        return view('anggota.cari_anggota', compact('anggota'));
-    }
-
     public function tampilTambahAnggota() 
     {
         return view('anggota.tambah_anggota');

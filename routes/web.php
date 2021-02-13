@@ -41,13 +41,10 @@ Route::get('peminjaman', [TransaksiController::class, 'tampilPeminjaman']);
 Route::get('peminjaman/kembali{idtransaksi}', [TransaksiController::class, 'pengembalian']);
 Route::get('peminjaman/tambah_peminjaman', [TransaksiController::class, 'tampilTambahPeminjaman']);
 Route::post('peminjaman/tambah_peminjaman', [TransaksiController::class, 'tambahPeminjaman']);
-Route::get('peminjaman/cari_peminjaman', [TransaksiController::class, 'cariPeminjaman']);
 Route::get('riwayat', [TransaksiController::class, 'tampilRiwayat']);
-Route::get('riwayat/cari_riwayat', [TransaksiController::class, 'cariRiwayat']);
 
 //data
 Route::get('data_buku', [BukuController::class, 'tampilBuku']);
-Route::get('data_buku/cari', [BukuController::class, 'cariBuku']);
 Route::get('data_buku/tambah_buku', [BukuController::class, 'tampilTambahBuku']);
 Route::post('data_buku/tambah_buku', [BukuController::class, 'tambahBuku']);
 Route::get('data_buku/edit_buku/{idbuku}', [BukuController::class, 'tampilEditBuku']);
@@ -63,7 +60,6 @@ Route::post('data_buku/edit_kategori/{idkategori}', [KategoriBukuController::cla
 Route::get('data_buku/hapus_kategori/{idkategori}', [KategoriBukuController::class, 'hapusKategori']);
 
 Route::get('data_anggota', [AnggotaController::class, 'tampilAnggota']);
-Route::get('data_anggota/cari', [AnggotaController::class, 'cariAnggota']);
 Route::get('data_anggota/tambah_anggota', [AnggotaController::class, 'tampilTambahAnggota']);
 Route::post('data_anggota/tambah_anggota', [AnggotaController::class, 'tambahAnggota']);
 Route::get('data_anggota/edit_anggota/{idanggota}', [AnggotaController::class, 'tampilEditAnggota']);
@@ -72,7 +68,6 @@ Route::get('data_anggota/hapus_anggota/{idanggota}', [AnggotaController::class, 
 Route::get('data_anggota/import_anggota', [AnggotaController::class, 'tampilImportAnggota']);
 
 Route::get('data_peraga', [PeragaController::class, 'tampilPeraga']);
-Route::get('data_peraga/cari', [PeragaController::class, 'cariPeraga']);
 Route::get('data_peraga/tambah_peraga', [PeragaController::class, 'tampilTambahPeraga']);
 Route::post('data_peraga/tambah_peraga', [PeragaController::class, 'tambahPeraga']);
 Route::get('data_peraga/edit_peraga/{idperaga}', [PeragaController::class, 'tampilEditPeraga']);

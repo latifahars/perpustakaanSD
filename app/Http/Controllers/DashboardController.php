@@ -13,7 +13,6 @@ use App\Models\Peminjaman;
 class DashboardController extends Controller
 {
     public function tampilDashboard() {
-
     	$peraga = DB::table('peraga')->sum('jumlah');
     	$anggota = DB::table('anggota')->count();
     	$buku = DB::table('buku')->sum('eksemplar');

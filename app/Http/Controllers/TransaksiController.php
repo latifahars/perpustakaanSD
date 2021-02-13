@@ -48,23 +48,6 @@ class TransaksiController extends Controller
         return redirect('/peminjaman')->with('sukses', 'Tambah Peminjaman Berhasil!');
     }
 
-    public function cariPeminjaman(Request $request)
-    {
-        $peminjaman = Peminjaman::where('tgl_kembali', null)
-            ->whereHas('buku', function($query) use ($request){
-            return $query->where('judul','like', '%' . $request->cari . '%');
-        })->orWhereHas('anggota', function($query) use ($request){
-            return $query->where('nama','like', '%' . $request->cari . '%')
-            ->orWhere('nis','like', '%' . $request->cari . '%')
-            ->orWhere('kelas','like', '%' . $request->cari . '%');
-        })
-            ->orWhere('id', 'like', '%' . $request->cari . '%')
-            ->orWhere('tgl_pinjam', 'like', '%' . $request->cari . '%')
-            ->get();
- 
-        return view('transaksi.cari_peminjaman', compact('peminjaman'));
-    }
-
     public function pengembalian($idtransaksi) 
     {
         $peminjaman = Peminjaman::find($idtransaksi);
@@ -78,22 +61,5 @@ class TransaksiController extends Controller
         $riwayat = Peminjaman::whereNotNull('tgl_kembali')->get();
 
         return view('transaksi.riwayat', compact('riwayat'));
-    }
-
-    public function cariRiwayat(Request $request)
-    {
-        $riwayat = Peminjaman::whereNotNull('tgl_kembali')
-            ->whereHas('buku', function($query) use ($request){
-            return $query->where('judul','like', '%' . $request->cari . '%');
-        })->orWhereHas('anggota', function($query) use ($request){
-            return $query->where('nama','like', '%' . $request->cari . '%')
-            ->orWhere('nis','like', '%' . $request->cari . '%')
-            ->orWhere('kelas','like', '%' . $request->cari . '%');
-        })
-            ->orWhere('id', 'like', '%' . $request->cari . '%')
-            ->orWhere('tgl_pinjam', 'like', '%' . $request->cari . '%')
-            ->get();
- 
-        return view('transaksi.cari_riwayat', compact('riwayat'));
     }
 }

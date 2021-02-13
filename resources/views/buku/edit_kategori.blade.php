@@ -7,7 +7,7 @@
         <div class="container-fluid">
             <div class="card mb-4">
                 <div class="card-header">
-                     <a href="/data_buku/kategori"><i class="fas fa-chevron-circle-left"></i></a>Edit Kategori {{ $kategori->nama }}
+                     <a href="/data_buku/kategori"><i class="fas fa-chevron-circle-left mr-2"></i></a>Edit Kategori {{ $kategori->nama }}
                 </div>
                 <div class="card-body">
                     @include('partial.error')

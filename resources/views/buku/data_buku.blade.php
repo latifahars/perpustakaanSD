@@ -5,63 +5,40 @@
 @section('content')
 	<main>
         <div class="container-fluid">
-            <ol class="breadcrumb mb-4">
+            <ol class="breadcrumb mb-3">
                 <li class="breadcrumb-item"><a href="">Data</a></li>
                 <li class="breadcrumb-item">Data Buku</li>
             </ol>
-            <div class="card mb-4 p-2">
-            	<div class="row row-peminjaman">
-            		<div class="col-sm-8" style="padding-left: 0">
+            <div class="card mb-2 p-2">
+            	<div class="row row-peminjaman pr-2">
+                    <div class="form-group col-sm-9 mb-0 pl-1 pr-0">
+                        <a href="data_buku/tambah_buku" class="btn btn-primary pb-1 pt-1">TAMBAH BUKU <i class="fas fa-plus-circle"></i></a>
                         <a href="data_buku/import_buku" class="btn btn-import pb-1 pt-1">
                             IMPORT BUKU <i class="fas fa-file-upload"></i>
                         </a>
-					</div>
-					<table style="margin-right: 0" class="col-sm-4 mr-0">
-                        <form action="data_buku/cari" method="get" >
-                        @csrf
-                            <tr>
-                                <td width="40%">
-                                    <div class="form-group form-cari pr-0 mr-0">
-                                        <input class="form-control" id="username" type="text" name="cari" placeholder="Cari"/>
-                                    </div> 
-                                </td>
-                                <td width="10%">
-                                     <button class="btn-search" type="submit"><i class="fas fa-search"></i></button>
-                                </td>
-                            </tr>
-                        </form>
-                    </table>   
-	            </div>
-                <div class="row row-peminjaman">
-                    <div class="form-group mb-0">
-                        <a href="data_buku/kategori" class="btn btn-tambahbuku pb-1 pt-1" type="submit">
-                            KATEGORI BUKU
-                        </a>
                     </div>
-                </div>
+            		<div class="pl-0 col-sm-3">
+                        <a href="data_buku/kategori" class="btn btn-tambahbuku pb-1 pt-1" type="submit" style="float: right;">
+                            KATEGORI BUKU <i class="fas fa-layer-group"></i>
+                        </a>
+					</div>
+	            </div>
             </div>
             @include('partial.error')
             @include('partial.alert')
             <div class="card mb-4">
-                <div class="card-header">
-                    <i class="fas fa-table mr-1"></i>
-                    Tabel Data Buku
-                    <div class="form-group" style="float: right;margin-bottom: 0;">
-		                <a href="data_buku/tambah_buku" class="btn btn-primary pb-1 pt-1">TAMBAH BARU <i class="fas fa-plus-circle"></i></a>
-		            </div>
-                </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-bordered table-buku" id="dataTable" width="100%" cellspacing="0">
+                        <table class="table table-bordered table-buku" id="datatable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                	<th width="9%">Kode Buku</th>
-                                    <th width="24%">Judul Buku</th>
+                                	<th width="9%">Kode</th>
+                                    <th width="23%">Judul Buku</th>
                                     <th>Kategori</th>
                                     <th width="14%">Penerbit</th>
-                                    <th width="8%">Halaman</th>
-                                    <th width="9%">Eksemplar</th>
-                                    <th width="12%">Asal Perolehan</th>
+                                    <th width="8%">Page</th>
+                                    <th width="10%">Jumlah</th>
+                                    <th width="12%">Asal</th>
                                     <th width="11%">Aksi</th>
                                 </tr>
                             </thead>
