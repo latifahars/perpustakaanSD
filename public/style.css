@@ -150,6 +150,8 @@ header{
 }
 .sidebar a:hover{
 	background: #546E7A;
+	color: white;
+	text-decoration: none;
 }
 .active{
 	background: #19B3D3;
@@ -166,7 +168,7 @@ header{
 }
 .content{
 	margin-left: 260px; 
-	padding-top: 80px;
+	padding-top: 75px;
 	padding-left: 10px;
 	height: 100%;
 	size: 100%;

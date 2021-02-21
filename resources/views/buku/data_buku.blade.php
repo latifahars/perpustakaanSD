@@ -55,7 +55,7 @@
                                     <td class="aksi-buku">
                                         <a href="{{ url('data_buku/detail_buku/' . $b->id) }}"><i class="fas fa-eye"></i></a>
                                     	<a href="{{ url('data_buku/edit_buku/' . $b->id) }}"><i class="fas fa-edit"></i></a>
-                                    	<a href="{{ url('data_buku/hapus_buku/' . $b->id) }}" data-toggle="tooltip" onclick="return konfirmasi()" id="pesan"><i class="fas fa-trash-alt"></i></a>
+                                    	<a href="{{ url('data_buku/hapus_buku/' . $b->id) }}" data-toggle="tooltip"  id="pesan"><i class="fas fa-trash-alt"></i></a>
                                     </td>
                                 </tr>
                                 @endforeach
@@ -66,18 +66,5 @@
             </div>
         </div>
     </main>
-    <script>
-      function konfirmasi(){
-         var tanya = confirm("Apakah Anda Yakin Akan Menghapus Data Buku ini?");
- 
-         if(tanya === true) {
-            return true;
-         }else{
-            return false;
-         }
- 
-         document.getElementById("pesan");
-      }
-    </script>
 
 @endsection

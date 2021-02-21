@@ -9,7 +9,7 @@
             <div class="card mb-4">
                 <div class="card-header">
                     <form method="post" action="">
-                        <a href="{{ url('data_buku') }}"><i class="fas fa-chevron-circle-left mt-2 mr-1"></i></a></i>Daftar Kategori
+                        <a href="{{ url('data_buku') }}"><i class="fas fa-chevron-circle-left mt-2 mr-3"></i></a></i>Daftar Kategori
                         @csrf
                         @include('partial.error')
                         <table style="float: right;">
@@ -40,15 +40,24 @@
                             </thead>
                             <tbody>
                                 @foreach ($kategori as $k)
-                                <tr>
-                                    <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $k->nama }}</td>
-                                    <td>{{ $k->deadline }}</td>
-                                    <td>
-                                        <a href="{{ url('data_buku/edit_kategori/' . $k->id) }}"><i class="fas fa-edit" style="margin-right: 20px;margin-left: 15px"></i></a>
-                                        <a href="{{ url('data_buku/hapus_kategori/' . $k->id) }}"><i class="fas fa-trash-alt" data-toggle="tooltip" onclick="return konfirmasi()" id="pesan"></i></a>
-                                    </td>
-                                </tr>
+                                    @if($k->nama == 'Buku Pelajaran')
+                                        <tr>
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $k->nama }}</td>
+                                            <td>{{ $k->deadline }}</td>
+                                            <td> <a href="{{ url('data_buku/edit_kategori/' . $k->id) }}"><i class="fas fa-edit" style="margin-left: 44px"></i></a> </td>
+                                        </tr>
+                                    @else
+                                    <tr>
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $k->nama }}</td>
+                                        <td>{{ $k->deadline }}</td>
+                                        <td>
+                                            <a href="{{ url('data_buku/edit_kategori/' . $k->id) }}"><i class="fas fa-edit" style="margin-right: 20px;margin-left: 15px"></i></a>
+                                            <a href="{{ url('data_buku/hapus_kategori/' . $k->id) }}"  data-toggle="tooltip" id="pesan"><i class="fas fa-trash-alt"></i></a>
+                                        </td>
+                                    </tr>
+                                    @endif
                                 @endforeach
                             </tbody>
                         </table>
@@ -57,18 +66,5 @@
             </div>
         </div>
     </main>
-    <script>
-      function konfirmasi(){
-         var tanya = confirm("Apakah Anda Yakin Akan Menghapus Kategori ini?");
- 
-         if(tanya === true) {
-            return true;
-         }else{
-            return false;
-         }
- 
-         document.getElementById("pesan");
-      }
-    </script>
 
 @endsection

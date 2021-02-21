@@ -19,7 +19,7 @@
                                 <td><label for="kode">Kode</label></td>
                                 <td width="100%">
                                     <div class="form-group">
-                                        <input class="form-control py-3" id="kode" name="kode" type="text" value="{{ $peraga->kode }}" />
+                                        <input class="form-control py-3" id="kode" name="kode" type="text" value="{{ $peraga->kode }}" required/>
                                     </div>
                                 </td>
                             </tr>
@@ -27,7 +27,7 @@
                                 <td><label for="nama">Nama</label></td>
                                 <td>
                                     <div class="form-group">
-                                        <input class="form-control py-3" id="nama" name="nama" type="text" value="{{ $peraga->nama }}" />
+                                        <input class="form-control py-3" id="nama" name="nama" type="text" value="{{ $peraga->nama }}" required/>
                                     </div>
                                 </td>
                             </tr>

@@ -1,10 +1,10 @@
 @if(session('sukses'))
-    <div class="alert alert-success">
+    <div class="alert alert-success mb-1">
         {{ session('sukses') }}
     </div>
 @endif
 @if(session('hapus'))
-    <div class="alert alert-danger">
+    <div class="alert alert-danger mb-1">
         {{ session('hapus') }}
     </div>
 @endif

@@ -43,6 +43,7 @@ class KategoriBukuController extends Controller
 	    'nama' => 'required',
 	    'deadline' => 'required'
 		]);
+		
 		$kategori = KategoriBuku::find($idkategori);
 	    $kategori->nama =$request->nama;
 	    $kategori->deadline =$request->deadline;

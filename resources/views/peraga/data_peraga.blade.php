@@ -13,7 +13,7 @@
             	<div class="row row-peminjaman">
             		<div class="col-sm-9" style="padding-left: 0">
                         <div class="form-group pl-1 pr-0 mb-0">
-                            <a href="data_peraga/tambah_peraga" class="btn btn-primary pb-1 pt-1">TAMBAH PERAGA<i class="fas fa-plus-circle"></i></a>
+                            <a href="data_peraga/tambah_peraga" class="btn btn-primary pb-1 pt-1">TAMBAH PERAGA <i class="fas fa-plus-circle"></i></a>
                         </div>
 					</div>
                     <div class="col-sm-3" >
@@ -30,16 +30,16 @@
             <div class="card mb-4">
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-bordered" id="datatable" width="100%" cellspacing="0">
+                        <table class=" table table-buku table-bordered" id="datatable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
                                 	<th width="6%">No</th>
-                                	<th width="10%">Kode</th>
+                                	<th width="9%">Kode</th>
                                     <th width="17%">Nama</th>
-                                    <th width="10%">Kategori</th>
-                                    <th width="9%">Jumlah</th>
-                                    <th width="14%">Asal Perolehan</th>
-                                    <th width="12%">Tgl Diterima</th>
+                                    <th width="12%">Kategori</th>
+                                    <th width="8%">Jumlah</th>
+                                    <th width="12%">Asal Perolehan</th>
+                                    <th width="11%">Tgl Diterima</th>
                                     <th width="8%">Aksi</th>
                                 </tr>
                             </thead>
@@ -55,7 +55,7 @@
                                     <td>{{ $p-> tgl_diterima }}</td>
                                     <td>
                                     	<a href="{{ url('data_peraga/edit_peraga/' . $p->id) }}"><i class="fas fa-edit"></i></a>
-                                    	<a href="{{ url('data_peraga/hapus_peraga/' . $p->id) }}" data-toggle="tooltip" onclick="return konfirmasi()" id="pesan"><i class="fas fa-trash-alt"></i></a>
+                                    	<a href="{{ url('data_peraga/hapus_peraga/' . $p->id) }}" data-toggle="tooltip" id="pesan"><i class="fas fa-trash-alt pr-0 ml-3"></i></a>
                                     </td>
                                 </tr>
                                 @endforeach
@@ -66,18 +66,5 @@
             </div>
         </div>
     </main>
-    <script>
-      function konfirmasi(){
-         var tanya = confirm("Apakah Anda Yakin Akan Menghapus Data Peraga ini?");
- 
-         if(tanya === true) {
-            return true;
-         }else{
-            return false;
-         }
- 
-         document.getElementById("pesan");
-      }
-    </script>
-
+    
 @endsection

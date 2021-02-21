@@ -19,7 +19,7 @@
                                 <td><label for="kode">Kode</label></td>
                                 <td width="100%">
                                     <div class="form-group">
-                                        <input class="form-control py-3" id="kode" type="text" name="kode" placeholder="Masukkan Kode" value="{{ old('kode') }}" autofocus />
+                                        <input class="form-control py-3" id="kode" type="text" name="kode" placeholder="Masukkan Kode" value="{{ old('kode') }}" autofocus required/>
                                     </div>
                                 </td>
                             </tr>
@@ -27,7 +27,7 @@
                                 <td><label for="nama">Nama</label></td>
                                 <td>
                                     <div class="form-group">
-                                        <input class="form-control py-3" id="nama" type="text" name="nama" placeholder="Masukkan Nama Alat" value="{{ old('nama') }}"/>
+                                        <input class="form-control py-3" id="nama" type="text" name="nama" placeholder="Masukkan Nama Alat" value="{{ old('nama') }}" required/>
                                     </div>
                                 </td>
                             </tr>
@@ -82,4 +82,5 @@
             </div>
         </div>
     </main>
+
 @endsection

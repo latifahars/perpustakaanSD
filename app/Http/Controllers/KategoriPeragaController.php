@@ -39,6 +39,10 @@ class KategoriPeragaController extends Controller
 
     public function editKategori(Request $request, $idkategori)
 	{
+		$request->validate([
+	    'nama' => 'required',
+		]);
+		
 		$kategori = KategoriPeraga::find($idkategori);
 	    $kategori->nama =$request->nama;
 

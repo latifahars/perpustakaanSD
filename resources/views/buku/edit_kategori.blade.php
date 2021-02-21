@@ -7,15 +7,20 @@
         <div class="container-fluid">
             <div class="card mb-4">
                 <div class="card-header">
-                     <a href="/data_buku/kategori"><i class="fas fa-chevron-circle-left mr-2"></i></a>Edit Kategori {{ $kategori->nama }}
+                     <a href="/data_buku/kategori"><i class="fas fa-chevron-circle-left mr-3"></i></a>Edit Kategori
                 </div>
                 <div class="card-body">
                     @include('partial.error')
                     <form method="post" action="">
                         @csrf
+
                         <div class="form-group">
                             <label class="mb-1" for="nama">Nama Kategori</label>
-                            <input class="form-control py-3" id="nama" name="nama" type="text" value="{{ $kategori->nama }}" autofocus />
+                            @if($kategori->nama == 'Buku Pelajaran')
+                                <input class="form-control py-3" id="nama" type="text" readonly value="{{ $kategori->nama }}" />
+                            @else
+                                <input class="form-control py-3" id="nama" name="nama" type="text" value="{{ $kategori->nama }}" autofocus />
+                            @endif
                         </div>
                         <div class="form-group">
                             <label class="mb-1" for="deadline">Batas Peminjaman (minggu)</label>

@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\User;
+use App\Models\KategoriBuku;
 use Illuminate\Support\Facades\Hash;
 
 class UserSeeder extends Seeder
@@ -23,5 +24,11 @@ class UserSeeder extends Seeder
 
             $user->save();
         }
+
+        $kategoribuku = new KategoriBuku();
+        $kategoribuku->nama = 'Buku Pelajaran';
+        $kategoribuku->deadline = '24';
+
+        $kategoribuku->save();
     }
 }

@@ -21,7 +21,7 @@
                         @csrf
                         <div class="form-group">
                             <label class="mb-1" for="username">Username</label>
-                            <input class="form-control py-3" id="username" type="text" name="name" value="{{ $user->name }}" autofocus required />
+                            <input class="form-control py-3" id="username" type="text" name="name" value="{{ $user->name }}"required />
                         </div>
     	                <div class="form-group">
     	                    <label class="mb-1" for="email">Email</label>

@@ -10,6 +10,7 @@
 	<link href="{{ asset('fontawesome/css/all.min.css') }}" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="{{ asset('style.css') }}">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('sweetalert2/sweetalert2.min.css') }}">
 	<title>@yield('title')</title>
 </head>
 <body>
@@ -74,12 +75,36 @@
         @yield('content')
 
     </div>
+    <script src="{{ asset('sweetalert2/sweetalert2.min.js')}}"></script>
     <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.23/js/dataTables.bootstrap4.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
             var table = $('#datatable').DataTable();
         })
+
+        $(document).on('click', '#pesan', function(e){
+                e.preventDefault();
+                var link = $(this).attr('href');
+                
+                Swal.fire({
+                    title: 'Yakin Dihapus?',
+                    text: "Data akan dihapus!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#d33',
+                    cancelButtonColor: '#3085d6',
+                    cancelButtonText: 'Batal',
+                    confirmButtonText: 'Hapus',
+                    reverseButtons: true
+                    }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location = link;
+                    }
+                })
+            })
     </script>
+
+
 </body>
 </html>

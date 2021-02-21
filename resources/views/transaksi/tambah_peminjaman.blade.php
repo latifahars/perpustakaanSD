@@ -5,6 +5,7 @@
 @section('content')
     <main>
         <div class="container-fluid">
+            @include('partial.alert')
             <div class="card mb-4">
                 <div class="card-header">
                     <a href="/peminjaman"><i class="fas fa-chevron-circle-left mr-2"></i></a>
@@ -16,11 +17,11 @@
                         @include('partial.error')
                         <div class="form-group">
                             <label class="mb-1" for="nis">NIS</label>
-                            <input class="form-control py-3" id="nis" type="text" name="nis" placeholder="Masukkan NIS" autofocus />
+                            <input class="form-control py-3" id="nis" type="text" name="nis" placeholder="Masukkan NIS" autofocus required/>
                         </div>
                         <div class="form-group">
                             <label class="mb-1" for="kode">Kode Buku</label>
-                            <input class="form-control py-3" id="kode" type="text" name="kode" placeholder="Masukkan Kode Buku" />
+                            <input class="form-control py-3" id="kode" type="text" name="kode" placeholder="Masukkan Kode Buku" required/>
                         </div>
                         <div class="form-group mt-4 mb-0">
                             <a class="btn btn-danger" style="float: left;" href="/peminjaman">Batal</a>

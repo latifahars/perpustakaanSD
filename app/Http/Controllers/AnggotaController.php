@@ -46,6 +46,12 @@ class AnggotaController extends Controller
 
     public function editAnggota(Request $request, $idanggota)
     {
+        $request->validate([
+        'nama' => 'required','max:30',
+        'nis' => 'required|numeric',
+        'kelas' => 'required'
+        ]);
+        
         $anggota = Anggota::find($idanggota);
         $anggota->nama =$request->nama;
         $anggota->nis =$request->nis;
