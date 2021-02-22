@@ -40,12 +40,10 @@ class KategoriBukuController extends Controller
 	{
 		
 		$request->validate([
-	    'nama' => 'required',
 	    'deadline' => 'required'
 		]);
 		
 		$kategori = KategoriBuku::find($idkategori);
-	    $kategori->nama =$request->nama;
 	    $kategori->deadline =$request->deadline;
 
 		$kategori->save();

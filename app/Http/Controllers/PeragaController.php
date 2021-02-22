@@ -26,7 +26,7 @@ class PeragaController extends Controller
     {
         $request->validate([
         'nama' => 'required','max:30',
-        'kode' => 'required',
+        'kode' => 'required|unique:App\Models\Peraga,kode',
         'kategori' => 'required',
         'sumber' => 'required',
         'tgl_diterima' => 'required|date',

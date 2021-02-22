@@ -255,6 +255,14 @@ header{
 .btn-kembali{
 	width: 90px;
 }
+
+.lewatdeadline{
+	color: red;
+	margin-left: 25px;
+}
+.lewatdeadline:hover{
+	color:red;
+}
 .fa-check-square{
 	color: green;
 	margin-left: 25px;

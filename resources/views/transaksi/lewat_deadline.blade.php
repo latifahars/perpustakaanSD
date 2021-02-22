@@ -5,14 +5,9 @@
 @section('content')
     <main>
         <div class="container-fluid">
-            <ol class="breadcrumb mb-3">
-                <li class="breadcrumb-item"><a href="">Transaksi</a></li>
-                <li class="breadcrumb-item">Peminjaman Buku</li>
+            <ol class="breadcrumb mb-3" style="background-color: #E53935">
+                <li class="breadcrumb-item" style="color: white">Peminjaman Lewat Batas Waktu!!!</li>
             </ol>
-            
-            <div class="form-group mb-2">
-                <a href="peminjaman/tambah_peminjaman" class="btn btn-primary pb-1 pt-1">TAMBAH PEMINJAMAN <i class="fas fa-plus-circle"></i></a>
-            </div>
             @include('partial.error')
             @include('partial.alert')
             <div class="card mb-4">
@@ -31,16 +26,16 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($peminjaman as $p)
+                                @foreach($lewat as $l)
                                     <tr>
-                                        <td>{{ $p->id }}</td>
-                                        <td>{{ $p-> anggota-> nis }}</td>
-                                        <td>{{ $p-> anggota-> nama }}</td>
-                                        <td>{{ $p-> buku-> judul }}</td>
-                                        <td>{{ $p-> buku-> kategori-> nama }}</td>
-                                        <td>{{ $p-> tgl_pinjam }}</td>
+                                        <td>{{ $l->id }}</td>
+                                        <td>{{ $l-> anggota-> nis }}</td>
+                                        <td>{{ $l-> anggota-> nama }}</td>
+                                        <td>{{ $l-> buku-> judul }}</td>
+                                        <td>{{ $l-> buku-> kategori-> nama }}</td>
+                                        <td>{{ $l-> tgl_pinjam }}</td>
                                         <td>
-                                            <a href="{{ url('peminjaman/kembali' . $p->id) }}" data-toggle="tooltip" onclick="return konfirmasi()" id="kembali"><i class="fa-2x fas fa-check-square"></i></a>
+                                            <a href="{{ url('peminjaman/kembali' . $l->id) }}" data-toggle="tooltip" onclick="return konfirmasi()" id="kembali"><i class="fa-2x fas fa-check-square"></i></a>
                                         </td>
                                     </tr>
                                 @endforeach

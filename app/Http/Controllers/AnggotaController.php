@@ -25,7 +25,7 @@ class AnggotaController extends Controller
     {
         $request->validate([
         'nama' => 'required','max:30',
-        'nis' => 'required|numeric',
+        'nis' => 'required|numeric|unique:App\Models\Anggota,nis',
         'kelas' => 'required'
         ]);
 

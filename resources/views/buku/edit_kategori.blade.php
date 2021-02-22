@@ -17,7 +17,7 @@
                         <div class="form-group">
                             <label class="mb-1" for="nama">Nama Kategori</label>
                             @if($kategori->nama == 'Buku Pelajaran')
-                                <input class="form-control py-3" id="nama" type="text" readonly value="{{ $kategori->nama }}" />
+                                <input class="form-control py-3" id="nama" type="text" disabled value="{{ $kategori->nama }}" />
                             @else
                                 <input class="form-control py-3" id="nama" name="nama" type="text" value="{{ $kategori->nama }}" autofocus />
                             @endif

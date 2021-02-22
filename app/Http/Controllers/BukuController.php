@@ -26,7 +26,7 @@ class BukuController extends Controller
     public function tambahBuku(Request $request) 
     {
         $request->validate([
-        'kode' => 'required',
+        'kode' => 'required|unique:App\Models\Buku,kode',
         'judul' => 'required',
         'kategori' => 'required',
         'penerbit' => 'required',

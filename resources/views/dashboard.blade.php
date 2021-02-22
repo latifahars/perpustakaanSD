@@ -21,10 +21,10 @@
 		<div class="card card_jumlah card_2">
 		  <div class="card-body">
 		  	<i class="fa-5x fas fa-exclamation-triangle"></i>
-		  	<h3></h3>
+		  	<h3>{{ $deadline }}</h3>
 		  	<p>Lewat Deadline</p>
 		  </div>
-		  <a href="">
+		  <a href="{{ url('peminjaman/lewat_deadline')}}">
 			  <div class="card-footer">
 			  	<p>Lihat Semua</p>
 			    <i class="fas fa-chevron-circle-right"></i>

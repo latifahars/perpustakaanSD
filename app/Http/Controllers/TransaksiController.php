@@ -34,14 +34,7 @@ class TransaksiController extends Controller
         ]);
         
         $bukupinjam = Buku::withCount('peminjaman')->where('kode', $request->kode)->first();
-        if($bukupinjam->eksemplar == 0){
-            return back()->with('hapus', 'Buku sudah tidak tersedia!');
-        }else{
-            $bukupinjam->decrement('eksemplar', 1);
-        }
 
-        // $anggotapinjam = Anggota::withCount('peminjaman')->where('nis', $request->nis)->where('tgl_kembali', null)->first();
-        // dd($request->nis);
         $anggotapinjam = Anggota::where('nis', $request->nis)
                         ->withCount(['peminjaman' => function ($query) use ($request) {
                             $query->where('tgl_kembali', null)
@@ -51,17 +44,25 @@ class TransaksiController extends Controller
                                 });
                             });
                         }])->first();
+
         $sudahpinjam = $anggotapinjam->peminjaman()
+                        ->whereHas('buku', function ($query) {
+                                $query->whereHas('kategori', function($query){
+                                    $query->where('nama', '!=', 'Buku Pelajaran');
+                                });
+                            })
                         ->where('tgl_kembali', null)
                         ->whereDate('tgl_pinjam', '=', Carbon::today())
                         ->first();
 
         if($anggotapinjam->peminjaman_count == 3){
             return back()->with('hapus', 'Anggota telah meminjam 3 buku!');
-        }elseif($sudahpinjam){
+        }elseif($bukupinjam->kategori->nama != 'Buku Pelajaran' && $sudahpinjam){
             return back()->with('hapus', 'Anggota belum mengembalikan buku yang dipinjam sebelumnya!');
+        }elseif($bukupinjam->eksemplar == 0){
+            return back()->with('hapus', 'Buku sudah tidak tersedia!');
         }else{
-
+            $bukupinjam->decrement('eksemplar', 1);
         }
 
 
@@ -81,11 +82,19 @@ class TransaksiController extends Controller
     public function pengembalian($idtransaksi) 
     {
         $peminjaman = Peminjaman::find($idtransaksi);
-        $buku = Buku::where('id', 'buku_id');
-        $tambahbuku = new Buku;
         $peminjaman->tgl_kembali = new \DateTime();
         $peminjaman->save();
         return redirect('peminjaman')->with('sukses', 'Pengembalian Buku Berhasil!');
+    }
+
+    public function tampilLewatDeadline() 
+    {
+        $lewat = Peminjaman::where('tgl_kembali', null)
+                    ->where('tgl_kembali', null)
+                    ->whereDate('deadline','<',Carbon::today())
+                    ->get();
+
+        return view('transaksi.lewat_deadline', compact('lewat'));
     }
 
     public function tampilRiwayat() 

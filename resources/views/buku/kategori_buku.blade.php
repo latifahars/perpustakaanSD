@@ -11,7 +11,6 @@
                     <form method="post" action="">
                         <a href="{{ url('data_buku') }}"><i class="fas fa-chevron-circle-left mt-2 mr-3"></i></a></i>Daftar Kategori
                         @csrf
-                        @include('partial.error')
                         <table style="float: right;">
                             <tr>
                                 <td>
@@ -28,6 +27,7 @@
                     </form>
                 </div>
                 <div class="card-body">
+                    @include('partial.error')
                     <div class="table-responsive">
                         <table class="table table-bordered" id="datatable" width="100%" cellspacing="0">
                             <thead>

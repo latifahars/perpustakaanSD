@@ -17,11 +17,11 @@
                         @include('partial.error')
                         <div class="form-group">
                             <label class="mb-1" for="nis">NIS</label>
-                            <input class="form-control py-3" id="nis" type="text" name="nis" placeholder="Masukkan NIS" autofocus required/>
+                            <input class="form-control py-3" id="nis" type="text" name="nis" placeholder="Masukkan NIS" value="{{ old('nis') }}" autofocus required/>
                         </div>
                         <div class="form-group">
                             <label class="mb-1" for="kode">Kode Buku</label>
-                            <input class="form-control py-3" id="kode" type="text" name="kode" placeholder="Masukkan Kode Buku" required/>
+                            <input class="form-control py-3" id="kode" type="text" name="kode" placeholder="Masukkan Kode Buku" value="{{ old('kode') }}" required/>
                         </div>
                         <div class="form-group mt-4 mb-0">
                             <a class="btn btn-danger" style="float: left;" href="/peminjaman">Batal</a>
