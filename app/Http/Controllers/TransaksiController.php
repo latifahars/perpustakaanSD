@@ -52,7 +52,7 @@ class TransaksiController extends Controller
                                 });
                             })
                         ->where('tgl_kembali', null)
-                        ->whereDate('tgl_pinjam', '=', Carbon::today())
+                        ->whereDate('tgl_pinjam', '<', Carbon::today())
                         ->first();
 
         if($anggotapinjam->peminjaman_count == 3){
@@ -83,6 +83,8 @@ class TransaksiController extends Controller
     {
         $peminjaman = Peminjaman::find($idtransaksi);
         $peminjaman->tgl_kembali = new \DateTime();
+        $buku = $peminjaman->buku();
+        $buku->increment('eksemplar', 1);
         $peminjaman->save();
         return redirect('peminjaman')->with('sukses', 'Pengembalian Buku Berhasil!');
     }
@@ -90,7 +92,6 @@ class TransaksiController extends Controller
     public function tampilLewatDeadline() 
     {
         $lewat = Peminjaman::where('tgl_kembali', null)
-                    ->where('tgl_kembali', null)
                     ->whereDate('deadline','<',Carbon::today())
                     ->get();
 

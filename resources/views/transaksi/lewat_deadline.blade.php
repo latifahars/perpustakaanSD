@@ -5,8 +5,8 @@
 @section('content')
     <main>
         <div class="container-fluid">
-            <ol class="breadcrumb mb-3" style="background-color: #E53935">
-                <li class="breadcrumb-item" style="color: white">Peminjaman Lewat Batas Waktu!!!</li>
+            <ol class="breadcrumb mb-3" style="background-color: #FF5252">
+                <li class="breadcrumb-item" style="font-weight: bold;">Peminjaman Lewat Batas Waktu</li>
             </ol>
             @include('partial.error')
             @include('partial.alert')
@@ -35,7 +35,9 @@
                                         <td>{{ $l-> buku-> kategori-> nama }}</td>
                                         <td>{{ $l-> tgl_pinjam }}</td>
                                         <td>
-                                            <a href="{{ url('peminjaman/kembali' . $l->id) }}" data-toggle="tooltip" onclick="return konfirmasi()" id="kembali"><i class="fa-2x fas fa-check-square"></i></a>
+                                            <a href="{{ url('peminjaman/kembali' . $l->id) }}" data-toggle="tooltip" onclick="return konfirmasi()" id="kembali">
+                                                <i class="fa-2x fas fa-check-square kembali {{ $l->getStatus() ? 'lewat' : 'belum' }}"></i>
+                                            </a>
                                         </td>
                                     </tr>
                                 @endforeach

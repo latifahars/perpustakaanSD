@@ -11,6 +11,7 @@ use App\Http\Controllers\PeragaController;
 use App\Http\Controllers\KategoriPeragaController;
 use App\Http\Controllers\StrukturController;
 use App\Http\Controllers\ProfilController;
+use App\Http\Controllers\AMAnggotaController;
 use App\Http\Controllers\FlashMessageController;
 
 /*
@@ -86,3 +87,7 @@ Route::get('struktur_org', [StrukturController::class, 'tampilStruktur']);
 //profil
 Route::get('edit_profil', [ProfilController::class, 'tampilProfil']);
 Route::post('edit_profil', [ProfilController::class, 'simpanProfil']);
+
+//antarmuka anggota
+Route::get('pencarian_buku', [AMAnggotaController::class, 'tampilPencarian']);
+Route::get('pencarian_buku/semua_buku', [AMAnggotaController::class, 'tampilSemuaBuku']);

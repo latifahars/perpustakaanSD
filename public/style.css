@@ -256,18 +256,19 @@ header{
 	width: 90px;
 }
 
-.lewatdeadline{
+.kembali{
+	margin-left: 25px;
+}
+.lewat:hover{
 	color: red;
-	margin-left: 25px;
 }
-.lewatdeadline:hover{
-	color:red;
+.lewat{
+	color:#D50000;
 }
-.fa-check-square{
+.belum{
 	color: green;
-	margin-left: 25px;
 }
-.fa-check-square:hover{
+.belum:hover{
 	color: #64DD17;
 }
 .row-peminjaman{
@@ -385,3 +386,77 @@ table{
 }
 
 /*struktur*/
+
+
+/*Pencarian Buku*/
+.body-pencarian{
+	background: #C5CAE9;
+  	font-family: 'Open Sans', sans-serif;
+  	height: 640px;
+}
+.header-pencarian{
+	width: 100%;
+	height: 55px;
+	position: fixed;
+	z-index: 99999;
+	background-color: #5C6BC0;
+	font-size: 22px;
+	font-weight: 900;
+}
+.card-pencarian{
+	height: 450px;
+	width: 1000px;
+	margin-bottom: 20px;
+	border-radius: 0;
+	background-color: #9FA8DA;
+}
+.content-pencarian{
+	padding-top: 100px;
+	height: 100%;
+	size: 100%;
+}
+.card-pencarian h3{
+	margin-top: 60px;
+	font-size: 22px;
+	font-weight: 800;
+	word-spacing: 20px;
+	letter-spacing: 15px;
+	color: #424242;
+}
+.cari{
+	width: 500px;
+	height: 50px;
+	border-radius: 0;
+}
+.btn-cari{
+	height: 50px;
+	background-color: #1E88E5;
+	color: white;
+	border-radius: 0;
+}
+.btn-cari:hover{
+	color: white;
+	background-color: blue;
+}
+.btn-semua{
+	background-color: #3949AB;
+	height: 45px;
+	color: white;
+	border-radius: 0;
+	box-shadow: 3px 3px 2px #546E7A;
+}
+.btn-semua:hover{
+	color: white;
+	background-color: #1A237E;
+}
+.btn-kembali{
+	padding: 5px;
+	padding-right: 10px;
+	padding-left: 10px;
+	margin-left: 40px;
+	margin-right: 10px;
+	border-radius: 0px;
+	font-size: 15px;
+	font-weight: 600;
+	margin-top: 0px;
+}

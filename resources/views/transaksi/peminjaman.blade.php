@@ -40,7 +40,9 @@
                                         <td>{{ $p-> buku-> kategori-> nama }}</td>
                                         <td>{{ $p-> tgl_pinjam }}</td>
                                         <td>
-                                            <a href="{{ url('peminjaman/kembali' . $p->id) }}" data-toggle="tooltip" onclick="return konfirmasi()" id="kembali"><i class="fa-2x fas fa-check-square"></i></a>
+                                            <a href="{{ url('peminjaman/kembali' . $p->id) }}" data-toggle="tooltip" onclick="return konfirmasi()" id="kembali">
+                                                <i class="fa-2x fas fa-check-square kembali {{ $p->getStatus() ? 'lewat' : 'belum' }}"></i>
+                                            </a>
                                         </td>
                                     </tr>
                                 @endforeach
