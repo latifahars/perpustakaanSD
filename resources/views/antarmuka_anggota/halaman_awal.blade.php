@@ -22,16 +22,19 @@
             <div class="card card-pencarian">
                 <div class="body">
                     <h3>PENCARIAN BUKU</h3>
-                    <table style="margin-top: 100px; margin-bottom: 80px">
-                        <tr>
-                            <td>
-                                <input type="text" class="form-control cari" name="cari" placeholder="Masukkan Identitas Buku" autofocus>
-                            </td>
-                            <td>
-                                <button class="btn btn-cari pb-1 pt-1" type="submit"><i class="fas fa-search"></i> Cari</button>
-                            </td>
-                        </tr>
-                    </table>
+                    <form method="get" action="pencarian_buku/hasil_pencarian">
+                        @csrf
+                        <table style="margin-top: 100px; margin-bottom: 80px">
+                            <tr>
+                                <td>
+                                    <input type="text" class="form-control cari" name="cari" placeholder="Masukkan Identitas Buku" autofocus>
+                                </td>
+                                <td>
+                                    <button class="btn btn-cari" type="submit"><i class="fas fa-search"></i> Cari</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
                     <a class="btn btn-semua pt-2" href="{{ url('pencarian_buku/semua_buku') }}" >Semua Buku</a>
                 </div>
             </div>

@@ -8,7 +8,7 @@
             @include('partial.error')
             <div class="card mb-4">
                 <div class="card-header">
-                    <a href="/data_anggota"><i class="fas fa-chevron-circle-left"></i></a>
+                    <a href="/data_anggota"><i class="fas fa-chevron-circle-left mr-3"></i></a>
                     Edit Anggota Perpustakaan
                 </div>
                 <div class="card-body">

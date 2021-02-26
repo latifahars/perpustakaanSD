@@ -60,7 +60,6 @@
                 </div>
             </div>
         </div>
-
     </main>
     <div class="modal fade" id="edit-modal">
             <div id="modal-edit" class="modal-dialog modal-dialog-centered" role="document">

@@ -22,4 +22,17 @@ class AMAnggotaController extends Controller
 
         return view('antarmuka_anggota.semua_buku', compact('buku'));
     }
+
+    public function cariBuku(Request $request)
+    {
+        $buku = Buku::whereHas('kategori', function($query) use ($request){
+            return $query->where('nama','like', '%' . $request->cari . '%')
+            ->orWhere('judul', 'like', '%' . $request->cari . '%')
+            ->orWhere('kode', 'like', '%' . $request->cari . '%');
+        })->orWhereHas('penerbit', function($query) use ($request){
+            return $query->where('nama','like', '%' . $request->cari . '%');
+        })->get();
+ 
+        return view('antarmuka_anggota.hasil_cari', compact('buku'));
+    }
 }

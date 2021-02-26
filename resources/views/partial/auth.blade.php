@@ -4,9 +4,9 @@
 	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.min.css') }}">
-    <script src="bootstrap/jquery.min.js"></script>
-    <script src="bootstrap/popper.min.js"></script>
-    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="{{ asset('bootstrap/jquery.min.js') }}"></script>
+    <script src="{{ asset('bootstrap/popper.min.js') }}"></script>
+    <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
 	<link href="{{ asset('fontawesome/css/all.min.css') }}" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="{{ asset('style.css') }}">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/dataTables.bootstrap4.min.css">
@@ -104,7 +104,6 @@
                 })
             })
     </script>
-
 
 </body>
 </html>

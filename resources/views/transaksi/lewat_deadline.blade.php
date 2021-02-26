@@ -5,9 +5,11 @@
 @section('content')
     <main>
         <div class="container-fluid">
-            <ol class="breadcrumb mb-3" style="background-color: #FF5252">
-                <li class="breadcrumb-item" style="font-weight: bold;">Peminjaman Lewat Batas Waktu</li>
-            </ol>
+            <center>
+                <div class="alert alert-danger">
+                    <h4>Lewat Batas Waktu Peminjaman</h4>
+                </div>
+            </center>
             @include('partial.error')
             @include('partial.alert')
             <div class="card mb-4">
@@ -48,17 +50,25 @@
             </div>
         </div>
     </main>
-    <script>
-      function konfirmasi(){
-         var tanya = confirm("Apakah Anda Yakin ingin Melakukan Pengembalian?");
- 
-         if(tanya === true) {
-            return true;
-         }else{
-            return false;
-         }
- 
-         document.getElementById("kembali");
-      }
+    <script type="text/javascript">
+        $(document).on('click', '#kembali', function(e){
+                e.preventDefault();
+                var link = $(this).attr('href');
+                
+                Swal.fire({
+                    title: 'Akan Melakukan Pengembalian?',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#43A047',
+                    cancelButtonColor: '#546E7A',
+                    cancelButtonText: 'Tidak',
+                    confirmButtonText: 'Ya',
+                    reverseButtons: true
+                    }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location = link;
+                    }
+                })
+            })
     </script>
 @endsection

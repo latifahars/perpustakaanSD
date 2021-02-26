@@ -91,3 +91,4 @@ Route::post('edit_profil', [ProfilController::class, 'simpanProfil']);
 //antarmuka anggota
 Route::get('pencarian_buku', [AMAnggotaController::class, 'tampilPencarian']);
 Route::get('pencarian_buku/semua_buku', [AMAnggotaController::class, 'tampilSemuaBuku']);
+Route::get('pencarian_buku/hasil_pencarian', [AMAnggotaController::class, 'cariBuku']);
