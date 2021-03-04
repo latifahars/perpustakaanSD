@@ -22,14 +22,17 @@
                         <div class="form-group">
                             <label class="mb-1" for="username">Username</label>
                             <input class="form-control py-3" id="username" type="text" name="name" value="{{ $user->name }}"required />
+                            <div id="error">{{ $errors->first('name') }}</div>
                         </div>
     	                <div class="form-group">
     	                    <label class="mb-1" for="email">Email</label>
     	                    <input class="form-control py-3" id="email" type="email" name="email" value="{{ $user->email }}" required/>
+                            <div id="error">{{ $errors->first('email') }}</div>
     	                </div>
     	                <div class="form-group">
     	                    <label class="mb-1" for="password">Password</label>
     	                    <input class="form-control py-3" id="password" type="password" name="password" />
+                            <div id="error">{{ $errors->first('password') }}</div>
     	                </div>
     	                <div class="form-group mt-4 mb-0">
     	                    <button class="btn btn-success" style="float: right;" value="submit">Simpan</button>

@@ -27,7 +27,7 @@
                         <table style="margin-top: 100px; margin-bottom: 80px">
                             <tr>
                                 <td>
-                                    <input type="text" class="form-control cari" name="cari" placeholder="Masukkan Identitas Buku" autofocus>
+                                    <input type="text" class="form-control cari" name="cari" placeholder="Masukkan Identitas Buku" autofocus required>
                                 </td>
                                 <td>
                                     <button class="btn btn-cari" type="submit"><i class="fas fa-search"></i> Cari</button>

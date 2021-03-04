@@ -20,7 +20,6 @@
       </div>
       <form name="login" method="post" action="{{ url('login') }}" class="login-container">
         @csrf
-
         @include('partial.error')
         <p><input type="email" name="email" placeholder="Email" required></p>
         <p><input type="password" name="password" placeholder="Password" required></p>

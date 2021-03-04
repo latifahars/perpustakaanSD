@@ -99,6 +99,9 @@ header{
 	position: fixed;
 	z-index: 99999;
 }
+#error{
+	color: red;
+}
 
 /*navbar*/
 .left_area h3{

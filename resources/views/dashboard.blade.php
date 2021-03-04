@@ -37,7 +37,7 @@
 		  <div class="card-body">
 		  	<i class="fa-5x fas fa-book"></i>
 		  	<h3>{{ $buku }}</h3>
-		  	<p>Data Buku</p>
+		  	<p>Buku Tersedia</p>
 		  </div>
 		  <a href="{{ url('data_buku')}}">
 			  <div class="card-footer">

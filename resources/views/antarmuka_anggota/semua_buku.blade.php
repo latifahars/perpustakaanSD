@@ -24,7 +24,7 @@
     </header>
     <div class="content-pencarian" style="padding-top: 70px">
         <div class="table-responsive" style="padding: 20px">
-            <table class="table table-bordered" id="datatable" width="100%" cellspacing="0">
+            <table class="table table-bordered table-striped" id="datatable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
                         <th width="10%">Kode</th>

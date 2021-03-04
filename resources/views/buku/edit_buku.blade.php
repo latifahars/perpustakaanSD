@@ -11,7 +11,6 @@
                     Edit Buku
                 </div>
                 <div class="card-body">
-                    @include('partial.error')
                     <form method="post" action="">
                         @csrf
                         <table class="table-tambahbuku">
@@ -20,6 +19,7 @@
                                 <td width="100%">
                                     <div class="form-group">
                                         <input class="form-control bk-c" id="kode" type="text" name="kode" value="{{ $buku->kode }}" />
+                                        <div id="error">{{ $errors->first('kode') }}</div>
                                     </div>
                                 </td>
                             </tr>
@@ -29,6 +29,7 @@
                                     <div class="form-group">
                                         <input class="form-control bk-c" id="judul" type="text" name="judul" value="{{ $buku->judul }}" />
                                     </div>
+                                    <div id="error">{{ $errors->first('judul') }}</div>
                                 </td>
                             </tr>
                             <tr>
@@ -45,6 +46,7 @@
                                             @endforeach
                                         </select>
                                     </div> 
+                                    <div id="error">{{ $errors->first('kategori') }}</div>
                                 </td>
                             </tr>
                             <tr>
@@ -52,7 +54,8 @@
                                 <td>
                                     <div class="form-group">
                                         <input class="form-control bk-c" id="penerbit" name="penerbit" type="text" value="{{ $buku->penerbit->nama }}"/>
-                                    </div> 
+                                    </div>
+                                    <div id="error">{{ $errors->first('penerbit') }}</div>
                                 </td>
                             </tr>
                             <tr>
@@ -60,7 +63,8 @@
                                 <td>
                                     <div class="form-group">
                                         <input class="form-control bk-c" id="penerbit" type="text" name="kota" value="{{ $buku->penerbit->kota }}"/>
-                                    </div> 
+                                    </div>
+                                    <div id="error">{{ $errors->first('kota') }}</div>
                                 </td>
                             </tr>
                             <tr>
@@ -69,22 +73,25 @@
                                      <div class="form-group">
                                         <input class="form-control bk-c" id="halaman" type="text" name="halaman" value="{{ $buku->halaman }}"/>
                                     </div>
+                                    <div id="error">{{ $errors->first('halaman') }}</div>
                                 </td>
                             </tr>
                             <tr>
-                                <td><label for="eksemplar">Eksemplar</label></td>
+                                <td><label for="eksemplar">Jumlah</label></td>
                                 <td>
                                    <div class="form-group">
-                                        <input class="form-control bk-c" id="eksemplar" type="text" name="eksemplar" value="{{ $buku->eksemplar }}"/>
-                                    </div> 
+                                        <input class="form-control bk-c" id="eksemplar" type="text" name="jumlah" value="{{ $buku->eksemplar }}"/>
+                                    </div>
+                                    <div id="error">{{ $errors->first('jumlah') }}</div>
                                 </td>
                             </tr>
                             <tr>
                                 <td><label for="asal">Asal</label></td>
                                 <td>
                                    <div class="form-group">
-                                        <input class="form-control bk-c" id="asal" type="text" name="sumber" value="{{ $buku->sumber->nama }}"/>
-                                    </div> 
+                                        <input class="form-control bk-c" id="asal" type="text" name="asal" value="{{ $buku->sumber->nama }}"/>
+                                    </div>
+                                    <div id="error">{{ $errors->first('asal') }}</div>
                                 </td>
                             </tr>
                             <tr>
@@ -94,9 +101,10 @@
                                     class="form-control bk-c"
                                     id="date"
                                     type="date"
-                                    name="tgl_diterima"
+                                    name="tanggal_diterima"
                                     value="{{ $buku->tgl_diterima }}"
                                     />
+                                    <div id="error">{{ $errors->first('tanggal_diterima') }}</div>
                                 </td>
                             </tr>
                         </table>

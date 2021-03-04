@@ -10,7 +10,7 @@
             <div class="card mb-4">
                 <div class="card-header">
                     <form method="post" action="">
-                         <a href="{{ url('data_peraga') }}"><i class="fas fa-chevron-circle-left mt-2 mr-2"></i></a>
+                         <a href="{{ url('data_peraga') }}"><i class="fas fa-chevron-circle-left mt-2 mr-3"></i></a>
                          Daftar Kategori
                         @csrf
                         <table style="float: right;">
@@ -27,7 +27,7 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-bordered table-buku" id="datatable" width="100%" cellspacing="0">
+                        <table class="table table-bordered table-buku table-striped" id="datatable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
                                 	<th width="7%">No</th>

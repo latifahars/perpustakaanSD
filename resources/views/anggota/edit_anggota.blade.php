@@ -5,7 +5,6 @@
 @section('content')
 	<main>
         <div class="container-fluid">
-            @include('partial.error')
             <div class="card mb-4">
                 <div class="card-header">
                     <a href="/data_anggota"><i class="fas fa-chevron-circle-left mr-3"></i></a>
@@ -17,10 +16,12 @@
                         <div class="form-group">
                             <label class="mb-1" for="nis">NIS</label>
                             <input class="form-control py-3" id="nis" type="text" name="nis" value="{{ $anggota->nis }}" autofocus />
+                            <div id="error">{{ $errors->first('nis') }}</div>
                         </div>
                         <div class="form-group">
                             <label class="mb-1" for="nama">Nama</label>
                             <input class="form-control py-3" id="nama" type="text" name="nama" value="{{ $anggota->nama }}" />
+                            <div id="error">{{ $errors->first('nama') }}</div>
                         </div>
                         <div class="form-group">
                             <label class="mb-1" for="kelas">Kelas</label><br>
@@ -33,6 +34,7 @@
                                 <option value="Kelas 5">Kelas 5</option>
                                 <option value="Kelas 6">Kelas 6</option>
                             </select>
+                            <div id="error">{{ $errors->first('kelas') }}</div>
                         </div>
                         <div class="form-group mt-4 mb-0">
                             <a class="btn btn-danger" style="float: left;" href="/data_anggota">Batal</a>

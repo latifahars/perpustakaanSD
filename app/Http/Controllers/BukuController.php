@@ -31,10 +31,10 @@ class BukuController extends Controller
         'kategori' => 'required',
         'penerbit' => 'required',
         'kota' => 'required',
-        'eksemplar' => 'required|numeric',
+        'jumlah' => 'required|numeric',
         'halaman' => 'required|numeric',
-        'sumber' => 'required',
-        'tgl_diterima' => 'required|date',
+        'asal' => 'required',
+        'tanggal_diterima' => 'required|date',
         ]);
 
         if ($penerbit = Penerbit::where('nama', $request->penerbit)->first()){
@@ -45,11 +45,11 @@ class BukuController extends Controller
             $penerbit->kota = $request->kota;
             $penerbit->save();
         }
-        if ($sumber = SumberBuku::where('nama', $request->sumber)->first()){
+        if ($sumber = SumberBuku::where('nama', $request->asal)->first()){
             
         } else{
             $sumber = new SumberBuku();
-            $sumber->nama = $request->sumber;
+            $sumber->nama = $request->asal;
             $sumber->save();
         }
 
@@ -58,10 +58,10 @@ class BukuController extends Controller
         $buku->judul = $request->judul;
         $buku->kategori_buku_id = $request->kategori;
         $buku->penerbit_id = $penerbit->id;
-        $buku->eksemplar = $request->eksemplar;
+        $buku->eksemplar = $request->jumlah;
         $buku->halaman = $request->halaman;
         $buku->sumber_buku_id = $sumber->id;
-        $buku->tgl_diterima = $request->tgl_diterima;
+        $buku->tgl_diterima = $request->tanggal_diterima;
         
         $buku->save();
         return redirect('/data_buku')->with('sukses', 'Tambah Buku Berhasil!');
@@ -83,10 +83,10 @@ class BukuController extends Controller
         'kategori' => 'required',
         'penerbit' => 'required',
         'kota' => 'required',
-        'eksemplar' => 'required|numeric',
+        'jumlah' => 'required|numeric',
         'halaman' => 'required|numeric',
-        'sumber' => 'required',
-        'tgl_diterima' => 'required|date',
+        'asal' => 'required',
+        'tanggal_diterima' => 'required|date',
         ]);
         
         $buku = Buku::find($idbuku);
@@ -99,11 +99,11 @@ class BukuController extends Controller
             $penerbit->kota = $request->kota;
             $penerbit->save();
         }
-        if ($sumber = SumberBuku::where('nama', $request->sumber)->first()){
+        if ($sumber = SumberBuku::where('nama', $request->asal)->first()){
             
         } else{
             $sumber = new SumberBuku();
-            $sumber->nama = $request->sumber;
+            $sumber->nama = $request->asal;
             $sumber->save();
         }
 
@@ -111,10 +111,10 @@ class BukuController extends Controller
         $buku->judul = $request->judul;
         $buku->kategori_buku_id = $request->kategori;
         $buku->penerbit_id = $penerbit->id;
-        $buku->eksemplar = $request->eksemplar;
+        $buku->eksemplar = $request->jumlah;
         $buku->halaman = $request->halaman;
         $buku->sumber_buku_id = $sumber->id;
-        $buku->tgl_diterima = $request->tgl_diterima;
+        $buku->tgl_diterima = $request->tanggal_diterima;
 
         $buku->save();
         return redirect('/data_buku')->with('sukses', 'Edit Buku Berhasil!');

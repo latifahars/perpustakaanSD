@@ -40,12 +40,12 @@
                             <td>{{$buku-> penerbit-> kota}}</td>
                         </tr>
                         <tr>
-                            <td>Halaman</td>
+                            <td>Halaman / Page</td>
                             <td>:</td>
                             <td>{{$buku-> halaman}}</td>
                         </tr>
                         <tr>
-                            <td>Eksemplar</td>
+                            <td>Jumlah / Eksemplar</td>
                             <td>:</td>
                             <td>{{$buku-> eksemplar}}</td>
                         </tr>

@@ -11,7 +11,6 @@
                     Tambah Buku Perpustakaan
                 </div>
                 <div class="card-body pb-1 pt-1">
-                    @include('partial.error')
                     <form method="post" action="">
                         @csrf
                         <table class="table-tambahbuku">
@@ -21,6 +20,7 @@
                                     <div class="form-group">
                                         <input class="form-control bk-c" id="kode" type="text" name="kode" placeholder="Masukkan Kode Buku" value="{{ old('kode') }}" autofocus />
                                     </div>
+                                    <div id="error">{{ $errors->first('kode') }} </div>
                                 </td>
                             </tr>
                             <tr>
@@ -29,6 +29,7 @@
                                     <div class="form-group">
                                         <input class="form-control bk-c" id="judul" type="text" name="judul" placeholder="Masukkan Judul Buku" value="{{ old('judul') }}" />
                                     </div>
+                                    <div id="error">{{ $errors->first('judul') }} </div>
                                 </td>
                             </tr>
                             <tr>
@@ -41,7 +42,8 @@
                                                 <option value="{{ $k->id }}">{{ $k->nama }}</option>
                                             @endforeach
                                         </select>
-                                    </div> 
+                                    </div>
+                                    <div id="error">{{ $errors->first('kategori') }}</div>
                                 </td>
                             </tr>
                             <tr>
@@ -49,7 +51,8 @@
                                 <td>
                                     <div class="form-group">
                                         <input class="form-control bk-c" id="penerbit" type="text" name="penerbit" placeholder="Masukkan Penerbit" value="{{ old('penerbit') }}"/>
-                                    </div> 
+                                    </div>
+                                    <div id="error">{{ $errors->first('penerbit') }}</div>
                                 </td>
                             </tr>
                             <tr>
@@ -58,30 +61,34 @@
                                     <div class="form-group">
                                         <input class="form-control bk-c" id="penerbit" type="text" name="kota" placeholder="Masukkan Kota Penerbit" value="{{ old('kota') }}"/>
                                     </div> 
+                                    <div id="error">{{ $errors->first('kota') }}</div>
                                 </td>
                             </tr>
                             <tr>
                                 <td><label for="halaman">Halaman</label></td>
                                 <td>
-                                     <div class="form-group">
+                                    <div class="form-group">
                                         <input class="form-control bk-c" id="halaman" type="text" name="halaman" placeholder="Masukkan Jumlah Halaman" value="{{ old('halaman') }}"/>
                                     </div>
+                                    <div id="error">{{ $errors->first('halaman') }}</div>
                                 </td>
                             </tr>
                             <tr>
-                                <td><label for="eksemplar">Eksemplar</label></td>
+                                <td><label for="eksemplar">Jumlah</label></td>
                                 <td>
                                    <div class="form-group">
-                                        <input class="form-control bk-c" id="eksemplar" type="text" name="eksemplar" placeholder="Masukkan Eksemplar" value="{{ old('eksemplar') }}"/>
+                                        <input class="form-control bk-c" id="eksemplar" type="text" name="jumlah" placeholder="Masukkan Jumlah Buku" value="{{ old('eksemplar') }}"/>
                                     </div> 
+                                    <div id="error">{{ $errors->first('jumlah') }}</div>
                                 </td>
                             </tr>
                             <tr>
                                 <td><label for="asal">Asal</label></td>
                                 <td>
                                    <div class="form-group">
-                                        <input class="form-control bk-c" id="asal" type="text" name="sumber" placeholder="Masukkan Asal Perolehan" value="{{ old('sumber') }}"/>
-                                    </div> 
+                                        <input class="form-control bk-c" id="asal" type="text" name="asal" placeholder="Masukkan Asal Perolehan" value="{{ old('sumber') }}"/>
+                                    </div>
+                                    <div id="error">{{ $errors->first('asal') }}</div>
                                 </td>
                             </tr>
                             <tr>
@@ -91,9 +98,10 @@
                                     class="form-control bk-c"
                                     id="date"
                                     type="date"
-                                    name="tgl_diterima"
+                                    name="tanggal_diterima"
                                     value="{{ old('tgl_diterima') }}"
                                     />
+                                    <div id="error">{{ $errors->first('tanggal_diterima') }}</div>
                                 </td>
                             </tr>
                         </table>

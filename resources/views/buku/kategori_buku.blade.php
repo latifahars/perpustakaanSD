@@ -14,10 +14,10 @@
                         <table style="float: right;">
                             <tr>
                                 <td>
-                                    <input type="text" class="form-control" style="width: 200px" name="nama" placeholder="Nama Kategori">
+                                    <input type="text" class="form-control" style="width: 200px" name="nama" placeholder="Nama Kategori" required>
                                 </td>
                                 <td>
-                                    <input type="text" class="form-control" style="width: 230px" name="deadline" placeholder="Batas Peminjaman (minggu)">
+                                    <input type="text" class="form-control" style="width: 230px" name="deadline" placeholder="Batas Peminjaman (minggu)" required>
                                 </td>
                                 <td>
                                     <button class="btn btn-tambahbuku pb-1 pt-1" type="submit"><i class="fas fa-plus"></i> Tambah</button>
@@ -29,7 +29,7 @@
                 <div class="card-body">
                     @include('partial.error')
                     <div class="table-responsive">
-                        <table class="table table-bordered" id="datatable" width="100%" cellspacing="0">
+                        <table class="table table-bordered table-striped" id="datatable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
                                 	<th width="7%">No</th>

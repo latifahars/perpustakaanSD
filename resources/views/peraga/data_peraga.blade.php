@@ -30,7 +30,7 @@
             <div class="card mb-4">
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class=" table table-buku table-bordered" id="datatable" width="100%" cellspacing="0">
+                        <table class=" table table-buku table-bordered table-striped" id="datatable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
                                 	<th width="6%">No</th>
