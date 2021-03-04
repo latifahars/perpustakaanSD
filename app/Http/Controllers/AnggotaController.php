@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Anggota;
+use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\File;
+use App\Imports\ImportAnggota;
 
 class AnggotaController extends Controller
 {
@@ -73,5 +76,17 @@ class AnggotaController extends Controller
 
     public function tampilImportAnggota() {
         return view('anggota.import_anggota');
+    }
+
+    public function importAnggota(Request $request)
+    {
+        $file = $request->file('file');
+        $namaFile = $file->getClientOriginalName();
+        $file->move('Anggota', $namaFile);
+
+        Excel::import(new ImportAnggota, public_path('/Anggota/' . $namaFile));
+        File::delete(public_path('/Anggota/' . $namaFile));
+
+        return redirect('/data_anggota')->with('sukses', 'Import Data Anggota Berhasil!');
     }
 }

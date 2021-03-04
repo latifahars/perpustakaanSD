@@ -6,14 +6,18 @@
 	<main>
         <div class="container-fluid">
             <div class="card mb-4">
+                @include('partial.error')
                 <div class="card-header">
-                    <a href="/data_anggota"><i class="fas fa-chevron-circle-left mr-2"></i></a>
+                    <a href="/data_anggota"><i class="fas fa-chevron-circle-left mr-3"></i></a>
                     Import Data Anggota
                 </div>
                 <div class="card-body">
                     <div class="card mb-4 p-2">
-                        Choose File<br>Upload
-                        @include('partial.error')
+                        <form id="import_form" action="/data_anggota/import_anggota" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            <input name="file" type="file" required='required'>
+                            <button type="submit" class="btn btn-primary pb-1 pt-1">Import</button>
+                        </form>
                     </div>
                     <div class="card mb-4 p-2">
                         <h4>Petunjuk Import</h4>

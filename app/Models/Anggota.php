@@ -10,6 +10,7 @@ class Anggota extends Model
     use HasFactory;
 
      protected $table = 'anggota';
+     protected $fillable = ['nis', 'nama', 'kelas'];
 
     public function peminjaman()
     {
