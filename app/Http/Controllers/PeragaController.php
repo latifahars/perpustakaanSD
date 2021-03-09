@@ -83,7 +83,7 @@ class PeragaController extends Controller
             $peraga->delete();
         }
 
-        return redirect('data_peraga')->with('hapus', 'Peraga Telah Dihapus!');
+        return redirect('/data_peraga')->with('hapus', 'Peraga Telah Dihapus!');
     }
 
 }

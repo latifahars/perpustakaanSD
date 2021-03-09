@@ -38,7 +38,7 @@
                                         <td>{{ $p-> anggota-> nama }}</td>
                                         <td>{{ $p-> buku-> judul }}</td>
                                         <td>{{ $p-> buku-> kategori-> nama }}</td>
-                                        <td>{{ $p-> tgl_pinjam }}</td>
+                                        <td>{{ \Carbon\Carbon::parse($p->tgl_pinjam)->format('d-m-Y') }}</td>
                                         <td>
                                             <a href="{{ url('peminjaman/kembali' . $p->id) }}" data-toggle="tooltip" onclick="return konfirmasi()" id="kembali">
                                                 <i class="fa-2x fas fa-check-square kembali {{ $p->getStatus() ? 'lewat' : 'belum' }}"></i>

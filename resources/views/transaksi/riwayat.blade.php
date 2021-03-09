@@ -35,8 +35,8 @@
                                     <td>{{ $r-> anggota-> nis }}</td>
                                     <td>{{ $r-> anggota-> nama }}</td>
                                     <td>{{ $r-> buku-> judul }}</td>
-                                    <td>{{ $r-> tgl_pinjam }}</td>
-                                    <td>{{ $r-> tgl_kembali }}</td>
+                                    <td>{{ \Carbon\Carbon::parse($r->tgl_pinjam)->format('d-m-Y') }}</td>
+                                    <td>{{ \Carbon\Carbon::parse($r->tgl_kembali)->format('d-m-Y H:i') }}</td>
                                 </tr>
                                 @endforeach
                             </tbody>

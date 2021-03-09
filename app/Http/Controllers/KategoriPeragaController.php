@@ -47,7 +47,7 @@ class KategoriPeragaController extends Controller
 	    $kategori->nama =$request->nama;
 
 		$kategori->save();
-		return redirect('data_peraga/kategori')->with('sukses', 'Edit Kategori Berhasil!');
+		return redirect('/data_peraga/kategori')->with('sukses', 'Edit Kategori Berhasil!');
 	}
 
 	public function hapusKategori($idkategori) {
@@ -56,6 +56,6 @@ class KategoriPeragaController extends Controller
     		$kategori->delete();
     	}
 
-    	return redirect('data_peraga/kategori')->with('hapus', 'Kategori Telah Dihapus!');
+    	return redirect('/data_peraga/kategori')->with('hapus', 'Kategori Telah Dihapus!');
     }
 }

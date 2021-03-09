@@ -20,6 +20,7 @@ class AuthenticationController extends Controller
             return redirect()->intended('/dashboard');
         }
 
-        return back();
+        return back()->with(['error' => 'Nama Pengguna atau Password Salah!']);
+
     }
 }

@@ -23,7 +23,7 @@
                         </div>
                         <div class="form-group">
                             <label class="mb-1" for="deadline">Batas Peminjaman (minggu)</label>
-                            <input class="form-control py-3" id="deadline" name="deadline" type="text" value="{{ $kategori->deadline }}" />
+                            <input class="form-control py-3" id="deadline" name="batas_peminjaman" type="text" value="{{ $kategori->deadline }}" />
                             <div id="error">{{ $errors->first('deadline') }}</div>
                         </div>
                         <div class="form-group mt-4 mb-0">

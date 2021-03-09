@@ -71,7 +71,7 @@ class AnggotaController extends Controller
             $anggota->delete();
         }
 
-        return redirect('data_anggota')->with('hapus', 'Hapus Anggota Berhasil!');
+        return redirect('/data_anggota')->with('hapus', 'Hapus Anggota Berhasil!');
     }
 
     public function tampilImportAnggota() {

@@ -82,11 +82,11 @@ class TransaksiController extends Controller
     public function pengembalian($idtransaksi) 
     {
         $peminjaman = Peminjaman::find($idtransaksi);
-        $peminjaman->tgl_kembali = new \DateTime();
+        $peminjaman->tgl_kembali = Carbon::now()->format('Y-m-d H:i');;
         $buku = $peminjaman->buku();
         $buku->increment('eksemplar', 1);
         $peminjaman->save();
-        return redirect('peminjaman')->with('sukses', 'Pengembalian Buku Berhasil!');
+        return redirect('/peminjaman')->with('sukses', 'Pengembalian Buku Berhasil!');
     }
 
     public function tampilLewatDeadline() 

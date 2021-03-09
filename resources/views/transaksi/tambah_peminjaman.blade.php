@@ -8,7 +8,7 @@
             @include('partial.alert')
             <div class="card mb-4">
                 <div class="card-header">
-                    <a href="/peminjaman"><i class="fas fa-chevron-circle-left mr-2"></i></a>
+                    <a href="/peminjaman"><i class="fas fa-chevron-circle-left mr-3"></i></a>
                     Tambah Peminjaman Buku
                 </div>
                 <div class="card-body">

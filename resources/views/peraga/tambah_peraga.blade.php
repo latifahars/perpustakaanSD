@@ -7,7 +7,7 @@
         <div class="container-fluid">
             <div class="card mb-4">
                 <div class="card-header">
-                    <a href="/data_peraga"><i class="fas fa-chevron-circle-left"></i></a>
+                    <a href="/data_peraga"><i class="fas fa-chevron-circle-left mr-3"></i></a>
                     Tambah Alat Peraga
                 </div>
                 <div class="card-body">

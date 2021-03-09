@@ -20,20 +20,11 @@
       </div>
       <form name="login" method="post" action="{{ url('login') }}" class="login-container">
         @csrf
-        @include('partial.error')
+        <center>@include('partial.alert')</center>
         <p><input type="email" name="email" placeholder="Email" required></p>
         <p><input type="password" name="password" placeholder="Password" required></p>
         <p><button type="submit" name="login">Login</button></p>
       </form>
-    </div>
-    <div style="bottom: auto; margin-top: 189px">
-        <footer class="py-3 bg-light mt-auto">
-            <div class="container-fluid">
-                <div class="small">
-                    <div class="text-muted" style="text-align: center;">Copyright &copy; Perpustakaan SDN Tayuban 2021</div>
-                </div>
-            </div>
-        </footer>
     </div>
 </body>
 </html>

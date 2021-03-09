@@ -13,7 +13,7 @@ class BukuController extends Controller
     public function tampilBuku() {
 
         $buku = Buku::with('kategori','sumber')->get();
-
+        
         return view('buku.data_buku', compact('buku'));
     }
 
@@ -127,7 +127,7 @@ class BukuController extends Controller
             $buku->delete();
         }
 
-        return redirect('data_buku')->with('hapus', 'Hapus Buku Berhasil!');
+        return redirect('/data_buku')->with('hapus', 'Hapus Buku Berhasil!');
     }
 
     public function tampilDetailBuku($idbuku) 

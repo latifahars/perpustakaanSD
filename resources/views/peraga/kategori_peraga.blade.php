@@ -78,7 +78,7 @@
 
                             <div class="form-group">
                                 <label class="mb-1" for="nama">Nama Kategori</label>
-                                <input class="form-control py-3" id="nama" name="nama" type="text" value="" autofocus />
+                                <input class="form-control py-3" id="nama" name="nama" type="text" value=""/>
                             </div>
 
                             <div class="modal-footer">

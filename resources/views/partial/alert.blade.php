@@ -8,3 +8,8 @@
         {{ session('hapus') }}
     </div>
 @endif
+@if (session('error'))
+     <div class="alert alert-danger mb-1">
+	     {{ session('error') }}
+	 </div>
+ @endif

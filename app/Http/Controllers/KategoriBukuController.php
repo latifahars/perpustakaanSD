@@ -19,12 +19,12 @@ class KategoriBukuController extends Controller
 	{
 		$request->validate([
 	    'nama' => 'required',
-	    'deadline' => 'required'
+	    'batas_peminjaman' => 'required|numeric'
 		]);
 
 		$kategori = new KategoriBuku();
 		$kategori->nama = $request->nama;
-		$kategori->deadline =$request->deadline;
+		$kategori->deadline =$request->batas_peminjaman;
 		$kategori->save();
 
 		return back()->with('sukses', 'Tambah Kategori Berhasil!');
@@ -40,14 +40,16 @@ class KategoriBukuController extends Controller
 	{
 		
 		$request->validate([
-	    'deadline' => 'required'
+	    'nama' => 'required',
+	    'batas_peminjaman' => 'required|numeric'
 		]);
 		
-		$kategori = KategoriBuku::find($idkategori);
-	    $kategori->deadline =$request->deadline;
+		$kategori = KategoriBuku::find($idkategori); 
+		$kategori->nama = $request->nama;
+	    $kategori->deadline =$request->batas_peminjaman;
 
 		$kategori->save();
-		return redirect('data_buku/kategori')->with('sukses', 'Edit Kategori Berhasil!');
+		return redirect('/data_buku/kategori')->with('sukses', 'Edit Kategori Berhasil!');
 	}
 
 	public function hapusKategori($idkategori) {
