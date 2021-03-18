@@ -390,7 +390,11 @@ table{
 }
 
 /*struktur*/
-
+.body-struktur{
+	background: url('Struktur Organisasi2.png');
+	height: 500px;
+	width: 1000px;
+}
 
 /*Pencarian Buku*/
 .body-pencarian{

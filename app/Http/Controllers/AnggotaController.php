@@ -27,7 +27,7 @@ class AnggotaController extends Controller
     public function tambahAnggota(Request $request) 
     {
         $request->validate([
-        'nama' => 'required','max:30',
+        'nama' => ['required', 'max:30'],
         'nis' => 'required|numeric|unique:App\Models\Anggota,nis',
         'kelas' => 'required'
         ]);
@@ -50,7 +50,7 @@ class AnggotaController extends Controller
     public function editAnggota(Request $request, $idanggota)
     {
         $request->validate([
-        'nama' => 'required','max:30',
+        'nama' => ['required', 'max:30'],
         'nis' => 'required|numeric',
         'kelas' => 'required'
         ]);

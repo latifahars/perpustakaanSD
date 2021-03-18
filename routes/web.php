@@ -84,6 +84,7 @@ Route::post('/data_peraga/edit_kategori/{idkategori}', [KategoriPeragaController
 Route::get('/data_peraga/hapus_kategori/{idkategori}', [KategoriPeragaController::class, 'hapusKategori']);
 
 Route::get('/struktur_org', [StrukturController::class, 'tampilStruktur']);
+Route::post('/struktur_org/edit/{idstruktur}', [StrukturController::class, 'editStruktur']);
 
 //profil
 Route::get('/edit_profil', [ProfilController::class, 'tampilProfil']);
