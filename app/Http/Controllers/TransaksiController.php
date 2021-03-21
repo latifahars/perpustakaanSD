@@ -22,8 +22,10 @@ class TransaksiController extends Controller
     }
 
 	public function tampilTambahPeminjaman() 
-    {
-        return view('transaksi.tambah_peminjaman');
+    {  
+        $anggota = Anggota::all();
+        $buku = Buku::all();
+        return view('transaksi.tambah_peminjaman', compact('anggota', 'buku'));
     }
 
     public function tambahPeminjaman(Request $request) 

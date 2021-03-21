@@ -30,12 +30,6 @@ class KategoriBukuController extends Controller
 		return back()->with('sukses', 'Tambah Kategori Berhasil!');
 	}
 
-	public function tampilEditKategori($idkategori)
-	{
-		$kategori = KategoriBuku::find($idkategori);
-		return view('buku.edit_kategori', compact('kategori'));
-	}
-
 	public function editKategori(Request $request, $idkategori)
 	{
 		

@@ -57,7 +57,6 @@ Route::get('/data_buku/import_buku', [BukuController::class, 'tampilImportBuku']
 
 Route::get('/data_buku/kategori', [KategoriBukuController::class, 'tampilKategori']);
 Route::post('/data_buku/kategori', [KategoriBukuController::class, 'tambahKategori']);
-Route::get('/data_buku/edit_kategori/{idkategori}', [KategoriBukuController::class, 'tampilEditKategori']);
 Route::post('/data_buku/edit_kategori/{idkategori}', [KategoriBukuController::class, 'editKategori']);
 Route::get('/data_buku/hapus_kategori/{idkategori}', [KategoriBukuController::class, 'hapusKategori']);
 
@@ -79,7 +78,6 @@ Route::get('data_peraga/hapus_peraga/{idperaga}', [PeragaController::class, 'hap
 
 Route::get('/data_peraga/kategori', [KategoriPeragaController::class, 'tampilKategori']);
 Route::post('/data_peraga/kategori', [KategoriPeragaController::class, 'tambahKategori']);
-Route::get('/data_peraga/edit_kategori/{idkategori}', [KategoriPeragaController::class, 'tampilEditKategori']);
 Route::post('/data_peraga/edit_kategori/{idkategori}', [KategoriPeragaController::class, 'editKategori']);
 Route::get('/data_peraga/hapus_kategori/{idkategori}', [KategoriPeragaController::class, 'hapusKategori']);
 
@@ -88,7 +86,7 @@ Route::post('/struktur_org/edit/{idstruktur}', [StrukturController::class, 'edit
 
 //profil
 Route::get('/edit_profil', [ProfilController::class, 'tampilProfil']);
-Route::post('/edit_profil', [ProfilController::class, 'simpanProfil']);
+Route::post('/edit_profil', [ProfilController::class, 'editProfil']);
 
 //antarmuka anggota
 Route::get('/pencarian_buku', [AMAnggotaController::class, 'tampilPencarian']);

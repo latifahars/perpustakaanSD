@@ -142,7 +142,7 @@
             if (jabatan) {
                 $("#jabatan").attr("readonly", true);
             }else{
-                $("#jabatan").attr("readonly", false);
+               
             }
             $('#nama').val(nama);
 

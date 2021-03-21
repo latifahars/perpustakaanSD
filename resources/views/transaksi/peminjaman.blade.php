@@ -53,25 +53,4 @@
             </div>
         </div>
     </main>
-    <script type="text/javascript">
-        $(document).on('click', '#kembali', function(e){
-                e.preventDefault();
-                var link = $(this).attr('href');
-                
-                Swal.fire({
-                    title: 'Akan Melakukan Pengembalian?',
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#43A047',
-                    cancelButtonColor: '#546E7A',
-                    cancelButtonText: 'Tidak',
-                    confirmButtonText: 'Ya',
-                    reverseButtons: true
-                    }).then((result) => {
-                    if (result.isConfirmed) {
-                        window.location = link;
-                    }
-                })
-            })
-    </script>
 @endsection

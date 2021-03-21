@@ -5,7 +5,7 @@
 @section('content')
 	<main>
         <div class="container-fluid" style="padding-top: 0px">
-            <div class="card mb-4" >
+            <div class="card mb-4" style="height: 510px">
                 <div class="card-header">
                     <a href="/data_buku"><i class="fas fa-chevron-circle-left mr-3"></i></a>
                     Tambah Buku Perpustakaan
@@ -105,7 +105,7 @@
                                 </td>
                             </tr>
                         </table>
-                        <div class="form-group mt-3">
+                        <div class="form-group mt-2 mb-2">
                             <a class="btn btn-danger pb-1 pt-1" style="float: left;" href="/data_buku">Batal</a>
                             <button class="btn btn-success pb-1 pt-1" style="float: right;" type="submit">Simpan</button>
                         </div>

@@ -14,7 +14,8 @@ class ProfilController extends Controller
 
         return view('edit_profil', compact('user'));
     }
-    public function simpanProfil(Request $request) {
+    
+    public function editProfil(Request $request) {
 		$request->validate([
 			'name' => ['required', 'max:30'],
 			'email' => ['required','email'],

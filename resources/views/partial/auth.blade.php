@@ -11,6 +11,7 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('style.css') }}">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('sweetalert2/sweetalert2.min.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" rel="stylesheet" />
 	<title>@yield('title')</title>
 </head>
 <body>

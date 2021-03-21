@@ -30,13 +30,6 @@ class KategoriPeragaController extends Controller
 		return back()->with('sukses', 'Tambah Kategori Berhasil!');
 	}
 
-    public function tampilEditKategori($idkategori) {
-
-    	$kategori = KategoriPeraga::find($idkategori);
-
-		return view('peraga.edit_kategori', compact('kategori'));
-    }
-
     public function editKategori(Request $request, $idkategori)
 	{
 		$request->validate([

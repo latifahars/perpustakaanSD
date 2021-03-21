@@ -15,13 +15,23 @@
                     <form method="post" action="">
                         @csrf
                         <div class="form-group">
-                            <label class="mb-1" for="nis">NIS</label> 
-                            <input class="form-control py-3" id="nis" type="text" name="nis" placeholder="Masukkan NIS" value="{{ old('nis') }}" autofocus/>
+                            <label class="mb-1" for="nis">Masukkan Anggota</label> 
+                            <select id="anggota" class="form-control py-3" name="nis">
+                                <option value="">--- Pilih Anggota ---</option>
+                                @foreach ($anggota as $a)
+                                    <option value="{{ $a->nis }}">{{ $a->nis }} - {{ $a->nama }}</option>
+                                @endforeach
+                            </select>
                             <div id="error">{{ $errors->first('nis') }}</div>
                         </div>
                         <div class="form-group">
-                            <label class="mb-1" for="kode">Kode Buku</label> 
-                            <input class="form-control py-3" id="kode" type="text" name="kode" placeholder="Masukkan Kode Buku" value="{{ old('kode') }}"/>
+                            <label class="mb-1" for="kode">Masukkan Buku</label> 
+                            <select id="buku" class="form-control" name="kode">
+                                <option value="">--- Pilih Buku ---</option>
+                                @foreach ($buku as $b)
+                                    <option value="{{ $b->kode }}">{{ $b->kode }} - {{ $b->judul }}</option>
+                                @endforeach
+                            </select>
                             <div id="error">{{ $errors->first('kode') }}</div>
                         </div>
                         <div class="form-group mt-4 mb-0">
@@ -33,4 +43,12 @@
             </div>
         </div>
     </main>
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
+    <script type="text/javascript">
+     $(document).ready(function() {
+         $('#anggota').select2();
+         $('#buku').select2();
+     });
+    </script>
 @endsection
