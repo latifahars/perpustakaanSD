@@ -7,6 +7,10 @@ use App\Models\Buku;
 use App\Models\KategoriBuku;
 use App\Models\Penerbit;
 use App\Models\SumberBuku;
+use App\Imports\ImportBuku;
+use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\File;
+
 
 class BukuController extends Controller
 {
@@ -135,8 +139,21 @@ class BukuController extends Controller
         $buku = Buku::find($idbuku);
         return view('buku.detail_buku', compact('buku'));
     }
+
     public function tampilImportBuku() 
     {
         return view('buku.import_buku');
+    }
+
+    public function importBuku(Request $request)
+    {
+        $file = $request->file('file');
+        $namaFile = $file->getClientOriginalName();
+        $file->move('Buku', $namaFile);
+
+        Excel::import(new ImportBuku, public_path('/Buku/' . $namaFile));
+        File::delete(public_path('/Buku/' . $namaFile));
+
+        return redirect('/data_buku')->with('sukses', 'Import Data Buku Berhasil!');
     }
 }

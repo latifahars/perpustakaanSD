@@ -54,6 +54,7 @@ Route::post('/data_buku/edit_buku/{idbuku}', [BukuController::class, 'editBuku']
 Route::get('/data_buku/hapus_buku/{idbuku}', [BukuController::class, 'hapusBuku']);
 Route::get('/data_buku/detail_buku/{idbuku}', [BukuController::class, 'tampilDetailBuku']);
 Route::get('/data_buku/import_buku', [BukuController::class, 'tampilImportBuku']);
+Route::post('/data_buku/import_buku', [BukuController::class, 'importBuku']);
 
 Route::get('/data_buku/kategori', [KategoriBukuController::class, 'tampilKategori']);
 Route::post('/data_buku/kategori', [KategoriBukuController::class, 'tambahKategori']);

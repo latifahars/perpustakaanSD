@@ -20,7 +20,7 @@
                         <table class="table table-bordered table-striped" id="datatable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                	<th width="13%">Id Transaksi</th>
+                                	<th width="8%">Id</th>
                                     <th width="7%">NIS</th>
                                     <th width="19%">Nama</th>
                                     <th width="29%">Judul Buku</th>

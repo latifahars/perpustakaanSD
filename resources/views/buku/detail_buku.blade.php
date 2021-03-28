@@ -7,7 +7,7 @@
         <div class="container-fluid">
             <div class="card mb-4">
                 <div class="card-header">
-                    <a href="/data_buku"><i class="fas fa-chevron-circle-left mr-2"></i></a>
+                    <a href="/data_buku"><i class="fas fa-chevron-circle-left mr-3"></i></a>
                     Detail Buku {{$buku-> judul}}
                 </div>
                 <div class="card-body" style="padding: 0 0 0 20px">
@@ -57,7 +57,7 @@
                         <tr>
                             <td>Tanggal Diterima</td>
                             <td>:</td>
-                            <td>{{$buku-> tgl_diterima}}</td>
+                            <td>{{ \Carbon\Carbon::parse($buku->tgl_diterima)->format('d-m-Y') }}</td>
                         </tr>
                     </table>
                 </div> 

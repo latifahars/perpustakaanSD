@@ -17,8 +17,9 @@ class TransaksiController extends Controller
     public function tampilPeminjaman() 
     {
     	$peminjaman = Peminjaman::where('tgl_kembali', null)->get();
+        $today = Carbon::now()-> format('Y-m-d');
 
-        return view('transaksi.peminjaman', compact('peminjaman'));
+        return view('transaksi.peminjaman', compact('peminjaman', 'today'));
     }
 
 	public function tampilTambahPeminjaman() 

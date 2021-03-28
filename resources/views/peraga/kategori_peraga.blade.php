@@ -6,7 +6,6 @@
 	<main>
         <div class="container-fluid">
             @include('partial.alert')
-            @include('partial.error')
             <div class="card mb-4">
                 <div class="card-header">
                     <form method="post" action="">
@@ -28,6 +27,7 @@
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table table-bordered table-buku table-striped" id="datatable" width="100%" cellspacing="0">
+                            <div id="error">{{ $errors->first('nama') }}</div>
                             <thead>
                                 <tr>
                                 	<th width="7%">No</th>
@@ -62,37 +62,38 @@
         </div>
     </main>
     <div class="modal fade" id="edit-modal">
-            <div id="modal-edit" class="modal-dialog modal-dialog-centered" role="document">
-            <div id="modal-content" class="modal-content">
-                <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">EDIT KATEGORI</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                </div>
-                <div class="modal-body">
-                    <div class="wrapper" style="margin: 0">
-                        <div class="form">
-                            <form id="edit_form" action="" method="POST">
-                                @csrf
+        <div id="modal-edit" class="modal-dialog modal-dialog-centered" role="document">
+        <div id="modal-content" class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">EDIT KATEGORI</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body">
+                <div class="wrapper" style="margin: 0">
+                    <div class="form">
+                        <form id="edit_form" action="" method="POST">
+                            @csrf
 
-                            <div class="form-group">
-                                <label class="mb-1" for="nama">Nama Kategori</label>
-                                <input class="form-control py-3" id="nama" name="nama" type="text" value=""/>
-                            </div>
-
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                                <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
-                            </div>
-                    
-                            </form>
+                        <div class="form-group">
+                            <label class="mb-1" for="nama">Nama Kategori</label>
+                            <input class="form-control py-3" id="nama" name="nama" type="text" value=""/>
+                            <div id="error">{{ $errors->first('nama') }}</div>
                         </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                            <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+                        </div>
+                
+                        </form>
                     </div>
                 </div>
             </div>
-            </div>
         </div>
+        </div>
+    </div>
 
         <script>
           $(document).on('click','#edit_item',function(){

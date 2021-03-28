@@ -6,7 +6,6 @@
 	<main>
         <div class="container-fluid">
             @include('partial.alert')
-            @include('partial.error')
             <div class="card mb-4">
                 <div class="card-header">
                     <form method="post" action="">
@@ -30,9 +29,11 @@
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table table-bordered table-striped" id="datatable" width="100%" cellspacing="0">
+                            <div id="error">{{ $errors->first('nama') }}</div>
+                            <div id="error">{{ $errors->first('deadline') }}</div>
                             <thead>
                                 <tr>
-                                	<th width="7%">No</th>
+                                    <th width="10%">Kode</th>
                                     <th width="40%">Nama Kategori</th>
                                     <th width="28%">Batas Peminjaman (minggu)</th>
                                     <th width="12%">Aksi</th>
@@ -42,7 +43,7 @@
                                 @foreach ($kategori as $k)
                                     @if($k->nama == 'Buku Pelajaran')
                                         <tr>
-                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $k->id }}</td>
                                             <td>{{ $k->nama }}</td>
                                             <td>{{ $k->deadline }}</td>
                                             <td> 
@@ -58,7 +59,7 @@
                                         </tr>
                                     @else
                                     <tr>
-                                        <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $k->id }}</td>
                                         <td>{{ $k->nama }}</td>
                                         <td>{{ $k->deadline }}</td>
                                         <td>

@@ -52,7 +52,7 @@
                                     <td>{{ $p-> kategori-> nama }}</td>
                                     <td>{{ $p-> jumlah }}</td>
                                     <td>{{ $p-> sumber }}</td>
-                                    <td>{{ $p-> tgl_diterima }}</td>
+                                    <td>{{ \Carbon\Carbon::parse($p->tgl_diterima)->format('d-m-Y') }}</td>
                                     <td>
                                     	<a href="{{ url('data_peraga/edit_peraga/' . $p->id) }}"><i class="fas fa-edit"></i></a>
                                     	<a href="{{ url('data_peraga/hapus_peraga/' . $p->id) }}" data-toggle="tooltip" id="pesan"><i class="fas fa-trash-alt pr-0 ml-3"></i></a>

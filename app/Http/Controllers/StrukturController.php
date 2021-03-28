@@ -30,6 +30,6 @@ class StrukturController extends Controller
 	    $struktur->jabatan=$request->jabatan;
 
 		$struktur->save();
-		return redirect('/struktur_org');
+		return redirect('/struktur_org')->with('sukses', 'Edit Nama Berhasil!');
 	}
 }
