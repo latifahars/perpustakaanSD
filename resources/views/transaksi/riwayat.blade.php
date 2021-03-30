@@ -25,7 +25,7 @@
                                     <th width="19%">Nama</th>
                                     <th width="29%">Judul Buku</th>
                                     <th width="13%">Tgl Pinjam</th>
-                                    <th width="17%">Tgl Kembali</th>
+                                    <th width="17%">Waktu Kembali</th>
                                 </tr>
                             </thead>
                             <tbody>

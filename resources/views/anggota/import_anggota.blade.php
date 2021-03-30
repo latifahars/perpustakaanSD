@@ -24,7 +24,7 @@
                         <ol type="1" style="padding-left: 60px">
                             <li>Siapkan file excel dan beri baris pertama nama kolom yang akan diisi seperti gambar di bawah (Harus Terurut Sesuai Gambar!).</li>
                            <li>Semua kolom harus diisi (tidak boleh kosong) dan pastikan tidak ada yang double.</li>
-                           <li>"Nama" maksimal 30 karakter.</li>
+                           <li>"Nama" maksimal 30 karakter dan pastikan "NIS" tidak ada yang double.</li>
                            <li>"Kelas" dapat diisikan dengan format "Kelas x", contoh: Kelas 6.</li>
                            <li>Klik Choose File, pilih file yang telah disiapkan kemudian klik Import.</li>
                         </ol>

@@ -13,7 +13,6 @@ class AnggotaController extends Controller
 {
     public function tampilAnggota() 
     {
-
         $anggota = Anggota::all();
         
         return view('anggota.data_anggota', compact('anggota'));
@@ -89,4 +88,12 @@ class AnggotaController extends Controller
 
         return redirect('/data_anggota')->with('sukses', 'Import Data Anggota Berhasil!');
     }
+
+    public function tampilCetakAnggota()
+    {
+        $anggota = Anggota::all();
+
+        return view('anggota.cetak_kartu', compact('anggota'));
+    }
+
 }

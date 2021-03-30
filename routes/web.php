@@ -69,6 +69,7 @@ Route::post('/data_anggota/edit_anggota/{idanggota}', [AnggotaController::class,
 Route::get('/data_anggota/hapus_anggota/{idanggota}', [AnggotaController::class, 'hapusAnggota']);
 Route::get('/data_anggota/import_anggota', [AnggotaController::class, 'tampilImportAnggota']);
 Route::post('/data_anggota/import_anggota', [AnggotaController::class, 'importAnggota']);
+Route::get('/data_anggota/cetak_anggota', [AnggotaController::class, 'tampilCetakAnggota']);
 
 Route::get('/data_peraga', [PeragaController::class, 'tampilPeraga']);
 Route::get('/data_peraga/tambah_peraga', [PeragaController::class, 'tampilTambahPeraga']);

@@ -21,12 +21,12 @@
                         <table class="table table-bordered table-buku table-striped" id="datatable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                	<th width="5%">Id</th>
+                                	<th width="6%">Id</th>
                                     <th width="6%">NIS</th>
                                     <th width="12%">Nama</th>
                                     <th width="20%">Judul Buku</th>
                                     <th width="10%">Kategori</th>
-                                    <th width="10%">Tgl Pinjam</th>
+                                    <th width="9%">Tgl Pinjam</th>
                                     <th width="10%">Batas Waktu</th>
                                     <th width="8%">Kembali</th>
                                 </tr>

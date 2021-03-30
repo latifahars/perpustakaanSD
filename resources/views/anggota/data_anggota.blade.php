@@ -10,7 +10,7 @@
                 <li class="breadcrumb-item">Data Anggota</li>
             </ol>
             @include('partial.error')
-             <div class="card mb-2 p-2">
+            <div class="card mb-2 p-2">
                 <div class="row row-peminjaman">
                     <div class="form-group mb-0 pl-1 col-sm-10">
                         <a href="data_anggota/tambah_anggota" class="btn btn-primary pb-1 pt-1">TAMBAH ANGGOTA <i class="fas fa-plus-circle"></i></a>
@@ -19,7 +19,7 @@
                         </a>
                     </div>
                     <div class="pl-0 mr-2">
-                        <a href="" class="btn btn-success pb-1 pt-1">CETAK KARTU <i class="fas fa-print"></i></a>
+                        <a href="data_anggota/cetak_anggota" class="btn btn-success pb-1 pt-1">CETAK KARTU <i class="fas fa-print"></i></a>
                     </div>
                 </div>    
             </div>
