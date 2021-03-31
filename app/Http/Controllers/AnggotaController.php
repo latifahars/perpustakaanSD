@@ -8,6 +8,7 @@ use App\Models\Anggota;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\File;
 use App\Imports\ImportAnggota;
+use PDF;
 
 class AnggotaController extends Controller
 {
@@ -96,4 +97,23 @@ class AnggotaController extends Controller
         return view('anggota.cetak_kartu', compact('anggota'));
     }
 
+    public function cetakAnggota(Request $request)
+    {
+        $request->validate([
+        'cetak' => ['required'],
+        
+        ]);
+
+        $cetak = $request->cetak;
+        // $data = Anggota::whereIn('id', [$request->cetak])->get();
+        foreach ($cetak as $key => $value) {
+            $array[] = $value;
+        }
+        $data = Anggota::findMany($array);
+
+        $pdf = PDF::loadView('anggota.kartu_anggota', compact('data'))->setPaper('a4', 'potrait');
+
+        return $pdf->stream('kartu_anggota',array('Attachment'=>false));
+        // return $pdf->download('Kartu Anggota.pdf');
+    }
 }
