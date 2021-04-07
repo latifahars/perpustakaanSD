@@ -9,9 +9,21 @@
                 <li class="breadcrumb-item"><a href="">Transaksi</a></li>
                 <li class="breadcrumb-item">Peminjaman Buku</li>
             </ol>
-            
-            <div class="form-group mb-2">
-                <a href="peminjaman/tambah_peminjaman" class="btn btn-primary pb-1 pt-1">TAMBAH PEMINJAMAN <i class="fas fa-plus-circle"></i></a>
+            <div class="card mb-2 p-2">
+                <div class="row">
+                    <div class="form-group col-sm-4 mb-0">
+                        <a href="peminjaman/tambah_peminjaman" class="btn btn-primary pb-1 pt-1 ml-2">TAMBAH PEMINJAMAN <i class="fas fa-plus-circle"></i></a>
+                    </div>
+                    <div class="col-sm-8" >
+                        <a href="" class="btn btn-success pb-1 pt-1 mr-2"
+                            style="cursor:pointer; float: right;"
+                            id="edit_item" 
+                            data-toggle="modal" 
+                            data-target="#cetak-modal">
+                            CETAK LAPORAN <i class="fas fa-print"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
             @include('partial.error')
             @include('partial.alert')
@@ -61,6 +73,84 @@
             </div>
         </div>
     </main>
+    <div class="modal fade" id="cetak-modal">
+        <div id="modal-edit" class="modal-dialog modal-dialog-centered" role="document">
+        <div id="modal-content" class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">CETAK LAPORAN</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body">
+                <div class="wrapper" style="margin: 0">
+                    <div class="form">
+                        <form id="edit_form" action="" method="POST">
+                            @csrf
+                        <div class="form-group">
+                            <label class="mb-1" for="nama">Dari Bulan: </label>
+                            <select name="bulan_awal" style="width: 100%;height: 40px;">
+                                <option value="">--- Pilih Bulan ---</option>
+                                <option value="01">Januari</option>
+                                <option value="02">Februari</option>
+                                <option value="03">Maret</option>
+                                <option value="04">April</option>
+                                <option value="05">Mei</option>
+                                <option value="06">Juni</option>
+                                <option value="07">Juli</option>
+                                <option value="08">Agustus</option>
+                                <option value="09">September</option>
+                                <option value="10">Oktober</option>
+                                <option value="11">November</option>
+                                <option value="12">Desember</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="mb-1" for="nama">Sampai  Bulan: </label>
+                            <select name="bulan_akhir" style="width: 100%;height: 40px;">
+                                <option value="">--- Pilih Bulan ---</option>
+                                <option value="01">Januari</option>
+                                <option value="02">Februari</option>
+                                <option value="03">Maret</option>
+                                <option value="04">April</option>
+                                <option value="05">Mei</option>
+                                <option value="06">Juni</option>
+                                <option value="07">Juli</option>
+                                <option value="08">Agustus</option>
+                                <option value="09">September</option>
+                                <option value="10">Oktober</option>
+                                <option value="11">November</option>
+                                <option value="12">Desember</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="mb-1" for="nama">Tahun</label>
+                            <select name="tahun" style="width: 100%;height: 40px;">
+                                @foreach($tahun as $t)
+                                    <option value="{{$t->tahun}}">{{$t->tahun}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                            <button type="submit" class="btn btn-success">CETAK</button>
+                        </div>
+                
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <script>
+      $(document).on('click','#edit_item',function(){
+
+            $('#edit_form').attr('action', '/peminjaman/cetak_laporan');
+      })
+    </script>
     <script type="text/javascript">
 
         $(document).on('click', '#kembali', function(e){

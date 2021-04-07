@@ -44,6 +44,7 @@ Route::get('/peminjaman/tambah_peminjaman', [TransaksiController::class, 'tampil
 Route::post('/peminjaman/tambah_peminjaman', [TransaksiController::class, 'tambahPeminjaman']);
 Route::get('/peminjaman/lewat_deadline', [TransaksiController::class, 'tampilLewatDeadline']);
 Route::get('/riwayat', [TransaksiController::class, 'tampilRiwayat']);
+Route::post('/peminjaman/cetak_laporan', [TransaksiController::class, 'cetakLaporan']);
 
 //data
 Route::get('/data_buku', [BukuController::class, 'tampilBuku']);
@@ -70,7 +71,8 @@ Route::get('/data_anggota/hapus_anggota/{idanggota}', [AnggotaController::class,
 Route::get('/data_anggota/import_anggota', [AnggotaController::class, 'tampilImportAnggota']);
 Route::post('/data_anggota/import_anggota', [AnggotaController::class, 'importAnggota']);
 Route::get('/data_anggota/cetak_anggota', [AnggotaController::class, 'tampilCetakAnggota']);
-Route::post('/data_anggota/cetak_kartu', [AnggotaController::class, 'cetakAnggota']);
+Route::post('/data_anggota/cetak_kartu', [AnggotaController::class, 'cetakKartu']);
+Route::get('/data_anggota/cari_anggota', [AnggotaController::class, 'cariAnggota'])->name('cari');
 
 
 Route::get('/data_peraga', [PeragaController::class, 'tampilPeraga']);

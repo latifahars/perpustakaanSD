@@ -94,26 +94,89 @@ class AnggotaController extends Controller
     {
         $anggota = Anggota::all();
 
-        return view('anggota.cetak_kartu', compact('anggota'));
+        // return view('anggota.cetak_kartu', compact('anggota'));
+        return view('anggota.cetak_kartu');
     }
 
-    public function cetakAnggota(Request $request)
+    public function cetakKartu(Request $request)
     {
         $request->validate([
-        'cetak' => ['required'],
-        
+            'cetak' => ['required'],
         ]);
 
         $cetak = $request->cetak;
-        // $data = Anggota::whereIn('id', [$request->cetak])->get();
         foreach ($cetak as $key => $value) {
             $array[] = $value;
         }
         $data = Anggota::findMany($array);
 
-        $pdf = PDF::loadView('anggota.kartu_anggota', compact('data'))->setPaper('a4', 'potrait');
-
-        return $pdf->stream('kartu_anggota',array('Attachment'=>false));
+        $pdf = PDF::loadView('anggota.kartu_anggota', compact('data'))->setPaper('A4', 'potrait');
         // return $pdf->download('Kartu Anggota.pdf');
+
+        return $pdf->stream('Kartu Anggota Perpustakaan.pdf');
+        // return view('anggota.kartu_anggota', compact('data'));
     }
+
+    public function cariAnggota(Request $request)
+
+    {
+        if($request->ajax())
+         {
+            $output = '';
+            $query = $request->get('query');
+            if($query != '')
+            {
+               $data = Anggota::where('nama', 'like', '%'.$query.'%')
+                 ->orWhere('nis', 'like', '%'.$query.'%')
+                 ->orWhere('kelas', 'like', '%'.$query.'%')
+                 ->orWhere('updated_at', 'like', '%'.$query.'%')
+                 ->orderBy('nama', 'asc')
+                 ->get();  
+            }
+            else
+              {
+                   $data = Anggota::all();
+              }
+          $total_row = $data->count();
+          if($total_row > 0)
+          {
+           foreach($data as $key=>$a)
+           {
+            $output .= '
+            <tr>'.
+                '<td>'.($key+1).'</td>'.
+
+                '<td>'.$a->nis.'</td>'.
+
+                '<td>'.$a->nama.'</td>'.
+
+                '<td>'.$a->kelas.'</td>'.
+
+                '<td>'.\Carbon\Carbon::parse($a->updated_at)->format('d-m-Y H:i').'</td>'.
+
+                '<td>'.'<center>'.
+                        '<div class="form-check">'.
+                          '<input class="form-check-input" type="checkbox" value="'.$a->id.'"  name="cetak[]">'
+                        .'</div>'
+                    .'</center>'.'</td>'.
+            '</tr>';
+           }
+          }
+          else
+          {
+           $output = '
+           <tr>
+            <td align="center" colspan="6">Data tidak ditemukan</td>
+           </tr>
+           ';
+          }
+          $data = array(
+           'table_data'  => $output,
+          );
+
+          return response()->json($data);
+         }
+
+    }    
+
 }

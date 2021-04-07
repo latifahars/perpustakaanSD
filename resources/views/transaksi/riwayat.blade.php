@@ -9,11 +9,6 @@
                 <li class="breadcrumb-item"><a href="">Transaksi</a></li>
                 <li class="breadcrumb-item">Riwayat Peminjaman Buku</li>
             </ol>
-            		<div class="mb-2">
-                        <a href="" class="btn btn-success pb-1 pt-1">
-                            CETAK RIWAYAT PEMINJAMAN <i class="fas fa-print"></i>
-                        </a>
-					</div>
             <div class="card mb-4">
                 <div class="card-body">
                     <div class="table-responsive">

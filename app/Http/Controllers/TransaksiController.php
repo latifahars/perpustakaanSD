@@ -10,6 +10,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Builder;
+use PDF;
 
 
 class TransaksiController extends Controller
@@ -18,8 +19,10 @@ class TransaksiController extends Controller
     {
     	$peminjaman = Peminjaman::where('tgl_kembali', null)->get();
         $today = Carbon::now()-> format('Y-m-d');
+        $tahun = Peminjaman::selectRaw('YEAR(tgl_pinjam) as tahun')->groupBy('tahun')->get();
 
-        return view('transaksi.peminjaman', compact('peminjaman', 'today'));
+
+        return view('transaksi.peminjaman', compact('peminjaman', 'today', 'tahun'));
     }
 
 	public function tampilTambahPeminjaman() 
@@ -97,14 +100,40 @@ class TransaksiController extends Controller
         $lewat = Peminjaman::where('tgl_kembali', null)
                     ->whereDate('deadline','<',Carbon::today())
                     ->get();
+        $today = Carbon::now()-> format('Y-m-d');
 
-        return view('transaksi.lewat_deadline', compact('lewat'));
+        return view('transaksi.lewat_deadline', compact('lewat', 'today'));
     }
 
     public function tampilRiwayat() 
     {
         $riwayat = Peminjaman::whereNotNull('tgl_kembali')->get();
 
+
         return view('transaksi.riwayat', compact('riwayat'));
+    }
+
+    public function cetakLaporan(Request $request)
+    {
+        $request->validate([
+            'bulan_awal' => ['required'],
+            'bulan_akhir' => ['required'],
+            'tahun' => ['required'],
+        ]);
+        // $tahun = Peminjaman::selectRaw('MONTH(tgl_pinjam) as tahun')->groupBy('tahun')->get();
+        $data = Peminjaman::whereMonth('tgl_pinjam', '>=', $request->bulan_awal)
+                ->whereMonth('tgl_pinjam', '<=', $request->bulan_akhir)
+                ->whereYear('tgl_pinjam', $request->tahun)->get();
+        $tahun = $request->tahun;
+        $test1 = '2000'.$request->bulan_awal.'01';
+        $test2 = '2000'.$request->bulan_akhir.'01';
+        $bulan_awal = Carbon::parse($test1)->translatedFormat('F');
+        $bulan_akhir = Carbon::parse($test2)->translatedFormat('F'); 
+
+        $pdf = PDF::loadView('transaksi.cetak_laporan', compact('data', 'bulan_awal', 'bulan_akhir', 'tahun'))->setPaper('A4', 'potrait');
+        // return $pdf->download('Kartu Anggota.pdf');
+
+        return $pdf->stream('Laporan Peminjaman Buku.pdf');
+        // return view('anggota.kartu_anggota', compact('data'));
     }
 }
