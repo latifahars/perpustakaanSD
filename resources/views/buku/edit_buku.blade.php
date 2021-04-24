@@ -7,16 +7,16 @@
         <div class="container-fluid" style="padding-top: 0px">
             <div class="card mb-4" >
                 <div class="card-header">
-                    <a href="/data_buku"><i class="fas fa-chevron-circle-left mr-2"></i></a>
+                    <a href="/data_buku"><i class="fas fa-chevron-circle-left mr-3"></i></a>
                     Edit Buku
                 </div>
                 <div class="card-body">
                     <form method="post" action="">
                         @csrf
-                        <table class="table-tambahbuku">
+                        <table class="table-tambahbuku" width="100%">
                             <tr>
-                                <td><label for="kode">Kode</label></td>
-                                <td width="100%">
+                                <td width="15%"><label for="kode">Kode</label></td>
+                                <td>
                                     <div class="form-group">
                                         <input class="form-control bk-c" id="kode" type="text" name="kode" value="{{ $buku->kode }}" />
                                         <div id="error">{{ $errors->first('kode') }}</div>
@@ -36,7 +36,7 @@
                                 <td><label for="kategori">Kategori</label></td>
                                 <td>
                                     <div class="form-group">
-                                        <select name="kategori" style="width: 100%;height: 40px;">
+                                        <select name="kategori" style="width: 100%;height: 35px;">
                                             @foreach ($kategori as $k)
                                                 @if ($k->idkategori == $buku->idkategori)
                                                     <option value="{{ $k->id }}" selected>{{ $k->nama }}</option>
@@ -95,10 +95,11 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td><label for="date">Tgl Terima</label></td>
+                                <td><label for="date">Tanggal Diterima</label></td>
                                 <td>
                                     <input
                                     class="form-control bk-c"
+                                    style= "width: 300px"
                                     id="date"
                                     type="date"
                                     name="tanggal_diterima"

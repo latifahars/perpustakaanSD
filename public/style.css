@@ -401,6 +401,7 @@ table{
 .table-tambah tr td label{
 	padding-right: 9px;
 	padding-bottom: 7px;
+	width: 100%;
 }
 
 /*struktur*/

@@ -71,6 +71,12 @@ class TransaksiController extends Controller
             $bukupinjam->decrement('eksemplar', 1);
         }
 
+        $nis = $request->nis;
+        $kode = $request->kode;
+        $namaBelum = Anggota::where('nis', $nis)->first();
+        $nama = $namaBelum->nama;
+        $judulBelum = Buku::where('kode', $kode)->first();
+        $judul = $judulBelum->judul;
 
     	$peminjaman = new Peminjaman();
         $peminjaman->anggota_id = $anggotapinjam->id;
@@ -81,8 +87,14 @@ class TransaksiController extends Controller
         $peminjaman->tgl_pinjam = Carbon::today();
         $peminjaman->deadline = $date->addWeeks($bukupinjam->kategori->deadline); 
         $peminjaman->save();
+        $anggota = Anggota::all();
+        $buku = Buku::all();
 
-        return redirect('/peminjaman')->with('sukses', 'Tambah Peminjaman Berhasil!');
+        // return view('transaksi.tambah_peminjaman',compact('nis', 'anggota', 'buku'),['tulisan'=>'Property is updated .']);
+        // return redirect()->route('tambah')->with( ['nis' => $nis] );
+        return view('transaksi.tambah_peminjaman')->with('anggota', $anggota)->with('kode', $kode)->with('buku', $buku)->with('nis', $nis)->with('nama', $nama)->with('judul', $judul);
+        // return view('transaksi.tambah_peminjaman', compact('nis','nama','kode', 'judul'));
+        // return redirect('/peminjaman/tambah_peminjaman')->with('anggota', $anggota)->with('kode', $kode)->with('buku', $buku)->with('nis', $nis)->with('nama', $nama)->with('judul', $judul);
     }
 
     public function pengembalian($idtransaksi) 
@@ -123,17 +135,17 @@ class TransaksiController extends Controller
         // $tahun = Peminjaman::selectRaw('MONTH(tgl_pinjam) as tahun')->groupBy('tahun')->get();
         $data = Peminjaman::whereMonth('tgl_pinjam', '>=', $request->bulan_awal)
                 ->whereMonth('tgl_pinjam', '<=', $request->bulan_akhir)
-                ->whereYear('tgl_pinjam', $request->tahun)->get();
+                ->whereYear('tgl_pinjam', $request->tahun)
+                ->orderBy('tgl_pinjam', 'asc')->get();
         $tahun = $request->tahun;
         $test1 = '2000'.$request->bulan_awal.'01';
         $test2 = '2000'.$request->bulan_akhir.'01';
         $bulan_awal = Carbon::parse($test1)->translatedFormat('F');
         $bulan_akhir = Carbon::parse($test2)->translatedFormat('F'); 
 
-        $pdf = PDF::loadView('transaksi.cetak_laporan', compact('data', 'bulan_awal', 'bulan_akhir', 'tahun'))->setPaper('A4', 'potrait');
-        // return $pdf->download('Kartu Anggota.pdf');
+        $pdf = PDF::loadView('transaksi.cetak_laporan', compact('data', 'bulan_awal', 'bulan_akhir', 'tahun'))->setPaper('A4', 'landscape');
+        // return $pdf->download('Laporan.pdf');
 
         return $pdf->stream('Laporan Peminjaman Buku.pdf');
-        // return view('anggota.kartu_anggota', compact('data'));
     }
 }

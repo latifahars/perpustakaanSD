@@ -9,12 +9,13 @@
     <script src="bbootstrap/js/bootstrap.min.js"></script>
 	<link href="{{ asset('fontawesome/css/all.min.css') }}" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="{{ asset('style.css') }}">
+    <link rel="icon" href="{{ asset('tutwuri2.png') }}">
 	<title>Pencarian Buku</title>
 </head>
 <body class="body-pencarian">
     <header class="header-pencarian">
-        <nav class="navbar navbar-default navbar-fixed-top left_area">
-            <h3>Perpustakaan <span style="color: #FFEE58">SDN Tayuban</span></h3>
+        <nav class="navbar navbar-default navbar-fixed-top left_area" >
+            <h3  style="font-weight: 900">Perpustakaan <span style="color: #FFEE58">SDN Tayuban</span></h3>
         </nav>
     </header>
     <div class="content-pencarian">
@@ -30,7 +31,7 @@
                                     <input type="text" class="form-control cari" name="cari" placeholder="Masukkan Identitas Buku" autofocus required>
                                 </td>
                                 <td>
-                                    <button class="btn btn-cari" type="submit"><i class="fas fa-search"></i> Cari</button>
+                                    <button class="btn btn-cari ml-1" type="submit"><i class="fas fa-search"></i> Cari</button>
                                 </td>
                             </tr>
                         </table>

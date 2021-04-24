@@ -5,7 +5,7 @@
 @section('content')
 	<main>
         <div class="container-fluid">
-            <ol class="breadcrumb mb-4">
+            <ol class="breadcrumb mb-3">
                 <li class="breadcrumb-item"><a href="">Profil</a></li>
                 <li class="breadcrumb-item">Edit Profil</li>
             </ol>
@@ -34,9 +34,11 @@
     	                    <input class="form-control py-3" id="password" type="password" name="password" />
                             <div id="error">{{ $errors->first('password') }}</div>
     	                </div>
-    	                <div class="form-group mt-4 mb-0">
-    	                    <button class="btn btn-success" style="float: right;" value="submit">Simpan</button>
-    	                </div>
+                        <center>
+        	                <div class="form-group mt-4 mb-0">
+        	                    <button class="btn btn-success" value="submit">Simpan</button>
+        	                </div>
+                        </center>
                     </form>
                 </div>
             </div>

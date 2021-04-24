@@ -38,9 +38,9 @@
                                     <th width="12%">Nama</th>
                                     <th width="20%">Judul Buku</th>
                                     <th width="10%">Kategori</th>
-                                    <th width="9%">Tgl Pinjam</th>
-                                    <th width="10%">Batas Waktu</th>
-                                    <th width="8%">Kembali</th>
+                                    <th width="10%">Tgl Pinjam</th>
+                                    <th width="11%">Batas Waktu</th>
+                                    <th width="9%">Kembali</th>
                                 </tr>
                             </thead>
                             <tbody>

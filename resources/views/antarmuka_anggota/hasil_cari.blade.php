@@ -11,12 +11,13 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('style.css') }}">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('sweetalert2/sweetalert2.min.css') }}">
+    <link rel="icon" href="{{ asset('tutwuri2.png') }}">
 	<title>Pencarian Buku</title>
 </head>
 <body class="body">
     <header class="header-pencarian">
         <nav class="navbar navbar-default navbar-fixed-top left_area">
-            <h3>Perpustakaan <span style="color: #FFEE58">SDN Tayuban</span></h3>
+            <h3 style="font-weight: 900;">Perpustakaan <span style="color: #FFEE58">SDN Tayuban</span></h3>
             <div class="right_area">
                 <a href="{{ url('pencarian_buku') }}" class="btn btn-danger btn-kembali">Kembali</a>
             </div>

@@ -9,7 +9,8 @@
     <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
 	<link href="{{ asset('fontawesome/css/all.min.css') }}" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="{{ asset('style.css') }}">
-	<title>Login</title>
+  <link rel="icon" href="{{ asset('tutwuri2.png') }}">
+	<title>Perpustakaan | Login</title>
 </head>
 <body class="body-login">
     <div class="login">

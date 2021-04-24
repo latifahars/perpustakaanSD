@@ -13,3 +13,8 @@
 	     {{ session('error') }}
 	 </div>
  @endif
+@if(session('pinjam'))
+    <div class="alert alert-success mb-1">
+        {{ session('pinjam') }}
+    </div>
+@endif

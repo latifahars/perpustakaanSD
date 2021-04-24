@@ -40,7 +40,7 @@ Route::get('/dashboard', [DashboardController::class, 'tampilDashboard']);
 //transaksi
 Route::get('/peminjaman', [TransaksiController::class, 'tampilPeminjaman']);
 Route::get('/peminjaman/kembali{idtransaksi}', [TransaksiController::class, 'pengembalian']);
-Route::get('/peminjaman/tambah_peminjaman', [TransaksiController::class, 'tampilTambahPeminjaman']);
+Route::get('/peminjaman/tambah_peminjaman', [TransaksiController::class, 'tampilTambahPeminjaman'])->name('tambah');
 Route::post('/peminjaman/tambah_peminjaman', [TransaksiController::class, 'tambahPeminjaman']);
 Route::get('/peminjaman/lewat_deadline', [TransaksiController::class, 'tampilLewatDeadline']);
 Route::get('/riwayat', [TransaksiController::class, 'tampilRiwayat']);
