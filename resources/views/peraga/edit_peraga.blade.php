@@ -36,7 +36,7 @@
                                 <td><label for="kategori">Kategori</label></td>
                                 <td>
                                     <div class="form-group mb-1">
-                                        <select name="kategori" style="width: 100%;height: 35px;">
+                                        <select id="kategori" name="kategori" style="width: 100%;height: 35px;">
                                             @foreach ($kategori as $k)
                                                 @if ($k->idkategori == $peraga->idkategori)
                                                     <option value="{{ $k->id }}" selected>{{ $k->nama }}</option>
@@ -91,4 +91,14 @@
             </div>
         </div>
     </main>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var nama = {!!json_encode($nama)!!};
+            console.log(nama);
+            let kategori = $(this).data('kategori');
+            $('#kategori option').filter(function(){
+                return ($(this).val() == nama)
+                }).prop('selected', true);
+        })
+    </script>
 @endsection

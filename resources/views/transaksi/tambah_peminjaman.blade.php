@@ -49,7 +49,12 @@
                     <h4><i class="far fa-check-circle"></i> SUKSES</h4>
                     <table>
                         <tr>
-                            <td width="100px">Kode Buku</td>
+                            <td>Id Peminjaman</td>
+                            <td>:</td>
+                            <td>{{$id}}</td>
+                        </tr>
+                        <tr>
+                            <td width="120px">Kode Buku</td>
                             <td>:</td>
                             <td>{{$kode}}</td>
                         </tr>
@@ -80,10 +85,5 @@
          $('#anggota').select2();
          $('#buku').select2();
      });
-
-     // var anggota = $(#anggota).val();
-     // var buku = $(#buku).val();
-     // var nama = $(#anggota).attr('data-nama');
-     // var judul = $(#buku).attr('data-judul');
     </script>
 @endsection

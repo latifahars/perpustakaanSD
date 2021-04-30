@@ -85,14 +85,15 @@ class TransaksiController extends Controller
 
         $date = Carbon::today();
         $peminjaman->tgl_pinjam = Carbon::today();
-        $peminjaman->deadline = $date->addWeeks($bukupinjam->kategori->deadline); 
+        $peminjaman->deadline = $date->addWeeks($bukupinjam->kategori->deadline);
         $peminjaman->save();
         $anggota = Anggota::all();
         $buku = Buku::all();
+        $id = Peminjaman::orderBy('created_at', 'desc')->first()->id;
 
         // return view('transaksi.tambah_peminjaman',compact('nis', 'anggota', 'buku'),['tulisan'=>'Property is updated .']);
         // return redirect()->route('tambah')->with( ['nis' => $nis] );
-        return view('transaksi.tambah_peminjaman')->with('anggota', $anggota)->with('kode', $kode)->with('buku', $buku)->with('nis', $nis)->with('nama', $nama)->with('judul', $judul);
+        return view('transaksi.tambah_peminjaman')->with('anggota', $anggota)->with('kode', $kode)->with('buku', $buku)->with('nis', $nis)->with('nama', $nama)->with('judul', $judul)->with('id', $id);
         // return view('transaksi.tambah_peminjaman', compact('nis','nama','kode', 'judul'));
         // return redirect('/peminjaman/tambah_peminjaman')->with('anggota', $anggota)->with('kode', $kode)->with('buku', $buku)->with('nis', $nis)->with('nama', $nama)->with('judul', $judul);
     }

@@ -37,12 +37,11 @@ class KategoriBukuController extends Controller
 	    'nama' => 'required',
 	    'batas_peminjaman' => 'required|numeric'
 		]);
-		
-		$kategori = KategoriBuku::find($idkategori); 
-		$kategori->nama = $request->nama;
-	    $kategori->deadline =$request->batas_peminjaman;
-
-		$kategori->save();
+		$kategori = KategoriBuku::where('id', $idkategori)
+            ->update([
+                'nama' => $request->get('nama'),
+                'deadline' => $request->get('batas_peminjaman'),
+            ]);
 		return redirect('/data_buku/kategori')->with('sukses', 'Edit Kategori Berhasil!');
 	}
 

@@ -49,8 +49,9 @@ class PeragaController extends Controller
 
     	$peraga = Peraga::find($idperaga);
     	$kategori= KategoriPeraga::all();
+        $nama = $peraga->kategori_peraga_id;
 
-        return view('peraga.edit_peraga', compact('peraga','kategori'));
+        return view('peraga.edit_peraga', compact('peraga','kategori', 'nama'));
     }
 
     public function editPeraga(Request $request, $idperaga)

@@ -37,11 +37,11 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($level1 as $key =>$k)
+                                @foreach ($kategori as $key =>$k)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $k->nama }}</td>
-                                        <td>{{ $k->jumlah }}</td>
+                                    <td>{{ $k->peraga_count }}</td>
                                     <td>
                                         <a style="cursor:pointer" id="edit_item" 
                                             data-toggle="modal" 

@@ -229,17 +229,32 @@ header{
 .card_1 .card-footer{
 	color: #00897B;
 }
+.card_1 .card-footer:hover{
+	background-color: #A7FFEB;
+}
 .card_2 .card-footer{
 	color: #E53935;
+}
+.card_2 .card-footer:hover{
+	background-color: #FFCDD2;
 }
 .card_3 .card-footer{
 	color: #00ACC1;
 }
+.card_3 .card-footer:hover{
+	background-color: #B3E5FC;
+}
 .card_4 .card-footer{
 	color: #3949AB;
 }
+.card_4 .card-footer:hover{
+	background-color: #C5CAE9;
+}
 .card_5 .card-footer{
 	color: #D81B60;
+}
+.card_5 .card-footer:hover{
+	background-color: #F8BBD0;
 }
 .card-body h3{
 	text-align: right;
@@ -425,6 +440,17 @@ table{
 	background-color: #5C6BC0;
 	font-size: 22px;
 	font-weight: 900;
+}
+.left_area_cari h3{
+	color: #fff;
+	margin: 0;
+	padding-top: 5px;
+	text-transform: uppercase;
+	font-size: 22px;
+	font-weight: 900;
+}
+.left_area_cari span{
+	color: #1DC4E7;
 }
 .card-pencarian{
 	height: 450px;

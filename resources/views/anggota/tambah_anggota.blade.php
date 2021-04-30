@@ -15,7 +15,7 @@
                         @csrf
                         <table width="100%">
                             <tr>
-                                <td width="15%"><label class="mb-1" for="nis">NIS</label></td>
+                                <td width="10%"><label class="mb-1" for="nis">NIS</label></td>
                                 <td>
                                     <div class="form-group">
                                         <input class="form-control py-3" id="nis" type="text" name="nis" placeholder="Masukkan NIS" value="{{ old('nis') }}" autofocus />
@@ -37,7 +37,7 @@
                                 <td>
                                     <div class="form-group">
                                         <select name="kelas" style="width: 100%;height: 40px;">
-                                            <option value="">--- Pilih Kelas ---</option>
+                                            <option selected disabled value="">--- Pilih Kelas ---</option>
                                             <option value="Kelas 1">Kelas 1</option>
                                             <option value="Kelas 2">Kelas 2</option>
                                             <option value="Kelas 3">Kelas 3</option>

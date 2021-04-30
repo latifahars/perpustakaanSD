@@ -37,7 +37,7 @@
                                 <td>
                                     <div class="form-group mb-1">
                                         <select name="kategori" style="width: 100%;height: 35px;">
-                                                <option value="">--- Pilih Kategori ---</option>
+                                                <option selected disabled value="">--- Pilih Kategori ---</option>
                                             @foreach ($kategori as $k)
                                                 <option value="{{ $k->id }}">{{ $k->nama }}</option>
                                             @endforeach
