@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\KategoriBuku;
+use App\Models\Peminjaman;
+use Carbon\Carbon;
 
 class KategoriBukuController extends Controller
 {
@@ -42,6 +44,14 @@ class KategoriBukuController extends Controller
                 'nama' => $request->get('nama'),
                 'deadline' => $request->get('batas_peminjaman'),
             ]);
+        // $date = Carbon::today();
+        // $peminjaman = Peminjaman::whereHas('buku', function ($query) {
+        //                         $query->whereHas('kategori', function($query){
+        //                             $query->where('id', "=", $idkategori);
+        //                         });
+        //                     })->update([
+        //     							'deadline' => $date->addWeeks($request->get('batas_peminjaman'))
+        // 							]);
 		return redirect('/data_buku/kategori')->with('sukses', 'Edit Kategori Berhasil!');
 	}
 

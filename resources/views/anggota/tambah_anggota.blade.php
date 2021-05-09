@@ -1,6 +1,6 @@
 @extends('partial.auth')
 
-@section('title','Data Anggota')
+@section('title','Tambah Anggota')
 
 @section('content')
 	<main>

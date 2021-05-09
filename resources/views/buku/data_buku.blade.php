@@ -32,13 +32,13 @@
                         <table class="table table-bordered table-buku table-striped" id="datatable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                	<th width="9%">Kode</th>
+                                	<th width="11%">Kode</th>
                                     <th width="23%">Judul Buku</th>
                                     <th>Kategori</th>
                                     <th width="14%">Penerbit</th>
                                     <th width="8%">Page</th>
                                     <th width="10%">Jumlah</th>
-                                    <th width="12%">Asal</th>
+                                    <th width="11%">Asal</th>
                                     <th width="11%">Aksi</th>
                                 </tr>
                             </thead>
@@ -66,5 +66,4 @@
             </div>
         </div>
     </main>
-
 @endsection
