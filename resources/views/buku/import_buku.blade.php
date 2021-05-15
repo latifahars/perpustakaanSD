@@ -6,12 +6,12 @@
     <main>
         <div class="container-fluid">
             @include('partial.error')
-            <div class="card mb-1">
+            <div class="card mb-1 pb-0">
                 <div class="card-header">
                     <a href="/data_buku"><i class="fas fa-chevron-circle-left mr-3"></i></a>
                     Import Data Buku
                 </div>
-                <div class="card-body pt-3">
+                <div class="card-body pt-3 pb-1">
                     <div class="card mb-2 p-2">
                         <form id="import_form" action="/data_buku/import_buku" method="POST" enctype="multipart/form-data">
                             @csrf

@@ -32,7 +32,8 @@ class AMAnggotaController extends Controller
         })->orWhereHas('penerbit', function($query) use ($request){
             return $query->where('nama','like', '%' . $request->cari . '%');
         })->get();
+        $katakunci = $request->cari;
  
-        return view('antarmuka_anggota.hasil_cari', compact('buku'));
+        return view('antarmuka_anggota.hasil_cari', compact('buku', 'katakunci'));
     }
 }

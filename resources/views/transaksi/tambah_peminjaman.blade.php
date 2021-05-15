@@ -19,7 +19,7 @@
                             <select id="anggota" class="form-control py-3" name="nis">
                                 <option value="">--- Pilih Anggota ---</option>
                                 @foreach ($anggota as $a)
-                                    <option value="{{ $a->nis }}" data-nama ="{{ $a->nama }}">{{ $a->nis }} - {{ $a->nama }}</option>
+                                    <option value="{{ $a->nis }}">{{ $a->nis }} - {{ $a->nama }}</option>
                                 @endforeach
                             </select>
                             <div id="error">{{ $errors->first('nis') }}</div>
@@ -78,7 +78,7 @@
             @endif     
         </div>
     </main>
-    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+     <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
     <script type="text/javascript">
      $(document).ready(function() {

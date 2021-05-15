@@ -27,14 +27,14 @@
         @if ($buku->isEmpty())
             <center>
                 <div class="alert alert-danger mb-1" style="margin-top: 100px;width: 900px">
-                    <h2>Hasil pencarian tidak ditemukan</h2>
+                    <h2>Hasil Pencarian " {{ $katakunci }} " Tidak Ditemukan</h2>
                     <div class="rectangle"></div>
                 </div>
             </center>
         @else
             <center>
                 <div class="alert alert-success mb-1" style="width: 700px">
-                    <h5>Hasil pencarian Buku</h5>
+                    <h5>Hasil Pencarian: {{ $katakunci }}</h5>
                 </div>
             </center>
             <div class="table-responsive" style="padding: 20px">
