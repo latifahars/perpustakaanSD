@@ -398,6 +398,30 @@ table{
 	background-color: #004D40;
 	color: white;
 }
+.btn-pengarang{
+	background-color: #7E57C2;
+	color: white;
+}
+.btn-pengarang:hover{
+	background-color: #651FFF;
+	color: white;
+}
+.btn-penerbit{
+	background-color: #5E35B1;
+	color: white;
+}
+.btn-penerbit:hover{
+	background-color:#651FFF;
+	color: white;
+}
+.btn-asal{
+	background-color: #311B92;
+	color: white;
+}
+.btn-asal:hover{
+	background-color:#651FFF;
+	color: white;
+}
 .table-detailbuku tr{
 	height: 20px;
 }

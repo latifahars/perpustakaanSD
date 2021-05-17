@@ -10,7 +10,7 @@ class PeragaController extends Controller
 {
    	public function tampilPeraga() {
 
-   		$peraga = Peraga::with('kategori')->get();
+   		$peraga = Peraga::with('kategori')->orderBy('created_at', 'desc')->get();
 
         return view('peraga.data_peraga', compact('peraga'));
     }

@@ -17,7 +17,7 @@ class TransaksiController extends Controller
 {
     public function tampilPeminjaman() 
     {
-    	$peminjaman = Peminjaman::where('tgl_kembali', null)->get();
+    	$peminjaman = Peminjaman::where('tgl_kembali', null)->orderBy('created_at', 'desc')->get();
         $today = Carbon::now()-> format('Y-m-d');
         $tahun = Peminjaman::selectRaw('YEAR(tgl_pinjam) as tahun')->groupBy('tahun')->get();
 
@@ -120,7 +120,7 @@ class TransaksiController extends Controller
 
     public function tampilRiwayat() 
     {
-        $riwayat = Peminjaman::whereNotNull('tgl_kembali')->get();
+        $riwayat = Peminjaman::whereNotNull('tgl_kembali')->orderBy('tgl_kembali', 'desc')->get();
 
 
         return view('transaksi.riwayat', compact('riwayat'));

@@ -9,6 +9,11 @@
                 <li class="breadcrumb-item"><a href="">Profil</a></li>
                 <li class="breadcrumb-item">Edit Profil</li>
             </ol>
+            <div class="card mb-2 p-2">
+                <div class="form-group pl-1 pr-0 mb-0">
+                    <a href="edit_profil/tambah_akun" class="btn btn-primary pb-1 pt-1">TAMBAH AKUN <i class="fas fa-plus-circle"></i></a>
+                </div>
+            </div>
             @include('partial.alert')
             <div class="card mb-4">
                 <div class="card-header">

@@ -5,9 +5,12 @@ use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\BukuController;
+use App\Http\Controllers\PenerbitController;
+use App\Http\Controllers\SumberBukuController;
 use App\Http\Controllers\KategoriBukuController;
 use App\Http\Controllers\AnggotaController;
 use App\Http\Controllers\PeragaController;
+use App\Http\Controllers\SumberPeragaController;
 use App\Http\Controllers\KategoriPeragaController;
 use App\Http\Controllers\StrukturController;
 use App\Http\Controllers\ProfilController;
@@ -62,6 +65,16 @@ Route::post('/data_buku/kategori', [KategoriBukuController::class, 'tambahKatego
 Route::post('/data_buku/edit_kategori/{idkategori}', [KategoriBukuController::class, 'editKategori']);
 Route::get('/data_buku/hapus_kategori/{idkategori}', [KategoriBukuController::class, 'hapusKategori']);
 
+Route::get('/data_buku/penerbit', [PenerbitController::class, 'tampilPenerbit']);
+Route::post('/data_buku/penerbit', [PenerbitController::class, 'tambahPenerbit']);
+Route::post('/data_buku/edit_penerbit/{idpenerbit}', [PenerbitController::class, 'editPenerbit']);
+Route::get('/data_buku/hapus_penerbit/{idpenerbit}', [PenerbitController::class, 'hapusPenerbit']);
+
+Route::get('/data_buku/asal_perolehan', [SumberBukuController::class, 'tampilSumber']);
+Route::post('/data_buku/asal_perolehan', [SumberBukuController::class, 'tambahSumber']);
+Route::post('/data_buku/edit_asal/{idsumber}', [SumberBukuController::class, 'editSumber']);
+Route::get('/data_buku/hapus_asal/{idsumber}', [SumberBukuController::class, 'hapusSumber']);
+
 Route::get('/data_anggota', [AnggotaController::class, 'tampilAnggota']);
 Route::get('/data_anggota/tambah_anggota', [AnggotaController::class, 'tampilTambahAnggota']);
 Route::post('/data_anggota/tambah_anggota', [AnggotaController::class, 'tambahAnggota']);
@@ -73,7 +86,6 @@ Route::post('/data_anggota/import_anggota', [AnggotaController::class, 'importAn
 Route::get('/data_anggota/cetak_anggota', [AnggotaController::class, 'tampilCetakAnggota']);
 Route::post('/data_anggota/cetak_kartu', [AnggotaController::class, 'cetakKartu']);
 Route::get('/data_anggota/cari_anggota', [AnggotaController::class, 'cariAnggota'])->name('cari');
-
 
 Route::get('/data_peraga', [PeragaController::class, 'tampilPeraga']);
 Route::get('/data_peraga/tambah_peraga', [PeragaController::class, 'tampilTambahPeraga']);
@@ -87,12 +99,20 @@ Route::post('/data_peraga/kategori', [KategoriPeragaController::class, 'tambahKa
 Route::post('/data_peraga/edit_kategori/{idkategori}', [KategoriPeragaController::class, 'editKategori']);
 Route::get('/data_peraga/hapus_kategori/{idkategori}', [KategoriPeragaController::class, 'hapusKategori']);
 
+Route::get('/data_peraga/asal_perolehan', [SumberPeragaController::class, 'tampilSumber']);
+Route::post('/data_peraga/asal_perolehan', [SumberPeragaController::class, 'tambahSumber']);
+Route::post('/data_peraga/edit_asal/{idsumber}', [SumberPeragaController::class, 'editSumber']);
+Route::get('/data_peraga/hapus_asal/{idsumber}', [SumberPeragaController::class, 'hapusSumber']);
+
 Route::get('/struktur_org', [StrukturController::class, 'tampilStruktur']);
 Route::post('/struktur_org/edit/{idstruktur}', [StrukturController::class, 'editStruktur']);
 
 //profil
 Route::get('/edit_profil', [ProfilController::class, 'tampilProfil']);
 Route::post('/edit_profil', [ProfilController::class, 'editProfil']);
+Route::get('edit_profil/tambah_akun', [ProfilController::class, 'tampilTambahAkun']);
+Route::post('/edit_profil/tambah_akun', [ProfilController::class, 'tambahAkun']);
+
 
 //antarmuka anggota
 Route::get('/pencarian_buku', [AMAnggotaController::class, 'tampilPencarian']);

@@ -59,6 +59,11 @@
                             <td>:</td>
                             <td>{{ \Carbon\Carbon::parse($buku->tgl_diterima)->format('d-m-Y') }}</td>
                         </tr>
+                        <tr>
+                            <td>Tanggal Input</td>
+                            <td>:</td>
+                            <td>{{ \Carbon\Carbon::parse($buku->create_at)->format('d-m-Y') }}</td>
+                        </tr>
                     </table>
                 </div> 
             </div>

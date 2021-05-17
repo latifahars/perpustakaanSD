@@ -20,7 +20,7 @@ class KategoriPeragaController extends Controller
     public function tambahKategori(Request $request)
 	{
 		$request->validate([
-	    'nama' => 'required',
+	    'nama' => 'required|unique:App\Models\KategoriPeraga,nama',
 		]);
 
 		$kategori = new KategoriPeraga();
@@ -33,7 +33,7 @@ class KategoriPeragaController extends Controller
     public function editKategori(Request $request, $idkategori)
 	{
 		$request->validate([
-	    'nama' => 'required',
+	    'nama' => 'required|unique:App\Models\KategoriPeraga,nama',
 		]);
 		
 		$kategori = KategoriPeraga::find($idkategori);

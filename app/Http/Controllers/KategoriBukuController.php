@@ -12,7 +12,7 @@ class KategoriBukuController extends Controller
     public function tampilKategori()
     {
         // SELECT * FROM Kategori
-        $kategori = KategoriBuku::all();
+        $kategori = KategoriBuku::orderBy('created_at', 'desc')->get();
         
         return view('buku.kategori_buku', compact('kategori'));
     }
@@ -20,7 +20,7 @@ class KategoriBukuController extends Controller
     public function tambahKategori(Request $request)
 	{
 		$request->validate([
-	    'nama' => 'required',
+	    'nama' => 'required|unique:App\Models\KategoriBuku,nama',
 	    'batas_peminjaman' => 'required|numeric'
 		]);
 

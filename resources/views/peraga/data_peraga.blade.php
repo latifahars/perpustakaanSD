@@ -14,14 +14,15 @@
             		<div class="col-sm-9" style="padding-left: 0">
                         <div class="form-group pl-1 pr-0 mb-0">
                             <a href="data_peraga/tambah_peraga" class="btn btn-primary pb-1 pt-1">TAMBAH PERAGA <i class="fas fa-plus-circle"></i></a>
-                        </div>
-					</div>
-                    <div class="col-sm-3" >
-                        <div class="form-group mb-0 pl-0 mr-2" style="float: right">
                             <a href="data_peraga/kategori" class="btn btn-tambahbuku pb-1 pt-1" type="submit">
                             KATEGORI PERAGA <i class="fas fa-layer-group"></i>
                             </a>
                         </div>
+					</div>
+                    <div class="col-sm-3" style="text-align: right;">
+                        <a href="data_peraga/asal_perolehan" class="btn btn-asal pb-1 pt-1 mr-2" type="submit">
+                            ASAL
+                        </a>
                     </div>
 	            </div>
             </div>

@@ -29,23 +29,25 @@
             @include('partial.alert')
             <div class="card mb-4">
                 <div class="card-body">
-                    <div class="table-responsive">
+                    <div>
                         <table class="table table-bordered table-buku table-striped" id="datatable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                	<th width="6%">Id</th>
+                                    <th width="0%" style="display: none;">No</th>
+                                	<th width="5%">Id</th>
                                     <th width="6%">NIS</th>
-                                    <th width="12%">Nama</th>
+                                    <th width="13%">Nama</th>
                                     <th width="20%">Judul Buku</th>
                                     <th width="10%">Kategori</th>
                                     <th width="10%">Tgl Pinjam</th>
                                     <th width="11%">Batas Waktu</th>
-                                    <th width="9%">Kembali</th>
+                                    <th width="8%">Kembali</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach($peminjaman as $p)
                                     <tr>
+                                        <td style="display: none;">{{ $loop->iteration }}</td>
                                         <td>{{ $p->id }}</td>
                                         <td>{{ $p-> anggota-> nis }}</td>
                                         <td>{{ $p-> anggota-> nama }}</td>

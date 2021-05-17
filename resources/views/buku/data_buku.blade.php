@@ -11,15 +11,25 @@
             </ol>
             <div class="card mb-2 p-2">
             	<div class="row row-peminjaman pr-2">
-                    <div class="form-group col-sm-9 mb-0 pl-1 pr-0">
+                    <div class="form-group col-sm-8 mb-0 pl-1 pr-0">
                         <a href="data_buku/tambah_buku" class="btn btn-primary pb-1 pt-1">TAMBAH BUKU <i class="fas fa-plus-circle"></i></a>
                         <a href="data_buku/import_buku" class="btn btn-import pb-1 pt-1">
                             IMPORT BUKU <i class="fas fa-file-upload"></i>
                         </a>
-                    </div>
-            		<div class="pl-0 col-sm-3">
-                        <a href="data_buku/kategori" class="btn btn-tambahbuku pb-1 pt-1" type="submit" style="float: right;">
+                        <a href="data_buku/kategori" class="btn btn-tambahbuku pb-1 pt-1" type="submit" >
                             KATEGORI BUKU <i class="fas fa-layer-group"></i>
+                        </a>
+                    </div>
+            		<div class="pl-0 col-sm-4" style="text-align: right;">
+                        
+                        <a href="data_buku/kategori" class="btn btn-pengarang pb-1 pt-1" type="submit">
+                            PENGARANG
+                        </a>
+                        <a href="data_buku/penerbit" class="btn btn-penerbit pb-1 pt-1" type="submit">
+                            PENERBIT
+                        </a>
+                        <a href="data_buku/asal_perolehan" class="btn btn-asal pb-1 pt-1" type="submit">
+                            ASAL
                         </a>
 					</div>
 	            </div>
@@ -28,10 +38,11 @@
             @include('partial.alert')
             <div class="card mb-4">
                 <div class="card-body">
-                    <div class="table-responsive">
+                    <div >
                         <table class="table table-bordered table-buku table-striped" id="datatable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
+                                    <th width="0%" style="display: none;">No</th>
                                 	<th width="11%">Kode</th>
                                     <th width="23%">Judul Buku</th>
                                     <th>Kategori</th>
@@ -45,6 +56,7 @@
                             <tbody>
                                 @foreach ($buku as $b)
                                 <tr>
+                                    <td style="display: none;">{{ $loop->iteration }}</td>
                                     <td>{{ $b-> kode }}</td>
                                     <td>{{ $b-> judul }}</td>
                                     <td>{{ $b-> kategori-> nama }}</td>

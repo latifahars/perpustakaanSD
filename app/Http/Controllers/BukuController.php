@@ -16,7 +16,7 @@ class BukuController extends Controller
 {
     public function tampilBuku() {
 
-        $buku = Buku::with('kategori','sumber')->get();
+        $buku = Buku::with('kategori','sumber')->orderBy('created_at', 'desc')->get();
         
         return view('buku.data_buku', compact('buku'));
     }
@@ -24,7 +24,9 @@ class BukuController extends Controller
     public function tampilTambahBuku() {
 
         $kategori = KategoriBuku::all();
-        return view('buku.tambah_buku', compact('kategori'));
+        $penerbit = Penerbit::all();
+        $asal = SumberBuku::all();
+        return view('buku.tambah_buku', compact('kategori', 'penerbit', 'asal'));
     }
 
     public function tambahBuku(Request $request) 
@@ -34,37 +36,21 @@ class BukuController extends Controller
         'judul' => 'required',
         'kategori' => 'required',
         'penerbit' => 'required',
-        'kota' => 'required',
         'jumlah' => 'required|numeric',
         'halaman' => 'required|numeric',
         'asal' => 'required',
         'tanggal_diterima' => 'required|date',
         ]);
 
-        if ($penerbit = Penerbit::where('nama', $request->penerbit)->first()){
-
-        } else{
-            $penerbit = new Penerbit();
-            $penerbit->nama = $request->penerbit;
-            $penerbit->kota = $request->kota;
-            $penerbit->save();
-        }
-        if ($sumber = SumberBuku::where('nama', $request->asal)->first()){
-            
-        } else{
-            $sumber = new SumberBuku();
-            $sumber->nama = $request->asal;
-            $sumber->save();
-        }
 
         $buku = new Buku();
         $buku->kode = $request->kode;
         $buku->judul = $request->judul;
         $buku->kategori_buku_id = $request->kategori;
-        $buku->penerbit_id = $penerbit->id;
+        $buku->penerbit_id = $request->penerbit;
         $buku->eksemplar = $request->jumlah;
         $buku->halaman = $request->halaman;
-        $buku->sumber_buku_id = $sumber->id;
+        $buku->sumber_buku_id = $request->asal;
         $buku->tgl_diterima = $request->tanggal_diterima;
         
         $buku->save();

@@ -14,7 +14,7 @@ class AnggotaController extends Controller
 {
     public function tampilAnggota() 
     {
-        $anggota = Anggota::all();
+        $anggota = Anggota::orderBy('created_at', 'desc')->get();
         
         return view('anggota.data_anggota', compact('anggota'));
     }

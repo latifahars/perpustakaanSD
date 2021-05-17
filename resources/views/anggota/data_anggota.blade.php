@@ -46,7 +46,7 @@
                                     <td>{{ $a->kelas }}</td>
                                     <td>
                                     	<a href="{{ url('data_anggota/edit_anggota/' . $a->id) }}"><i class="fas fa-edit" style="margin-right: 20px;margin-left: 15px"></i></a>
-                                    	<a href="{{ url('data_anggota/hapus_anggota/' . $a->id) }}" data-toggle="tooltip" id="pesan"><i class="fas fa-trash-alt"></i></a>
+                                    	<a href="{{ url('data_anggota/hapus_anggota/' . $a->id) }}" data-toggle="tooltip" id="hpsanggota"><i class="fas fa-trash-alt"></i></a>
                                     </td>
                                 </tr>
                                 @endforeach
@@ -57,4 +57,26 @@
             </div>
         </div>
     </main>
+    <script type="text/javascript">
+        $(document).on('click', '#hpsanggota', function(e){
+                e.preventDefault();
+                var link = $(this).attr('href');
+                
+                Swal.fire({
+                    title: 'Yakin Dihapus?',
+                    text: "Jika Anggota dihapus, maka Peminjaman oleh Anggota ikut terhapus!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#d33',
+                    cancelButtonColor: '#3085d6',
+                    cancelButtonText: 'Batal',
+                    confirmButtonText: 'Hapus',
+                    reverseButtons: true
+                    }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location = link;
+                    }
+                })
+            })
+    </script>
 @endsection

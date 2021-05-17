@@ -35,8 +35,8 @@
                             <tr>
                                 <td><label for="kategori">Kategori</label></td>
                                 <td>
-                                    <div class="form-group bk-c">
-                                        <select name="kategori" style="width: 100%;height: 35px;">
+                                    <div class="form-group bk-c mb-0">
+                                        <select id="kategori" name="kategori" style="width: 100%;height: 35px;">
                                                 <option selected disabled value="">--- Pilih Kategori ---</option>
                                             @foreach ($kategori as $k)
                                                 <option value="{{ $k->id }}">{{ $k->nama }}</option>
@@ -49,19 +49,13 @@
                             <tr>
                                 <td><label for="penerbit">Penerbit</label></td>
                                 <td>
-                                    <div class="form-group">
-                                        <input class="form-control bk-c" id="penerbit" type="text" name="penerbit" placeholder="Masukkan Penerbit" value="{{ old('penerbit') }}"/>
+                                    <select id="penerbit" class="form-control py-3 bk-c mb-0" name="penerbit">
+                                        <option selected disabled value="">--- Pilih Penerbit ---</option>
+                                        @foreach ($penerbit as $p)
+                                            <option value="{{ $p->id }}">{{ $p->id }} - {{ $p->nama }} - {{ $p->kota }}</option>
+                                        @endforeach
+                                    </select>
                                     <div id="error">{{ $errors->first('penerbit') }}</div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><label for="kota">Kota</label></td>
-                                <td>
-                                    <div class="form-group">
-                                        <input class="form-control bk-c" id="penerbit" type="text" name="kota" placeholder="Masukkan Kota Penerbit" value="{{ old('kota') }}"/>
-                                    <div id="error">{{ $errors->first('kota') }}</div>
-                                    </div> 
                                 </td>
                             </tr>
                             <tr>
@@ -85,10 +79,13 @@
                             <tr>
                                 <td><label for="asal">Asal</label></td>
                                 <td>
-                                   <div class="form-group">
-                                        <input class="form-control bk-c" id="asal" type="text" name="asal" placeholder="Masukkan Asal Perolehan" value="{{ old('sumber') }}"/>
+                                   <select id="asal" class="form-control py-3 bk-c mb-0" name="asal">
+                                        <option selected disabled value="">--- Pilih Asal Perolehan ---</option>
+                                        @foreach ($asal as $a)
+                                            <option value="{{ $a->id }}">{{ $a->id }} - {{ $a->nama }}</option>
+                                        @endforeach
+                                    </select>
                                     <div id="error">{{ $errors->first('asal') }}</div>
-                                    </div>
                                 </td>
                             </tr>
                             <tr>
@@ -115,4 +112,13 @@
             </div>
         </div>
     </main>
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
+    <script type="text/javascript">
+     $(document).ready(function() {
+         $('#penerbit').select2();
+         $('#kategori').select2();
+         $('#asal').select2();
+     });
+    </script>
 @endsection
