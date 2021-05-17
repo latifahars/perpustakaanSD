@@ -25,15 +25,14 @@
                     </form>
                 </div>
                 <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-bordered table-buku table-striped" id="datatable" width="100%" cellspacing="0">
+                    <div>
+                        <table class="table table-bordered table-striped" id="datatable" width="100%" cellspacing="0">
                             <div id="error">{{ $errors->first('nama') }}</div>
                             <thead>
                                 <tr>
                                 	<th width="7%">No</th>
                                     <th width="40%">Nama Kategori</th>
-                                    <th width="30%">Jumlah Alat Peraga</th>
-                                    <th width="10%">Aksi</th>
+                                    <th width="7%">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -41,7 +40,6 @@
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $k->nama }}</td>
-                                    <td>{{ $k->peraga_count }}</td>
                                     <td>
                                         <a style="cursor:pointer" id="edit_item" 
                                             data-toggle="modal" 

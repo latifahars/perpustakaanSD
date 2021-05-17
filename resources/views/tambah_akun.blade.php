@@ -11,49 +11,29 @@
             </ol>
             <div class="card mb-4">
                 <div class="card-header">
-                    <a href="/edit_profil"><i class="fas fa-chevron-circle-left mr-3"></i></a>
-                    Tambah Akun Petugas Perpustakaan
-                </div>
-                <div class="card-body p-2">
                     <form method="post" action="">
+                         <a href="{{ url('edit_profil') }}"><i class="fas fa-chevron-circle-left mt-2 mr-3"></i></a>
+                         Daftar Akun
                         @csrf
-                        <table width="100%">
+                        <table style="float: right;">
                             <tr>
-                                <td width="8%" style="padding-bottom: 17px"><label class="mb-0 pt-0" for="username">Username:</label></td>
                                 <td>
-                                    <div class="form-group">
-                                        <input class="form-control" id="username" type="text" name="username" placeholder="Masukkan Username" value="{{ old('username') }}" autofocus />
-                                        <div id="error">{{ $errors->first('username') }}</div>
-                                    </div>
+                                    <input class="form-control" id="username" type="text" name="username" placeholder="Masukkan Username" value="{{ old('username') }}" autofocus />
                                 </td>
-                                <td width="6%" style="padding-bottom: 17px"><label class="mb-0 mr-2" for="email" style="float: right;">Email:</label></td>
-                                <td>
-                                    <div class="form-group">
-                                        <input class="form-control" id="email" type="text" name="email" placeholder="Masukkan Email" value="{{ old('email') }}"/>
-                                        <div id="error">{{ $errors->first('email') }}</div>
-                                    </div>
+                                <td>                                 
+                                    <input class="form-control" id="email" type="text" name="email" placeholder="Masukkan Email" value="{{ old('email') }}"/>
                                 </td>
-                                <td width="9%" style="padding-bottom: 17px"><label class="mb-0 mr-2" for="password" style="float: right;">Password:</label></td>
+                                <td>                                    
+                                    <input class="form-control" type="password" id="password" type="text" name="password" placeholder="Masukkan Password" value="{{ old('password') }}"/>
+                                </td>
                                 <td>
-                                    <div class="form-group">
-                                        <input class="form-control" type="password" id="password" type="text" name="password" placeholder="Masukkan Password" value="{{ old('password') }}"/>
-                                        <div id="error">{{ $errors->first('password') }}</div>
-                                    </div>
+                                    <button class="btn btn-success pb-1 pt-1" type="submit">Simpan</a></button>
                                 </td>
                             </tr>
-                            <tr>
-                                <td colspan="6">
-                                    <center>
-                                    <div class="form-group mb-0">
-                                        <button class="btn btn-success" type="submit">Simpan</a></button>
-                                    </div>
-                                    </center>
-                                </td>
-                            </tr>
-                        </table>                   
+                        </table>
                     </form>
                 </div>
-            </div>
+                <div class="card-body">                   
                     <table class="table table-bordered table-striped" width="100%" cellspacing="0">
                         <thead>
                             <tr>
@@ -72,6 +52,8 @@
                             @endforeach
                         </tbody>
                     </table>
+                </div>
+                </div>
             </div>
         </div>
     </main>
