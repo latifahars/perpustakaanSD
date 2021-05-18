@@ -22,7 +22,7 @@
                     </div>
             		<div class="pl-0 col-sm-4" style="text-align: right;">
                         
-                        <a href="data_buku/kategori" class="btn btn-pengarang pb-1 pt-1" type="submit">
+                        <a href="data_buku/pengarang" class="btn btn-pengarang pb-1 pt-1" type="submit">
                             PENGARANG
                         </a>
                         <a href="data_buku/penerbit" class="btn btn-penerbit pb-1 pt-1" type="submit">

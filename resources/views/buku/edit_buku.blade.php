@@ -38,7 +38,7 @@
                                     <div class="form-group">
                                         <select id="kategori" name="kategori" style="width: 100%;height: 35px;">
                                             @foreach ($kategori as $k)
-                                                <option value="{{ $k->id }}">{{ $k->nama }}</option>
+                                                <option value="{{ $k->id }}">{{$k->id}} - {{ $k->nama }}</option>
                                             @endforeach
                                         </select>
                                     </div> 
@@ -49,18 +49,26 @@
                                 <td><label for="penerbit">Penerbit</label></td>
                                 <td>
                                     <div class="form-group">
-                                        <input class="form-control bk-c" id="penerbit" name="penerbit" type="text" value="{{ $buku->penerbit->nama }}"/>
+                                    <select id="penerbit" name="penerbit" style="width: 100%;height: 35px;">
+                                        @foreach ($penerbit as $p)
+                                            <option value="{{ $p->id }}">{{ $p->id }} - {{ $p->nama }} - {{ $p->kota }}</option>
+                                        @endforeach
+                                    </select>
                                     </div>
                                     <div id="error">{{ $errors->first('penerbit') }}</div>
                                 </td>
                             </tr>
                             <tr>
-                                <td><label for="kota">Kota</label></td>
+                                <td><label for="pengarang">Pengarang</label></td>
                                 <td>
                                     <div class="form-group">
-                                        <input class="form-control bk-c" id="penerbit" type="text" name="kota" value="{{ $buku->penerbit->kota }}"/>
-                                    </div>
-                                    <div id="error">{{ $errors->first('kota') }}</div>
+                                        <select id="pengarang" name="pengarang[]" multiple style="width: 100%">
+                                        <option disabled value="">--- Untuk memilih pengarang, tekan dan tahan tombol ctrl lalu klik pengarang ---</option>
+                                        @foreach ($pengarang as $p)
+                                            <option value="{{ $p->id }}">{{ $p->id }} - {{ $p->nama }}</option>
+                                        @endforeach
+                                    </select>
+                                    <div id="error">{{ $errors->first('pengarang') }}</div>
                                 </td>
                             </tr>
                             <tr>
@@ -85,7 +93,11 @@
                                 <td><label for="asal">Asal</label></td>
                                 <td>
                                    <div class="form-group">
-                                        <input class="form-control bk-c" id="asal" type="text" name="asal" value="{{ $buku->sumber->nama }}"/>
+                                        <select id="asal" name="asal" style="width: 100%;height: 35px;">
+                                        @foreach ($asal as $a)
+                                            <option value="{{ $a->id }}">{{ $a->id }} - {{ $a->nama }}</option>
+                                        @endforeach
+                                        </select>
                                     </div>
                                     <div id="error">{{ $errors->first('asal') }}</div>
                                 </td>
@@ -114,14 +126,38 @@
             </div>
         </div>
     </main>
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
             var nama = {!!json_encode($nama)!!};
-            console.log(nama);
+            var namap = {!!json_encode($namap)!!};
+            var namas = {!!json_encode($namap)!!};
+            var namape = {!!json_encode($namap)!!};
+            console.log(namape);
             let kategori = $(this).data('kategori');
+            let penerbit = $(this).data('penerbit');
+            let sumber = $(this).data('sumber');
+            let pengarang = $(this).data('pengarang');
+
             $('#kategori option').filter(function(){
                 return ($(this).val() == nama)
                 }).prop('selected', true);
+            $('#penerbit option').filter(function(){
+                return ($(this).val() == namap)
+                }).prop('selected', true);
+            $('#asal option').filter(function(){
+                return ($(this).val() == namas)
+                }).prop('selected', true);
+            $('#pengarang option').filter(function(){
+                return ($(this).val() == namape)
+                }).prop('selected', true);
         })
+        $(document).ready(function() {
+         $('#penerbit').select2();
+         $('#kategori').select2();
+         $('#asal').select2();
+         $('#pengarang').select2();
+     });
     </script>
 @endsection

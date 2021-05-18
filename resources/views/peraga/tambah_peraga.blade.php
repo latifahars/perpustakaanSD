@@ -35,14 +35,12 @@
                             <tr>
                                 <td><label for="kategori">Kategori</label></td>
                                 <td>
-                                    <div class="form-group mb-1">
-                                        <select name="kategori" style="width: 100%;height: 35px;">
-                                                <option selected disabled value="">--- Pilih Kategori ---</option>
-                                            @foreach ($kategori as $k)
-                                                <option value="{{ $k->id }}">{{ $k->nama }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div> 
+                                    <select id="kategori" name="kategori" class="form-control py-3 bk-c mb-0">
+                                            <option selected disabled value="">--- Pilih Kategori ---</option>
+                                        @foreach ($kategori as $k)
+                                            <option value="{{ $k->id }}">{{ $k->nama }}</option>
+                                        @endforeach
+                                    </select>
                                     <div id="error">{{ $errors->first('kategori') }} </div>
                                 </td>
                             </tr>
@@ -58,10 +56,13 @@
                             <tr>
                                 <td><label for="asal">Asal Perolehan</label></td>
                                 <td>
-                                   <div class="form-group mb-1">
-                                        <input class="form-control py-3" id="asal" type="text" name="sumber" placeholder="Masukkan Asal Perolehan" value="{{ old('sumber') }}"/>
-                                    <div id="error">{{ $errors->first('sumber') }} </div> 
-                                    </div>
+                                   <select id="asal" class="form-control py-3 bk-c mb-0" name="asal">
+                                        <option selected disabled value="">--- Pilih Asal Perolehan ---</option>
+                                        @foreach ($asal as $a)
+                                            <option value="{{ $a->id }}">{{ $a->id }} - {{ $a->nama }}</option>
+                                        @endforeach
+                                    </select>
+                                    <div id="error">{{ $errors->first('asal') }}</div>
                                 </td>
                             </tr>
                             <tr>
@@ -88,5 +89,12 @@
             </div>
         </div>
     </main>
-
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
+    <script type="text/javascript">
+     $(document).ready(function() {
+         $('#asal').select2();
+         $('#kategori').select2();
+     });
+    </script>
 @endsection

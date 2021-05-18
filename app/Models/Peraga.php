@@ -11,8 +11,13 @@ class Peraga extends Model
     
     protected $table = 'peraga';
 
-     public function kategori()
+    public function kategori()
     {
     	return $this->belongsTo(KategoriPeraga::class, 'kategori_peraga_id');
+	}
+
+	public function sumber()
+    {
+    	return $this->belongsTo(SumberPeraga::class, 'sumber_peraga_id');
 	}
 }

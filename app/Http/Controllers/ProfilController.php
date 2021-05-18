@@ -36,8 +36,9 @@ class ProfilController extends Controller
 	public function tampiltambahAkun() {
 
         $user = User::all();
+        $penambah = auth()->user();
         
-        return view('tambah_akun', compact('user'));
+        return view('tambah_akun', compact('user', 'penambah'));
     }
 
 	public function tambahAkun(Request $request)

@@ -19,6 +19,7 @@ class BuatTabelBuku extends Migration
             $table->string('judul');
             $table->unsignedBigInteger('kategori_buku_id');
             $table->unsignedBigInteger('penerbit_id');
+            $table->unsignedBigInteger('user_id');
             $table->integer('eksemplar');
             $table->integer('halaman');
             $table->unsignedBigInteger('sumber_buku_id');

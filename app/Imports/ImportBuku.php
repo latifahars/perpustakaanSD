@@ -4,6 +4,7 @@ namespace App\Imports;
 
 use App\Models\SumberBuku;
 use App\Models\Buku;
+use App\Models\User;
 use App\Models\Penerbit;
 use App\Models\KategoriBuku;
 use Illuminate\Support\Collection;
@@ -37,6 +38,7 @@ class ImportBuku implements ToCollection
 		            $sumber->nama = $row[5];
 		            $sumber->save();
 		        }
+    			$user = auth()->user();
 
 		        $buku = new Buku();
 		        $buku->kode = $row[0];
@@ -44,6 +46,7 @@ class ImportBuku implements ToCollection
 		        $buku->kategori_buku_id = $row[2];
 		        $buku->penerbit_id = $penerbit->id;
 		        $buku->eksemplar = $row[7];
+		        $buku->user_id = $user->id;
 		        $buku->halaman = $row[6];
 		        $buku->sumber_buku_id = $sumber->id;
 		        $buku->tgl_diterima = $tanggal;

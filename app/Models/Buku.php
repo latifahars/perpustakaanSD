@@ -19,6 +19,10 @@ class Buku extends Model
     {
     	return $this->belongsTo(Penerbit::class);
 	}
+    public function pengarang()
+    {
+        return $this->belongsToMany(Pengarang::class);
+    }
 	public function sumber()
     {
     	return $this->belongsTo(SumberBuku::class, 'sumber_buku_id');
@@ -26,5 +30,9 @@ class Buku extends Model
 	public function peminjaman()
     {
         return $this->hasMany(Peminjaman::class);
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class BuatTabelPeraga extends Migration
+class BuatTabelSumberPeraga extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,9 @@ class BuatTabelPeraga extends Migration
      */
     public function up()
     {
-        Schema::create('peraga', function (Blueprint $table) {
+        Schema::create('sumber_peraga', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->string('kode');
-            $table->unsignedBigInteger('kategori_peraga_id');
-            $table->unsignedBigInteger('sumber_peraga_id');
-            $table->date('tgl_diterima');
-            $table->integer('jumlah');
             $table->timestamps();
         });
     }
@@ -32,6 +27,6 @@ class BuatTabelPeraga extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('peraga');
+        //
     }
 }

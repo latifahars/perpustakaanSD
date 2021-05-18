@@ -8,6 +8,7 @@ use App\Http\Controllers\BukuController;
 use App\Http\Controllers\PenerbitController;
 use App\Http\Controllers\SumberBukuController;
 use App\Http\Controllers\KategoriBukuController;
+use App\Http\Controllers\PengarangController;
 use App\Http\Controllers\AnggotaController;
 use App\Http\Controllers\PeragaController;
 use App\Http\Controllers\SumberPeragaController;
@@ -74,6 +75,11 @@ Route::get('/data_buku/asal_perolehan', [SumberBukuController::class, 'tampilSum
 Route::post('/data_buku/asal_perolehan', [SumberBukuController::class, 'tambahSumber']);
 Route::post('/data_buku/edit_asal/{idsumber}', [SumberBukuController::class, 'editSumber']);
 Route::get('/data_buku/hapus_asal/{idsumber}', [SumberBukuController::class, 'hapusSumber']);
+
+Route::get('/data_buku/pengarang', [PengarangController::class, 'tampilPengarang']);
+Route::post('/data_buku/pengarang', [PengarangController::class, 'tambahPengarang']);
+Route::post('/data_buku/edit_pengarang/{idPengarang}', [PengarangController::class, 'editPengarang']);
+Route::get('/data_buku/hapus_pengarang/{idPengarang}', [PengarangController::class, 'hapusPengarang']);
 
 Route::get('/data_anggota', [AnggotaController::class, 'tampilAnggota']);
 Route::get('/data_anggota/tambah_anggota', [AnggotaController::class, 'tampilTambahAnggota']);

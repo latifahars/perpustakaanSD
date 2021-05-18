@@ -126,14 +126,21 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label class="mb-1" for="nama">Tahun</label>
+                            <label class="mb-1" for="nama">Tahun:</label>
                             <select name="tahun" style="width: 100%;height: 40px;">
                                 @foreach($tahun as $t)
                                     <option value="{{$t->tahun}}">{{$t->tahun}}</option>
                                 @endforeach
                             </select>
                         </div>
-
+                        <div class="form-group">
+                            <label class="mb-1" for="nama">Status: </label>
+                            <select name="status" style="width: 100%;height: 40px;">
+                                <option selected="" value="semua">Semua</option>
+                                <option value="kembali">Sudah Dikembalikan</option>
+                                <option value="belum_kembali">Belum Dikembalikan</option>
+                            </select>
+                        </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
                             <button type="submit" class="btn btn-success">CETAK</button>

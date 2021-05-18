@@ -17,7 +17,7 @@
                                     <input type="text" class="form-control" style="width: 250px" name="nama" placeholder="Asal Perolehan" required>
                                 </td>
                                 <td>
-                                    <button class="btn btn-tambahbuku pb-1 pt-1" type="submit"><i class="fas fa-plus"></i> Tambah</button>
+                                    <button class="btn btn-asal pb-1 pt-1" type="submit"><i class="fas fa-plus"></i> Tambah</button>
                                 </td>
                             </tr>
                         </table>
@@ -30,7 +30,7 @@
                             <thead>
                                 <tr>
                                     <th width="7%">Kode</th>
-                                    <th width="40%">Asal Perolehan Buku</th>
+                                    <th width="40%">Asal Perolehan Alat Peraga</th>
                                     <th width="7%">Aksi</th>
                                 </tr>
                             </thead>

@@ -18,7 +18,7 @@
                         <table style="float: right;">
                             <tr>
                                 <td>
-                                    <input class="form-control" id="username" type="text" name="username" placeholder="Masukkan Username" value="{{ old('username') }}" autofocus />
+                                    <input class="form-control" id="username" type="text" name="username" placeholder="Masukkan Username" value="{{ old('username') }}" />
                                 </td>
                                 <td>                                 
                                     <input class="form-control" id="email" type="text" name="email" placeholder="Masukkan Email" value="{{ old('email') }}"/>
@@ -38,8 +38,10 @@
                         <thead>
                             <tr>
                                 <th width="4%">Id</th>
-                                <th width="13%">Username</th>
-                                <th width="25%">Email</th>
+                                <th width="20%">Username</th>
+                                <th width="17%">Email</th>
+                                <th width="10%">Tanggal Dibuat</th>
+                                <th width="13%">Dibuat Oleh</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -48,6 +50,8 @@
                                 <td>{{ $u->id}}</td>
                                 <td>{{ $u->name }}</td>
                                 <td>{{ $u->email }}</td>
+                                <td>{{ \Carbon\Carbon::parse($u->created_at)->format('d-m-Y H:i') }}</td>
+                                <td>{{ $penambah->name}}</td>
                             </tr>
                             @endforeach
                         </tbody>

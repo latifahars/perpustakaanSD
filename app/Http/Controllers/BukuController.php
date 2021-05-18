@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Buku;
 use App\Models\KategoriBuku;
 use App\Models\Penerbit;
+use App\Models\Pengarang;
+use App\Models\User;
 use App\Models\SumberBuku;
 use App\Imports\ImportBuku;
 use Maatwebsite\Excel\Facades\Excel;
@@ -26,7 +28,9 @@ class BukuController extends Controller
         $kategori = KategoriBuku::all();
         $penerbit = Penerbit::all();
         $asal = SumberBuku::all();
-        return view('buku.tambah_buku', compact('kategori', 'penerbit', 'asal'));
+        $pengarang = Pengarang::all();
+
+        return view('buku.tambah_buku', compact('kategori', 'penerbit', 'asal', 'pengarang'));
     }
 
     public function tambahBuku(Request $request) 
@@ -36,24 +40,28 @@ class BukuController extends Controller
         'judul' => 'required',
         'kategori' => 'required',
         'penerbit' => 'required',
+        'pengarang' => 'required',
         'jumlah' => 'required|numeric',
         'halaman' => 'required|numeric',
         'asal' => 'required',
         'tanggal_diterima' => 'required|date',
         ]);
-
-
+         // dd($request->pengarang);
+        $user = auth()->user();
         $buku = new Buku();
         $buku->kode = $request->kode;
         $buku->judul = $request->judul;
         $buku->kategori_buku_id = $request->kategori;
         $buku->penerbit_id = $request->penerbit;
+        $buku->user_id = $user->id;
         $buku->eksemplar = $request->jumlah;
         $buku->halaman = $request->halaman;
         $buku->sumber_buku_id = $request->asal;
         $buku->tgl_diterima = $request->tanggal_diterima;
-        
+
+        // dd($buku->pengarang());
         $buku->save();
+        $buku->pengarang()->sync($request->pengarang);
         return redirect('/data_buku')->with('sukses', 'Tambah Buku Berhasil!');
     }
 
@@ -62,8 +70,15 @@ class BukuController extends Controller
         $buku = Buku::find($idbuku);
         $kategori= KategoriBuku::all();
         $nama = $buku->kategori_buku_id;
+        $penerbit= Penerbit::all();
+        $namap = $buku->penerbit_id;
+        $asal = SumberBuku::all();
+        $namas = $buku->sumber_buku_id;
+        $pengarang= Pengarang::all();
+        $namape = $buku->pengarang;
 
-        return view('buku.edit_buku', compact('buku','kategori', 'nama'));
+
+        return view('buku.edit_buku', compact('buku','kategori', 'nama', 'penerbit', 'namap', 'asal', 'namas', 'pengarang', 'namape'));
     }
 
     public function editBuku(Request $request, $idbuku)
@@ -73,41 +88,53 @@ class BukuController extends Controller
         'judul' => 'required',
         'kategori' => 'required',
         'penerbit' => 'required',
-        'kota' => 'required',
+        'penerbit' => 'required',
         'jumlah' => 'required|numeric',
         'halaman' => 'required|numeric',
         'asal' => 'required',
         'tanggal_diterima' => 'required|date',
         ]);
+        $user = auth()->user();
         
-        $buku = Buku::find($idbuku);
+        $buku = Buku::where('id', $idbuku)
+            ->update([
+                'kode' => $request->get('kode'),
+                'judul' => $request->get('judul'),
+                'kategori_buku_id' => $request->get('kategori'),
+                'penerbit_id' => $request->get('penerbit'),
+                'eksemplar' => $request->get('jumlah'),
+                'user_id' =>$user->id,
+                'halaman' => $request->get('halaman'),
+                'sumber_buku_id' => $request->get('asal'),
+                'tgl_diterima' => $request->get('tanggal_diterima'),
+            ]);
+        
+        // $buku = Buku::find($idbuku);
 
-        if ($penerbit = Penerbit::where('nama', $request->penerbit)->first()){
+        // if ($penerbit = Penerbit::where('nama', $request->penerbit)->first()){
             
-        } else{
-            $penerbit = new Penerbit();
-            $penerbit->nama = $request->penerbit;
-            $penerbit->kota = $request->kota;
-            $penerbit->save();
-        }
-        if ($sumber = SumberBuku::where('nama', $request->asal)->first()){
+        // } else{
+        //     $penerbit = new Penerbit();
+        //     $penerbit->nama = $request->penerbit;
+        //     $penerbit->kota = $request->kota;
+        //     $penerbit->save();
+        // }
+        // if ($sumber = SumberBuku::where('nama', $request->asal)->first()){
             
-        } else{
-            $sumber = new SumberBuku();
-            $sumber->nama = $request->asal;
-            $sumber->save();
-        }
-
-        $buku->kode = $request->kode;
-        $buku->judul = $request->judul;
-        $buku->kategori_buku_id = $request->kategori;
-        $buku->penerbit_id = $penerbit->id;
-        $buku->eksemplar = $request->jumlah;
-        $buku->halaman = $request->halaman;
-        $buku->sumber_buku_id = $sumber->id;
-        $buku->tgl_diterima = $request->tanggal_diterima;
-
-        $buku->save();
+        // } else{
+        //     $sumber = new SumberBuku();
+        //     $sumber->nama = $request->asal;
+        //     $sumber->save();
+        // }
+        // dd($buku->kode);
+        // $buku->kode = $request->kode;
+        // $buku->judul = $request->judul;
+        // $buku->kategori_buku_id = $request->kategori;
+        // $buku->penerbit_id = $request->penerbit;
+        // $buku->eksemplar = $request->jumlah;
+        // $buku->halaman = $request->halaman;
+        // $buku->sumber_buku_id = $request->asal;
+        // $buku->tgl_diterima = $request->tanggal_diterima;
         return redirect('/data_buku')->with('sukses', 'Edit Buku Berhasil!');
     }
 
@@ -124,6 +151,7 @@ class BukuController extends Controller
     public function tampilDetailBuku($idbuku) 
     {
         $buku = Buku::find($idbuku);
+        // dd($buku->user_id);
         return view('buku.detail_buku', compact('buku'));
     }
 

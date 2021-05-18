@@ -8,61 +8,76 @@
             <div class="card mb-4">
                 <div class="card-header">
                     <a href="/data_buku"><i class="fas fa-chevron-circle-left mr-3"></i></a>
-                    Detail Buku {{$buku-> judul}}
+                    Detail Buku
                 </div>
                 <div class="card-body" style="padding: 0 0 0 20px">
                     <table class="table table-borderless table-detailbuku">
-                        <tr>
-                            <td width="20%">Kode</td>
-                            <td width="5%">:</td>
-                            <td width="100%">
+                        <tr class="pb-0">
+                            <td width="15%" style="padding: 10px 0 0 20px">Kode</td>
+                            <td width="2%" style="padding: 10px 0 0 20px">:</td>
+                            <td width="70%" style="padding: 10px 0 0 20px">
                                 {{$buku-> kode}}
                             </td>
                         </tr>
                         <tr>
-                            <td>Judul</td>
-                            <td>:</td>
-                            <td>{{$buku-> judul}}</td>
+                            <td style="padding: 5px 0 2px 20px">Judul</td>
+                            <td style="padding: 5px 0 2px 20px">:</td>
+                            <td style="padding: 5px 0 2px 20px">{{$buku-> judul}}</td>
                         </tr>
                         <tr>
-                            <td>Kategori</td>
-                            <td>:</td>
-                            <td>{{$buku-> kategori-> nama}}</td>
+                            <td style="padding: 5px 0 2px 20px">Kategori</td>
+                            <td style="padding: 5px 0 2px 20px">:</td>
+                            <td style="padding: 5px 0 2px 20px">{{$buku-> kategori-> nama}}</td>
                         </tr>
                         <tr>
-                            <td>Penerbit</td>
-                            <td>:</td>
-                            <td>{{$buku-> penerbit-> nama}}</td>
+                            <td style="padding: 5px 0 2px 20px">Penerbit</td>
+                            <td style="padding: 5px 0 2px 20px">:</td>
+                            <td style="padding: 5px 0 2px 20px">{{$buku-> penerbit-> nama}}</td>
                         </tr>
                         <tr>
-                            <td>Kota Terbit</td>
-                            <td>:</td>
-                            <td>{{$buku-> penerbit-> kota}}</td>
+                            <td style="padding: 5px 0 2px 20px">Kota Terbit</td>
+                            <td style="padding: 5px 0 2px 20px">:</td>
+                            <td style="padding: 5px 0 2px 20px">{{$buku-> penerbit-> kota}}</td>
                         </tr>
                         <tr>
-                            <td>Halaman / Page</td>
-                            <td>:</td>
-                            <td>{{$buku-> halaman}}</td>
+                            <td style="padding: 5px 0 2px 20px">Pengarang</td>
+                            <td style="padding: 5px 0 2px 20px">:</td>
+                            
+                            <td style="padding: 5px 0 2px 20px">
+                                @foreach ($buku->pengarang as $pengarang)
+                                    {{$pengarang-> nama}} <br> 
+                                @endforeach
+                            </td>
                         </tr>
                         <tr>
-                            <td>Jumlah / Eksemplar</td>
-                            <td>:</td>
-                            <td>{{$buku-> eksemplar}}</td>
+                            <td style="padding: 5px 0 2px 20px">Halaman / Page</td>
+                            <td style="padding: 5px 0 2px 20px">:</td>
+                            <td style="padding: 5px 0 2px 20px">{{$buku-> halaman}}</td>
                         </tr>
                         <tr>
-                            <td>Asal Perolehan</td>
-                            <td>:</td>
-                            <td>{{$buku-> sumber-> nama}}</td>
+                            <td style="padding: 5px 0 2px 20px">Jumlah / Eksemplar</td>
+                            <td style="padding: 5px 0 2px 20px">:</td>
+                            <td style="padding: 5px 0 2px 20px">{{$buku-> eksemplar}}</td>
                         </tr>
                         <tr>
-                            <td>Tanggal Diterima</td>
-                            <td>:</td>
-                            <td>{{ \Carbon\Carbon::parse($buku->tgl_diterima)->format('d-m-Y') }}</td>
+                            <td style="padding: 5px 0 2px 20px">Asal Perolehan</td>
+                            <td style="padding: 5px 0 2px 20px">:</td>
+                            <td style="padding: 5px 0 2px 20px">{{$buku-> sumber-> nama}}</td>
                         </tr>
                         <tr>
-                            <td>Tanggal Input</td>
-                            <td>:</td>
-                            <td>{{ \Carbon\Carbon::parse($buku->create_at)->format('d-m-Y') }}</td>
+                            <td style="padding: 5px 0 2px 20px">Tanggal Diterima</td>
+                            <td style="padding: 5px 0 2px 20px">:</td>
+                            <td style="padding: 5px 0 2px 20px">{{ \Carbon\Carbon::parse($buku->tgl_diterima)->format('d-m-Y') }}</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 5px 0 2px 20px">Tanggal Input</td>
+                            <td style="padding: 5px 0 2px 20px">:</td>
+                            <td style="padding: 5px 0 2px 20px">{{ \Carbon\Carbon::parse($buku->create_at)->format('d-m-Y') }}</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 5px 0 2px 20px">Petugas Input/ Edit</td>
+                            <td style="padding: 5px 0 2px 20px">:</td>
+                            <td style="padding: 5px 0 2px 20px">{{ $buku->user->name }}</td>
                         </tr>
                     </table>
                 </div> 

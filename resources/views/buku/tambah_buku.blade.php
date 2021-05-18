@@ -37,7 +37,7 @@
                                 <td>
                                     <div class="form-group bk-c mb-0">
                                         <select id="kategori" name="kategori" style="width: 100%;height: 35px;">
-                                                <option selected disabled value="">--- Pilih Kategori ---</option>
+                                                <option selected disabled value="{{ old('kategori') }}">--- Pilih Kategori ---</option>
                                             @foreach ($kategori as $k)
                                                 <option value="{{ $k->id }}">{{ $k->nama }}</option>
                                             @endforeach
@@ -50,12 +50,30 @@
                                 <td><label for="penerbit">Penerbit</label></td>
                                 <td>
                                     <select id="penerbit" class="form-control py-3 bk-c mb-0" name="penerbit">
-                                        <option selected disabled value="">--- Pilih Penerbit ---</option>
+                                        <option selected disabled value="{{ old('penerbit') }}">--- Pilih Penerbit ---</option>
                                         @foreach ($penerbit as $p)
                                             <option value="{{ $p->id }}">{{ $p->id }} - {{ $p->nama }} - {{ $p->kota }}</option>
                                         @endforeach
                                     </select>
                                     <div id="error">{{ $errors->first('penerbit') }}</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label for="pengarang">Pengarang</label></td>
+                                <td>
+                                    <select id="pengarang" name="pengarang[]" multiple class="form-control py-3 bk-c mb-0">
+                                        <option disabled value="">--- Untuk memilih pengarang, tekan dan tahan tombol ctrl lalu klik pengarang ---</option>
+                                        @foreach ($pengarang as $p)
+                                            <option value="{{ $p->id }}">{{ $p->id }} - {{ $p->nama }}</option>
+                                        @endforeach
+                                    </select>
+                                    <!-- <select id="pengarang" class="form-control py-3 bk-c mb-0" name="pengarang">
+                                        <option selected disabled value="{{ old('pengarang') }}">--- Pilih Pengarang ---</option>
+                                        @foreach ($pengarang as $p)
+                                            <option value="{{ $p->id }}">{{ $p->id }} - {{ $p->nama }}</option>
+                                        @endforeach
+                                    </select> -->
+                                    <div id="error">{{ $errors->first('pengarang') }}</div>
                                 </td>
                             </tr>
                             <tr>
@@ -71,7 +89,7 @@
                                 <td><label for="eksemplar">Jumlah</label></td>
                                 <td>
                                    <div class="form-group">
-                                        <input class="form-control bk-c" id="eksemplar" type="text" name="jumlah" placeholder="Masukkan Jumlah Buku" value="{{ old('eksemplar') }}"/>
+                                        <input class="form-control bk-c" id="eksemplar" type="text" name="jumlah" placeholder="Masukkan Jumlah Buku" value="{{ old('jumlah') }}"/>
                                     <div id="error">{{ $errors->first('jumlah') }}</div>
                                     </div> 
                                 </td>
@@ -80,7 +98,7 @@
                                 <td><label for="asal">Asal</label></td>
                                 <td>
                                    <select id="asal" class="form-control py-3 bk-c mb-0" name="asal">
-                                        <option selected disabled value="">--- Pilih Asal Perolehan ---</option>
+                                        <option selected disabled value="{{ old('asal') }}">--- Pilih Asal Perolehan ---</option>
                                         @foreach ($asal as $a)
                                             <option value="{{ $a->id }}">{{ $a->id }} - {{ $a->nama }}</option>
                                         @endforeach
@@ -97,7 +115,7 @@
                                     id="date"
                                     type="date"
                                     name="tanggal_diterima"
-                                    value="{{ old('tgl_diterima') }}"
+                                    value="{{ old('tanggal_diterima') }}"
                                     />
                                     <div id="error">{{ $errors->first('tanggal_diterima') }}</div>
                                 </td>
@@ -119,6 +137,7 @@
          $('#penerbit').select2();
          $('#kategori').select2();
          $('#asal').select2();
+         $('#pengarang').select2();
      });
     </script>
 @endsection

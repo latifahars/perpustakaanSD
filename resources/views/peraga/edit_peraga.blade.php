@@ -62,8 +62,12 @@
                                 <td><label for="asal">Asal Perolehan</label></td>
                                 <td>
                                    <div class="form-group mb-1">
-                                        <input class="form-control py-3" id="asal" name="sumber" type="text" value="{{ $peraga->sumber }}" />
-                                        <div id="error">{{ $errors->first('sumber') }} </div>
+                                        <select id="asal" name="asal" style="width: 100%;height: 35px;">
+                                        @foreach ($asal as $a)
+                                            <option value="{{ $a->id }}">{{ $a->id }} - {{ $a->nama }}</option>
+                                        @endforeach
+                                        </select>
+                                        <div id="error">{{ $errors->first('asal') }} </div>
                                     </div> 
                                 </td>
                             </tr>
@@ -91,14 +95,27 @@
             </div>
         </div>
     </main>
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
             var nama = {!!json_encode($nama)!!};
+            var namas = {!!json_encode($namas)!!};
+
             console.log(nama);
             let kategori = $(this).data('kategori');
             $('#kategori option').filter(function(){
                 return ($(this).val() == nama)
                 }).prop('selected', true);
+            $('#asal option').filter(function(){
+                return ($(this).val() == namas)
+                }).prop('selected', true);
         })
+        $(document).ready(function() {
+         $('#penerbit').select2();
+         $('#kategori').select2();
+         $('#asal').select2();
+         $('#pengarang').select2();
+     });
     </script>
 @endsection

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Peminjaman;
 use App\Models\Anggota;
 use App\Models\Buku;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
@@ -78,10 +79,12 @@ class TransaksiController extends Controller
         $judulBelum = Buku::where('kode', $kode)->first();
         $judul = $judulBelum->judul;
 
+        $user = auth()->user();
+
     	$peminjaman = new Peminjaman();
         $peminjaman->anggota_id = $anggotapinjam->id;
-
         $peminjaman->buku_id = $bukupinjam->id;
+        $peminjaman->user_id = $user->id;
 
         $date = Carbon::today();
         $peminjaman->tgl_pinjam = Carbon::today();
@@ -104,6 +107,8 @@ class TransaksiController extends Controller
         $peminjaman->tgl_kembali = Carbon::now()->format('Y-m-d H:i');;
         $buku = $peminjaman->buku();
         $buku->increment('eksemplar', 1);
+        $user = auth()->user();
+        $peminjaman->user_id = $user->id;
         $peminjaman->save();
         return redirect('/peminjaman')->with('sukses', 'Pengembalian Buku Berhasil!');
     }

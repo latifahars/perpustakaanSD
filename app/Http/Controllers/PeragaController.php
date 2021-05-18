@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Peraga;
 use App\Models\KategoriPeraga;
+use App\Models\SumberPeraga;
 
 class PeragaController extends Controller
 {
@@ -18,8 +19,9 @@ class PeragaController extends Controller
     public function tampilTambahPeraga() {
 
     	$kategori= KategoriPeraga::all();
+        $asal = SumberPeraga::all();
 
-        return view('peraga.tambah_peraga', compact('kategori'));
+        return view('peraga.tambah_peraga', compact('kategori', 'asal'));
     }
 
     public function tambahPeraga(Request $request) 
@@ -28,7 +30,7 @@ class PeragaController extends Controller
         'nama' => 'required','max:30',
         'kode' => 'required|unique:App\Models\Peraga,kode',
         'kategori' => 'required',
-        'sumber' => 'required',
+        'asal' => 'required',
         'tgl_diterima' => 'required|date',
         'jumlah' => 'required|numeric',
         ]);
@@ -37,7 +39,7 @@ class PeragaController extends Controller
         $peraga->nama = $request->nama;
         $peraga->kode = $request->kode;
         $peraga->kategori_peraga_id = $request->kategori;
-        $peraga->sumber = $request->sumber;
+        $peraga->sumber_peraga_id = $request->asal;
         $peraga->tgl_diterima = $request->tgl_diterima;
         $peraga->jumlah = $request->jumlah;
 
@@ -50,8 +52,10 @@ class PeragaController extends Controller
     	$peraga = Peraga::find($idperaga);
     	$kategori= KategoriPeraga::all();
         $nama = $peraga->kategori_peraga_id;
+        $asal = SumberPeraga::all();
+        $namas = $peraga->sumber_peraga_id;
 
-        return view('peraga.edit_peraga', compact('peraga','kategori', 'nama'));
+        return view('peraga.edit_peraga', compact('peraga','kategori', 'nama', 'asal', 'namas'));
     }
 
     public function editPeraga(Request $request, $idperaga)
@@ -60,7 +64,7 @@ class PeragaController extends Controller
         'nama' => 'required','max:30',
         'kode' => 'required',
         'kategori' => 'required',
-        'sumber' => 'required',
+        'asal' => 'required',
         'tgl_diterima' => 'required|date',
         'jumlah' => 'required|numeric',
         ]);
@@ -69,7 +73,7 @@ class PeragaController extends Controller
         $peraga->nama = $request->nama;
         $peraga->kode = $request->kode;
         $peraga->kategori_peraga_id = $request->kategori;
-        $peraga->sumber = $request->sumber;
+        $peraga->sumber_peraga_id = $request->asal;
         $peraga->tgl_diterima = $request->tgl_diterima;
         $peraga->jumlah = $request->jumlah;
 

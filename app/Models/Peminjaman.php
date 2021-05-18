@@ -20,7 +20,10 @@ class Peminjaman extends Model
     {
         return $this->belongsTo(Anggota::class);
     }
-
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
     public function getStatus() {
         return $this->deadline < Carbon::today();
     }
