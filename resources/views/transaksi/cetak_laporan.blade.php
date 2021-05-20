@@ -18,7 +18,7 @@
     <center>
         <h5>LAPORAN PEMINJAMAN BUKU<br>PERPUSTAKAAN SDN TAYUBAN </h5>
     </center>
-    <table class="mb-2" style="font-size: 14px">
+    <table class="mb-2" style="font-size: 14px;width: 300px">
         <tr>
             <td width="50px">Bulan</td>
             <td width="10px">:</td>
@@ -29,19 +29,32 @@
             <td>:</td>
             <td> {{ $tahun }}</td>
         </tr>
+        <tr>
+            <td>Status</td>
+            <td>:</td>
+            <td>
+                @if($status == 'semua')
+                    Semua Peminjaman
+                @elseif($status == 'kembali')
+                    Peminjaman Sudah Kembali
+                @else
+                    Peminjaman Belum Kembali
+                @endif
+            </td>
+        </tr>
     </table>
     <table class="table table-bordered border-dark">
         <thead>
             <tr>
                 <th width="10px">No</th>
-                <th width="15px">Id</th>
+                <th width="20px">Id</th>
                 <th width="15px">NIS</th>
                 <th width="160px">Nama</th>
                 <th width="65px">Kode Buku</th>
                 <th>Judul Buku</th>
-                <th width="110px">Kategori</th>
+                <th width="90px">Kategori</th>
                 <th width="65px">Pinjam</th>
-                <th width="65px">Kembali</th>
+                <th width="100px">Kembali</th>
             </tr>
         </thead>
         <tbody>
@@ -56,7 +69,7 @@
                     <td>{{ $d-> buku-> kategori-> nama }}</td>
                     <td>{{ \Carbon\Carbon::parse($d->tgl_pinjam)->format('d-m-Y') }}</td>
                     @if($d->tgl_kembali != null)
-                    <td>{{ \Carbon\Carbon::parse($d->tgl_kembali)->format('d-m-Y') }}</td>
+                    <td>{{ \Carbon\Carbon::parse($d->tgl_kembali)->format('d-m-Y H:i') }}</td>
                     @else
                     <td>-</td>
                     @endif

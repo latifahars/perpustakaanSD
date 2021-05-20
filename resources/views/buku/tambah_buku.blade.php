@@ -15,11 +15,11 @@
                         @csrf
                         <table class="table-tambahbuku mt-2" style="width: 100%">
                             <tr>
-                                <td width="15%"><label for="kode">Kode</label></td>
+                                <td width="15%"><label for="kode">Nomor Rak</label></td>
                                 <td>
                                     <div class="form-group">
-                                        <input class="form-control bk-c" id="kode" type="text" name="kode" placeholder="Masukkan Kode Buku" value="{{ old('kode') }}" autofocus />
-                                    <div id="error">{{ $errors->first('kode') }} </div>
+                                        <input class="form-control bk-c" id="nomor_rak" type="text" name="nomor_rak" placeholder="Masukkan Nomor Rak Buku" value="{{ old('nomor_rak') }}" autofocus />
+                                    <div id="error">{{ $errors->first('nomor_rak') }} </div>
                                     </div>
                                 </td>
                             </tr>
@@ -62,7 +62,7 @@
                                 <td><label for="pengarang">Pengarang</label></td>
                                 <td>
                                     <select id="pengarang" name="pengarang[]" multiple class="form-control py-3 bk-c mb-0">
-                                        <option disabled value="">--- Untuk memilih pengarang, tekan dan tahan tombol ctrl lalu klik pengarang ---</option>
+                                        <option disabled value="">--- Pengarang bisa lebih dari 1 ---</option>
                                         @foreach ($pengarang as $p)
                                             <option value="{{ $p->id }}">{{ $p->id }} - {{ $p->nama }}</option>
                                         @endforeach

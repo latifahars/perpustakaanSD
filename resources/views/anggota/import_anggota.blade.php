@@ -13,11 +13,18 @@
                 </div>
                 <div class="card-body pt-3">
                     <div class="card mb-2 p-2">
-                        <form id="import_form" action="/data_anggota/import_anggota" method="POST" enctype="multipart/form-data">
-                            @csrf
-                            <input name="file" type="file" required='required'>
-                            <button type="submit" class="btn btn-primary pb-1 pt-1 pl-2 pr-2">Import</button>
-                        </form>
+                        <div class="row row-peminjaman">
+                            <div class="col-sm-6">
+                                <form id="import_form" action="/data_anggota/import_anggota" method="POST" enctype="multipart/form-data">
+                                    @csrf
+                                    <input name="file" type="file" required='required'>
+                                    <button type="submit" class="btn btn-primary pb-1 pt-1 pl-2 pr-2">Import</button>
+                                </form>
+                            </div>
+                            <div class="col-sm-6">
+                                <p style="font-size: 17px;color: blue">Catatan : Import dapat melakukan update nama dan kelas.</p>
+                            </div>
+                        </div>
                     </div>
                     <div class="card mb-2 p-2">
                         <h5>Petunjuk Import:</h5>

@@ -13,11 +13,22 @@ class ImportAnggota implements ToCollection
         foreach ($collection as $key => $row) {
             if ($key >= 1) {
 
-                Anggota::create([
-                    'nis' => $row[0],
-                    'nama' => $row[1],
-                    'kelas' => $row[2],
-                ]);
+                $ada = Anggota::where('nis', $row[0])->first();
+
+                if($ada == null){  
+                    Anggota::create([
+                        'nis' => $row[0],
+                        'nama' => $row[1],
+                        'kelas' => $row[2],
+                    ]);
+                }
+                else{
+                    $data = Anggota::where('nis',$row[0])
+                        ->update([
+                            'nama' => $row[1],
+                            'kelas' => $row[2],
+                        ]); 
+                }
             }
         }
     }

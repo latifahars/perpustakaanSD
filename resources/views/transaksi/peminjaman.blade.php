@@ -134,7 +134,7 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label class="mb-1" for="nama">Status: </label>
+                            <label class="mb-1" for="status">Status: </label>
                             <select name="status" style="width: 100%;height: 40px;">
                                 <option selected="" value="semua">Semua</option>
                                 <option value="kembali">Sudah Dikembalikan</option>

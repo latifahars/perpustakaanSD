@@ -62,13 +62,24 @@ class TransaksiController extends Controller
                         ->whereDate('tgl_pinjam', '<', Carbon::today())
                         ->first();
 
+        $ceksama = Anggota::where('nis', $request->nis)
+                        ->whereHas('peminjaman', function($query) use ($request){
+                            $query->where('tgl_kembali', null)
+                            ->whereHas('buku', function($query) use ($request){
+                                $query->where('kode', $request->kode);
+                            });
+                        })->first();
+
         if($anggotapinjam->peminjaman_count == 3){
             return back()->with('hapus', 'Anggota telah meminjam 3 buku!');
         }elseif($bukupinjam->kategori->nama != 'Buku Pelajaran' && $sudahpinjam){
             return back()->with('hapus', 'Anggota belum mengembalikan buku yang dipinjam sebelumnya!');
         }elseif($bukupinjam->eksemplar == 0){
             return back()->with('hapus', 'Buku sudah tidak tersedia!');
-        }else{
+        }elseif($ceksama){
+            return back()->with('hapus', 'Anggota telah meminjam buku yang sama!');
+        }
+        else{
             $bukupinjam->decrement('eksemplar', 1);
         }
 
@@ -137,19 +148,40 @@ class TransaksiController extends Controller
             'bulan_awal' => ['required'],
             'bulan_akhir' => ['required'],
             'tahun' => ['required'],
+            'status' => ['required'],
         ]);
         // $tahun = Peminjaman::selectRaw('MONTH(tgl_pinjam) as tahun')->groupBy('tahun')->get();
-        $data = Peminjaman::whereMonth('tgl_pinjam', '>=', $request->bulan_awal)
+        // $data = Peminjaman::whereMonth('tgl_pinjam', '>=', $request->bulan_awal)
+        //         ->whereMonth('tgl_pinjam', '<=', $request->bulan_akhir)
+        //         ->whereYear('tgl_pinjam', $request->tahun)
+        //         ->orderBy('tgl_pinjam', 'asc')->get();
+
+        if($request->status == 'semua'){
+            $data = Peminjaman::whereMonth('tgl_pinjam', '>=', $request->bulan_awal)
                 ->whereMonth('tgl_pinjam', '<=', $request->bulan_akhir)
                 ->whereYear('tgl_pinjam', $request->tahun)
                 ->orderBy('tgl_pinjam', 'asc')->get();
+        }elseif($request->status == 'kembali'){
+            $data = Peminjaman::whereMonth('tgl_pinjam', '>=', $request->bulan_awal)
+                ->whereMonth('tgl_pinjam', '<=', $request->bulan_akhir)
+                ->whereYear('tgl_pinjam', $request->tahun)
+                ->whereNotNull('tgl_kembali')
+                ->orderBy('tgl_pinjam', 'asc')->get();
+        }elseif($request->status == 'belum_kembali'){
+            $data = Peminjaman::whereMonth('tgl_pinjam', '>=', $request->bulan_awal)
+                ->whereMonth('tgl_pinjam', '<=', $request->bulan_akhir)
+                ->whereYear('tgl_pinjam', $request->tahun)
+                ->where('tgl_kembali', null)
+                ->orderBy('tgl_pinjam', 'asc')->get();
+        }
+        $status = $request->status;
         $tahun = $request->tahun;
         $test1 = '2000'.$request->bulan_awal.'01';
         $test2 = '2000'.$request->bulan_akhir.'01';
         $bulan_awal = Carbon::parse($test1)->translatedFormat('F');
         $bulan_akhir = Carbon::parse($test2)->translatedFormat('F'); 
 
-        $pdf = PDF::loadView('transaksi.cetak_laporan', compact('data', 'bulan_awal', 'bulan_akhir', 'tahun'))->setPaper('A4', 'landscape');
+        $pdf = PDF::loadView('transaksi.cetak_laporan', compact('data', 'bulan_awal', 'bulan_akhir', 'tahun', 'status'))->setPaper('A4', 'landscape');
         // return $pdf->download('Laporan.pdf');
 
         return $pdf->stream('Laporan Peminjaman Buku.pdf');

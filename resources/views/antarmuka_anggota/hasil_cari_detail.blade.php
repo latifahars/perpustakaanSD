@@ -19,22 +19,22 @@
         <nav class="navbar navbar-default navbar-fixed-top left_area_cari">
             <h3>Perpustakaan <span style="color: #FFEE58">SDN Tayuban</span></h3>
             <div class="right_area">
-                <a href="{{ url('pencarian_buku') }}" class="btn btn-danger btn-kembali">Kembali</a>
+                <a href="{{ url('pencarian_buku/pencarian_detail') }}" class="btn btn-danger btn-kembali">Kembali</a>
             </div>
         </nav>
     </header>
     <div class="content-pencarian" style="padding-top: 70px">
-        @if ($buku->isEmpty())
+        @if ($data->isEmpty())
             <center>
                 <div class="alert alert-danger mb-1" style="margin-top: 100px;width: 900px">
-                    <h2>Hasil Pencarian " {{ $katakunci }} " Tidak Ditemukan</h2>
+                    <h2>Hasil Pencarian Tidak Ditemukan</h2>
                     <div class="rectangle"></div>
                 </div>
             </center>
         @else
             <center>
                 <div class="alert alert-success mb-1" style="width: 700px">
-                    <h5>Hasil Pencarian: {{ $katakunci }}</h5>
+                    <h5>Hasil Pencarian</h5>
                 </div>
             </center>
             <div class="table-responsive" style="padding: 20px">
@@ -51,7 +51,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($buku as $b)
+                        @foreach ($data as $b)
                         <tr>
                             <td>{{ $b-> kode }}</td>
                             <td>{{ $b-> judul }}</td>

@@ -89,6 +89,17 @@ class AnggotaController extends Controller
 
         return redirect('/data_anggota')->with('sukses', 'Import Data Anggota Berhasil!');
     }
+    public function updateAnggota(Request $request)
+    {
+        $file = $request->file('file');
+        $namaFile = $file->getClientOriginalName();
+        $file->move('Anggota', $namaFile);
+
+        Excel::import(new UpdateAnggota, public_path('/Anggota/' . $namaFile));
+        File::delete(public_path('/Anggota/' . $namaFile));
+
+        return redirect('/data_anggota')->with('sukses', 'Import Data Anggota Berhasil!');
+    }
 
     public function tampilCetakAnggota()
     {

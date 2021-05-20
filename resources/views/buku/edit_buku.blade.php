@@ -15,11 +15,11 @@
                         @csrf
                         <table class="table-tambahbuku" width="100%">
                             <tr>
-                                <td width="15%"><label for="kode">Kode</label></td>
+                                <td width="15%"><label for="nomor_rak">Nomor Rak</label></td>
                                 <td>
                                     <div class="form-group">
-                                        <input class="form-control bk-c" id="kode" type="text" name="kode" value="{{ $buku->kode }}" />
-                                        <div id="error">{{ $errors->first('kode') }}</div>
+                                        <input class="form-control bk-c" id="nomor_rak" type="text" name="nomor_rak" value="{{ $buku->nomor_rak }}" />
+                                        <div id="error">{{ $errors->first('nomor_rak') }}</div>
                                     </div>
                                 </td>
                             </tr>
@@ -64,8 +64,8 @@
                                     <div class="form-group">
                                         <select id="pengarang" name="pengarang[]" multiple style="width: 100%">
                                         <option disabled value="">--- Untuk memilih pengarang, tekan dan tahan tombol ctrl lalu klik pengarang ---</option>
-                                        @foreach ($pengarang as $p)
-                                            <option value="{{ $p->id }}">{{ $p->id }} - {{ $p->nama }}</option>
+                                        @foreach ($pengarang as $pe)
+                                            <option id="{{ $pe->id }}" class="pilih_pengarang" value="{{ $pe->id }}">{{ $pe->id }} - {{ $pe->nama }}</option>
                                         @endforeach
                                     </select>
                                     <div id="error">{{ $errors->first('pengarang') }}</div>
@@ -132,9 +132,14 @@
         $(document).ready(function () {
             var nama = {!!json_encode($nama)!!};
             var namap = {!!json_encode($namap)!!};
-            var namas = {!!json_encode($namap)!!};
-            var namape = {!!json_encode($namap)!!};
-            console.log(namape);
+            var namas = {!!json_encode($namas)!!};
+            var namape = {!!json_encode($namape)!!};
+            var semuapengarang = {!!json_encode($semuapengarang)!!};
+            var array = [];
+            semuapengarang.forEach(function(item){
+                array.push(item['id']);
+            })
+            console.log(array);
             let kategori = $(this).data('kategori');
             let penerbit = $(this).data('penerbit');
             let sumber = $(this).data('sumber');
@@ -150,14 +155,18 @@
                 return ($(this).val() == namas)
                 }).prop('selected', true);
             $('#pengarang option').filter(function(){
-                return ($(this).val() == namape)
+                return ($(this).val() == array)
                 }).prop('selected', true);
-        })
-        $(document).ready(function() {
-         $('#penerbit').select2();
-         $('#kategori').select2();
-         $('#asal').select2();
-         $('#pengarang').select2();
-     });
+
+            semuapengarang.forEach(function(item){
+                $('.pilih_pengarang[id='+ item["id"] + ']').attr("selected", true);
+            });
+        });
+        // $(document).ready(function() {
+        //  $('#pengarang').select2();
+     //     $('#penerbit').select2();
+     //     $('#kategori').select2();
+     //     $('#asal').select2();
+     // });
     </script>
 @endsection

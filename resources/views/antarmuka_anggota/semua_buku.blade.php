@@ -32,6 +32,7 @@
                         <th>Judul Buku</th>
                         <th width="12%">Kategori</th>
                         <th width="12%">Penerbit</th>
+                        <th width="18%">Pengarang</th>
                         <th width="9%">Halaman</th>
                         <th width="13%">Jumlah Tersedia</th>
                     </tr>
@@ -43,6 +44,11 @@
                         <td>{{ $b-> judul }}</td>
                         <td>{{ $b-> kategori-> nama }}</td>
                         <td>{{ $b-> penerbit-> nama }}</td>
+                        <td>
+                            @foreach ($b->pengarang as $pengarang)
+                                {{$pengarang-> nama}} <br> 
+                            @endforeach
+                        </td>
                         <td>{{ $b-> halaman }}</td>
                         <td>{{ $b-> eksemplar }}</td>
                     </tr>

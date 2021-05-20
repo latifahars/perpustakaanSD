@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Models\Buku;
 use App\Models\KategoriBuku;
 use App\Models\Penerbit;
@@ -36,7 +37,7 @@ class BukuController extends Controller
     public function tambahBuku(Request $request) 
     {
         $request->validate([
-        'kode' => 'required|unique:App\Models\Buku,kode',
+        'nomor_rak' => 'required',
         'judul' => 'required',
         'kategori' => 'required',
         'penerbit' => 'required',
@@ -49,7 +50,6 @@ class BukuController extends Controller
          // dd($request->pengarang);
         $user = auth()->user();
         $buku = new Buku();
-        $buku->kode = $request->kode;
         $buku->judul = $request->judul;
         $buku->kategori_buku_id = $request->kategori;
         $buku->penerbit_id = $request->penerbit;
@@ -60,6 +60,8 @@ class BukuController extends Controller
         $buku->tgl_diterima = $request->tanggal_diterima;
 
         // dd($buku->pengarang());
+        $buku->save();
+        $buku->kode =  str_pad($buku->kategori_buku_id, 2, 0, STR_PAD_LEFT) . '-' . $request->nomor_rak . '-' . str_pad($buku->id, 2, 0, STR_PAD_LEFT);
         $buku->save();
         $buku->pengarang()->sync($request->pengarang);
         return redirect('/data_buku')->with('sukses', 'Tambah Buku Berhasil!');
@@ -77,28 +79,35 @@ class BukuController extends Controller
         $pengarang= Pengarang::all();
         $namape = $buku->pengarang;
 
-
-        return view('buku.edit_buku', compact('buku','kategori', 'nama', 'penerbit', 'namap', 'asal', 'namas', 'pengarang', 'namape'));
+        $pengarang2 = DB::table('buku_pengarang')->where('buku_id',$idbuku)->get();
+        $array = array();
+        foreach ($pengarang2 as $key => $a) {
+            $array[] = $a->pengarang_id;
+        }
+        $semuapengarang = Pengarang::whereIn('id', $array)->get('id');
+        // dd($semuapengarang);
+        return view('buku.edit_buku', compact('buku','kategori', 'nama', 'penerbit', 'namap', 'asal', 'namas', 'pengarang', 'namape', 'semuapengarang'));
     }
 
     public function editBuku(Request $request, $idbuku)
     {   
         $request->validate([
-        'kode' => 'required',
+        'nomor_rak' => 'required',
         'judul' => 'required',
         'kategori' => 'required',
         'penerbit' => 'required',
-        'penerbit' => 'required',
+        'pengarang' => 'required',
         'jumlah' => 'required|numeric',
         'halaman' => 'required|numeric',
         'asal' => 'required',
         'tanggal_diterima' => 'required|date',
         ]);
         $user = auth()->user();
+        // dd($request->all());
         
         $buku = Buku::where('id', $idbuku)
             ->update([
-                'kode' => $request->get('kode'),
+                'kode' => str_pad($request->kategori, 2, 0, STR_PAD_LEFT) . '-' . $request->nomor_rak . '-' . str_pad($idbuku, 2, 0, STR_PAD_LEFT),
                 'judul' => $request->get('judul'),
                 'kategori_buku_id' => $request->get('kategori'),
                 'penerbit_id' => $request->get('penerbit'),
@@ -108,7 +117,16 @@ class BukuController extends Controller
                 'sumber_buku_id' => $request->get('asal'),
                 'tgl_diterima' => $request->get('tanggal_diterima'),
             ]);
-        
+
+        // $data = DB::table('buku_pengarang')->where('buku_id',$idbuku)->delete();
+        // $pengarang = $request->pengarang;
+        $buku2 = Buku::find($idbuku);
+        $buku2->pengarang()->sync($request->pengarang);
+
+        // foreach ($pengarang as $key => $p) {
+        //     $baru = new 
+        // }
+
         // $buku = Buku::find($idbuku);
 
         // if ($penerbit = Penerbit::where('nama', $request->penerbit)->first()){

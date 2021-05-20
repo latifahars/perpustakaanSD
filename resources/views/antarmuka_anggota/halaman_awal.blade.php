@@ -38,6 +38,7 @@
                             </tr>
                         </table>
                     </form>
+                    <a class="btn btn-detail pt-2 mr-2" href="{{ url('pencarian_buku/pencarian_detail') }}" >Pencarian Detail</a>
                     <a class="btn btn-semua pt-2" href="{{ url('pencarian_buku/semua_buku') }}" >Semua Buku</a>
                 </div>
             </div>

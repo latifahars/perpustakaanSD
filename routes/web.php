@@ -124,3 +124,5 @@ Route::post('/edit_profil/tambah_akun', [ProfilController::class, 'tambahAkun'])
 Route::get('/pencarian_buku', [AMAnggotaController::class, 'tampilPencarian']);
 Route::get('/pencarian_buku/semua_buku', [AMAnggotaController::class, 'tampilSemuaBuku']);
 Route::get('/pencarian_buku/hasil_pencarian', [AMAnggotaController::class, 'cariBuku']);
+Route::get('/pencarian_buku/pencarian_detail', [AMAnggotaController::class, 'tampilPencarianDetail']);
+Route::get('/pencarian_buku/hasil_pencarian_detail', [AMAnggotaController::class, 'cariDetail']);
