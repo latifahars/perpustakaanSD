@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Anggota;
+use App\Models\User;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\File;
 use App\Imports\ImportAnggota;
@@ -32,10 +33,14 @@ class AnggotaController extends Controller
         'kelas' => 'required'
         ]);
 
+        $user = auth()->user();
+
         $anggota = new Anggota();
         $anggota->nama = $request->nama;
         $anggota->nis =$request->nis;
         $anggota->kelas =$request->kelas;
+        $anggota->user_id = $user->id;
+
         $anggota->save();
 
         return redirect('/data_anggota')->with('sukses', 'Tambah Anggota Berhasil!');
@@ -55,12 +60,15 @@ class AnggotaController extends Controller
         'kelas' => 'required'
         ]);
         
-        $anggota = Anggota::find($idanggota);
-        $anggota->nama =$request->nama;
-        $anggota->nis =$request->nis;
-        $anggota->kelas =$request->kelas;
+        $user = auth()->user();
 
-        $anggota->save();
+        $anggota = Anggota::find($idanggota)
+                  ->update([
+                      'nama' => $request->get('nama'),
+                      'nis' => $request->get('nis'),
+                      'user_id' =>$user->id,
+                      'kelas' => $request->get('kelas'),
+                  ]);
         return redirect('/data_anggota')->with('sukses', 'Edit Anggota Berhasil!');
     }
 

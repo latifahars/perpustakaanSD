@@ -16,11 +16,12 @@ class BuatTabelPeraga extends Migration
         Schema::create('peraga', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->string('kode');
+            $table->string('kode')->nullable();;
             $table->unsignedBigInteger('kategori_peraga_id');
             $table->unsignedBigInteger('sumber_peraga_id');
             $table->date('tgl_diterima');
             $table->integer('jumlah');
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
         });
     }

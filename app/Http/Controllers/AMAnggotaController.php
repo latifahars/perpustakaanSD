@@ -84,16 +84,15 @@ class AMAnggotaController extends Controller
                 $data = $data->where('pengarang', $pengarang);
             }
         }
+            // $buku = Buku::query()
 
-        // $buku = Buku::whereHas('kategori', function($query) use ($request){
-        //     return $query->where('nama','like', '%' . $request->kategori . '%')
-        //     ->orWhere('judul', 'like', '%' . $request->judul . '%')
-        //     ->orWhere('kode', 'like', '%' . $request->kode . '%');
-        // })->orWhereHas('penerbit', function($query) use ($request){
-        //     return $query->where('nama','like', '%' . $request->penerbit . '%');
-        // })->orWhereHas('pengarang', function($query) use ($request){
-        //     return $query->where('nama','like', '%' . $request->pengarang . '%');
-        // })->get();
+            // if ($request->kode) {
+            // $buku->where('kode', $request->kode);
+            // }
+
+            // if ($request->judul) {
+            // $buku->where('judul', $request->judul);
+            // }
  
         return view('antarmuka_anggota.hasil_cari_detail', compact('data'));
     }

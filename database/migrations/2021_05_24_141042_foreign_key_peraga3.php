@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class BuatTabelAnggota extends Migration
+class ForeignKeyPeraga3 extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,8 @@ class BuatTabelAnggota extends Migration
      */
     public function up()
     {
-        Schema::create('anggota', function (Blueprint $table) {
-            $table->id();
-            $table->integer('nis');
-            $table->string('nama');
-            $table->string('kelas');
-            $table->unsignedBigInteger('user_id');
-            $table->timestamps();
+        Schema::table('peraga', function (Blueprint $table) {
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('CASCADE');
         });
     }
 
@@ -30,6 +25,6 @@ class BuatTabelAnggota extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('anggota');
+        //
     }
 }

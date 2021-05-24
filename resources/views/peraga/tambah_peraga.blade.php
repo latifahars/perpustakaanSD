@@ -15,16 +15,7 @@
                         @csrf
                         <table class="table-tambah" style="width: 100%">
                             <tr>
-                                <td width="15%"><label for="kode">Kode</label></td>
-                                <td>
-                                    <div class="form-group mb-1">
-                                        <input class="form-control py-3" id="kode" type="text" name="kode" placeholder="Masukkan Kode" value="{{ old('kode') }}" autofocus/>
-                                    <div id="error">{{ $errors->first('kode') }} </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><label for="nama">Nama</label></td>
+                                <td width="15%"><label for="nama">Nama</label></td>
                                 <td>
                                     <div class="form-group mb-1">
                                         <input class="form-control py-3" id="nama" type="text" name="nama" placeholder="Masukkan Nama Alat" value="{{ old('nama') }}"/>
@@ -38,7 +29,7 @@
                                     <select id="kategori" name="kategori" class="form-control py-3 bk-c mb-0">
                                             <option selected disabled value="">--- Pilih Kategori ---</option>
                                         @foreach ($kategori as $k)
-                                            <option value="{{ $k->id }}">{{ $k->nama }}</option>
+                                            <option value="{{ $k->id }}">{{ $k->id }} - {{ $k->nama }}</option>
                                         @endforeach
                                     </select>
                                     <div id="error">{{ $errors->first('kategori') }} </div>

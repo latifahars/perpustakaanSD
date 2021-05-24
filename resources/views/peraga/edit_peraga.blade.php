@@ -15,16 +15,7 @@
                         @csrf
                         <table class="table-tambahperaga" style="width: 100%">
                             <tr>
-                                <td width="15%"><label for="kode">Kode</label></td>
-                                <td>
-                                    <div class="form-group mb-1">
-                                        <input class="form-control py-3" id="kode" name="kode" type="text" value="{{ $peraga->kode }}">
-                                    <div id="error">{{ $errors->first('kode') }} </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><label for="nama">Nama</label></td>
+                                <td width="15%"><label for="nama">Nama</label></td>
                                 <td>
                                     <div class="form-group mb-1" >
                                         <input class="form-control py-3" id="nama" name="nama" type="text" value="{{ $peraga->nama }}"/>
@@ -39,9 +30,9 @@
                                         <select id="kategori" name="kategori" style="width: 100%;height: 35px;">
                                             @foreach ($kategori as $k)
                                                 @if ($k->idkategori == $peraga->idkategori)
-                                                    <option value="{{ $k->id }}" selected>{{ $k->nama }}</option>
+                                                    <option value="{{ $k->id }}" selected>{{ $k->id }} - {{ $k->nama }}</option>
                                                 @else
-                                                    <option value="{{ $k->id }}">{{ $k->nama }}</option>
+                                                    <option value="{{ $k->id }}">{{ $k->id }} - {{ $k->nama }}</option>
                                                 @endif
                                             @endforeach
                                         </select>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Peraga;
+use App\Models\User;
 use App\Models\KategoriPeraga;
 use App\Models\SumberPeraga;
 
@@ -28,21 +29,23 @@ class PeragaController extends Controller
     {
         $request->validate([
         'nama' => 'required','max:30',
-        'kode' => 'required|unique:App\Models\Peraga,kode',
         'kategori' => 'required',
         'asal' => 'required',
         'tgl_diterima' => 'required|date',
         'jumlah' => 'required|numeric',
         ]);
 
+        $user = auth()->user();
         $peraga = new Peraga();
         $peraga->nama = $request->nama;
-        $peraga->kode = $request->kode;
+        $peraga->user_id = $user->id;
         $peraga->kategori_peraga_id = $request->kategori;
         $peraga->sumber_peraga_id = $request->asal;
         $peraga->tgl_diterima = $request->tgl_diterima;
         $peraga->jumlah = $request->jumlah;
 
+        $peraga->save();
+        $peraga->kode =  str_pad($peraga->kategori_peraga_id, 2, 0, STR_PAD_LEFT) . '-' . str_pad($peraga->sumber_peraga_id, 2, 0, STR_PAD_LEFT) . '-' . str_pad($peraga->id, 2, 0, STR_PAD_LEFT);
         $peraga->save();
         return redirect('/data_peraga')->with('sukses', 'Tambah Peraga Berhasil!');
     }
@@ -62,22 +65,24 @@ class PeragaController extends Controller
     {
         $request->validate([
         'nama' => 'required','max:30',
-        'kode' => 'required',
         'kategori' => 'required',
         'asal' => 'required',
         'tgl_diterima' => 'required|date',
         'jumlah' => 'required|numeric',
         ]);
-       	$peraga = Peraga::find($idperaga);
+        $user = auth()->user();
 
-        $peraga->nama = $request->nama;
-        $peraga->kode = $request->kode;
-        $peraga->kategori_peraga_id = $request->kategori;
-        $peraga->sumber_peraga_id = $request->asal;
-        $peraga->tgl_diterima = $request->tgl_diterima;
-        $peraga->jumlah = $request->jumlah;
+       	$peraga = Peraga::find($idperaga)
+                ->update([
+                    'nama' => $request->get('nama'),
+                    'kode' => str_pad($request->kategori, 2, 0, STR_PAD_LEFT) . '-' . str_pad($request->asal, 2, 0, STR_PAD_LEFT) . '-' . str_pad($idperaga, 2, 0, STR_PAD_LEFT),
+                    'user_id' => $user->id,
+                    'kategori_peraga_id' => $request->get('kategori'),
+                    'sumber_peraga_id' => $request->get('asal'),
+                    'tgl_diterima' => $request->get('tgl_diterima'),
+                    'jumlah' => $request->get('jumlah'),
+        ]);
 
-        $peraga->save();
         return redirect('/data_peraga')->with('sukses', 'Edit Peraga Berhasil!');
     }
 

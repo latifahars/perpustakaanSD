@@ -10,10 +10,14 @@ class Anggota extends Model
     use HasFactory;
 
      protected $table = 'anggota';
-     protected $fillable = ['nis', 'nama', 'kelas'];
+     protected $fillable = ['nis', 'nama', 'kelas', 'user_id'];
 
     public function peminjaman()
     {
         return $this->hasMany(Peminjaman::class);
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }

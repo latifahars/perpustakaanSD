@@ -18,6 +18,7 @@ class ImportBuku implements ToCollection
     */
     public function collection(Collection $collection)
     {
+    		 // dd($collection);
         foreach ($collection as $key => $row) {
             if ($key >= 1) {
 
@@ -26,19 +27,23 @@ class ImportBuku implements ToCollection
 
     			$user = auth()->user();
 
+    			$semua_pengarang = explode(".",$row[3]);
+
 		        $buku = new Buku();
-		        $buku->kode = $row[0];
+		        $buku->nomor_rak = $row[0];
 		        $buku->judul = $row[1];
 		        $buku->kategori_buku_id = $row[2];
-		        $buku->penerbit_id = $row[3];
+		        $buku->penerbit_id = $row[4];
+		        $buku->sumber_buku_id = $row[5];
+		        $buku->halaman = $row[6];
 		        $buku->eksemplar = $row[7];
 		        $buku->user_id = $user->id;
-		        $buku->halaman = $row[6];
-		        $buku->sumber_buku_id = $row[5];
 		        $buku->tgl_diterima = $tanggal;
-		        // $buku->pengarang()->sync($request->pengarang);
 		        
 		        $buku->save();
+		        $buku->kode =  str_pad($buku->kategori_buku_id, 2, 0, STR_PAD_LEFT) . '-' . str_pad($buku->nomor_rak, 2, 0, STR_PAD_LEFT) . '-' . str_pad($buku->id, 2, 0, STR_PAD_LEFT);
+		        $buku->save();
+        		$buku->pengarang()->sync($semua_pengarang);
             }
         }
     }
