@@ -39,7 +39,7 @@
                                         <select id="kategori" name="kategori" style="width: 100%;height: 35px;">
                                                 <option selected disabled value="{{ old('kategori') }}">--- Pilih Kategori ---</option>
                                             @foreach ($kategori as $k)
-                                                <option value="{{ $k->id }}">{{ $k->nama }}</option>
+                                                <option value="{{ $k->id }}">{{ $k->id }} - {{ $k->nama }}</option>
                                             @endforeach
                                         </select>
                                     </div>

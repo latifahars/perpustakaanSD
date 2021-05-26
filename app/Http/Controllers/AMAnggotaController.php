@@ -65,34 +65,32 @@ class AMAnggotaController extends Controller
             $data = Buku::all();
         }
         else{
-            $data = Buku::orderBy('created_at', 'desc')->get();
+            $data = Buku::query();
 
             if($kode != ''){
-                $data = $data->where('kode', $kode);
+                $data->where('kode', $kode);
             }
             if($judul != ''){
-                $data = $data->where('judul', 'like', '%' . $judul . '%');
-            dd($data);
+                $data->where('judul', 'like', '%' . $judul . '%');
             }
             if($penerbit != ''){
-                $data = $data->where('penerbit', $penerbit);
+                $data->whereHas('penerbit', function($query) use ($penerbit){
+                    return $query->where('nama','like', '%' . $penerbit . '%');
+                });
             }
             if($kategori != ''){
-                $data = $data->where('kategori', $kategori);
+                $data->whereHas('kategori', function($query) use ($kategori){
+                    return $query->where('nama','like', '%' . $kategori . '%');
+                });
             }
             if($pengarang != ''){
-                $data = $data->where('pengarang', $pengarang);
+                $data->whereHas('pengarang', function($query) use ($pengarang){
+                    return $query->where('nama','like', '%' . $pengarang . '%');
+                });
             }
+         $data = $data->get();   
         }
-            // $buku = Buku::query()
-
-            // if ($request->kode) {
-            // $buku->where('kode', $request->kode);
-            // }
-
-            // if ($request->judul) {
-            // $buku->where('judul', $request->judul);
-            // }
+        // dd($data);
  
         return view('antarmuka_anggota.hasil_cari_detail', compact('data'));
     }

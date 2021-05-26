@@ -62,7 +62,7 @@ class BukuController extends Controller
 
         // dd($buku->pengarang());
         $buku->save();
-        $buku->kode =  str_pad($buku->kategori_buku_id, 2, 0, STR_PAD_LEFT) . '-' . str_pad($buku->nomor_rak, 2, 0, STR_PAD_LEFT) . '-' . str_pad($buku->id, 2, 0, STR_PAD_LEFT);
+        $buku->kode =  str_pad($buku->nomor_rak, 2, 0, STR_PAD_LEFT) . '-' . str_pad($buku->kategori_buku_id, 2, 0, STR_PAD_LEFT) . '-' . str_pad($buku->id, 2, 0, STR_PAD_LEFT);
         $buku->save();
         $buku->pengarang()->sync($request->pengarang);
         return redirect('/data_buku')->with('sukses', 'Tambah Buku Berhasil!');
@@ -108,7 +108,7 @@ class BukuController extends Controller
         
         $buku = Buku::where('id', $idbuku)
             ->update([
-                'kode' => str_pad($request->kategori, 2, 0, STR_PAD_LEFT) . '-' . str_pad($request->nomor_rak, 2, 0, STR_PAD_LEFT) . '-' . str_pad($idbuku, 2, 0, STR_PAD_LEFT),
+                'kode' => str_pad($request->nomor_rak, 2, 0, STR_PAD_LEFT) . '-' . str_pad($request->kategori, 2, 0, STR_PAD_LEFT) . '-' . str_pad($idbuku, 2, 0, STR_PAD_LEFT),
                 'judul' => $request->get('judul'),
                 'kategori_buku_id' => $request->get('kategori'),
                 'penerbit_id' => $request->get('penerbit'),

@@ -41,7 +41,7 @@ class ImportBuku implements ToCollection
 		        $buku->tgl_diterima = $tanggal;
 		        
 		        $buku->save();
-		        $buku->kode =  str_pad($buku->kategori_buku_id, 2, 0, STR_PAD_LEFT) . '-' . str_pad($buku->nomor_rak, 2, 0, STR_PAD_LEFT) . '-' . str_pad($buku->id, 2, 0, STR_PAD_LEFT);
+		        $buku->kode =  str_pad($buku->nomor_rak, 2, 0, STR_PAD_LEFT) . '-' . str_pad($buku->kategori_buku_id, 2, 0, STR_PAD_LEFT) . '-' . str_pad($buku->id, 2, 0, STR_PAD_LEFT);
 		        $buku->save();
         		$buku->pengarang()->sync($semua_pengarang);
             }
