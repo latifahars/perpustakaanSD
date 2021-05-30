@@ -64,7 +64,7 @@
                 
                 Swal.fire({
                     title: 'Yakin Dihapus?',
-                    text: "Jika Anggota dihapus, maka Peminjaman oleh Anggota ikut terhapus!",
+                    text: "Jika anggota dihapus, maka peminjaman oleh anggota ini ikut terhapus!",
                     icon: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#d33',

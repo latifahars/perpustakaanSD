@@ -9,7 +9,7 @@
             <div class="card mb-4">
                 <div class="card-header">
                     <form method="post" action="">
-                        <a href="{{ url('data_buku') }}"><i class="fas fa-chevron-circle-left mt-2 mr-3"></i></a></i>Daftar Kategori
+                        <a href="{{ url('data_buku') }}"><i class="fas fa-chevron-circle-left mt-2 mr-3"></i></a></i>Daftar Kategori Buku
                         @csrf
                         <table style="float: right;">
                             <tr>
@@ -72,7 +72,7 @@
                                                 <i class="fas fa-edit ml-3 mr-2"></i>
                                             </a>
                                             <!-- <a href="{{ url('data_buku/edit_kategori/' . $k->id) }}"><i class="fas fa-edit" style="margin-right: 20px;margin-left: 15px"></i></a> -->
-                                            <a href="{{ url('data_buku/hapus_kategori/' . $k->id) }}"  data-toggle="tooltip" id="pesan"><i class="fas fa-trash-alt"></i></a>
+                                            <a href="{{ url('data_buku/hapus_kategori/' . $k->id) }}"  data-toggle="tooltip" id="hpskategori"><i class="fas fa-trash-alt"></i></a>
                                         </td>
                                     </tr>
                                     @endif
@@ -137,5 +137,25 @@
             $('#nama').val(nama);
             $('#edit_form').attr('action', '/data_buku/edit_kategori/' + id);
       })
+      $(document).on('click', '#hpskategori', function(e){
+              e.preventDefault();
+              var link = $(this).attr('href');
+              
+              Swal.fire({
+                  title: 'Yakin Dihapus?',
+                  text: "Jika kategori dihapus, maka buku dengan kategori ini ikut terhapus!",
+                  icon: 'warning',
+                  showCancelButton: true,
+                  confirmButtonColor: '#d33',
+                  cancelButtonColor: '#grey',
+                  cancelButtonText: 'Batal',
+                  confirmButtonText: 'Hapus',
+                  reverseButtons: true
+                  }).then((result) => {
+                  if (result.isConfirmed) {
+                      window.location = link;
+                  }
+              })
+          })
     </script>
 @endsection

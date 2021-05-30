@@ -80,7 +80,7 @@ class AMAnggotaController extends Controller
             }
             if($kategori != ''){
                 $data->whereHas('kategori', function($query) use ($kategori){
-                    return $query->where('nama','like', '%' . $kategori . '%');
+                    return $query->where('id', $kategori);
                 });
             }
             if($pengarang != ''){

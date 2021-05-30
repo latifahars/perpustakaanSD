@@ -6,6 +6,9 @@
     <main>
         <div class="container-fluid">
             @include('partial.alert')
+            <div style="background-color: red; color: white" id="error">
+                {{ $errors->first('nama') }}
+            </div>
             <div class="card mb-4">
                 <div class="card-header">
                     <i class="fas fa-sitemap mr-2"></i>
@@ -88,7 +91,6 @@
                                 </tr>
                             </thead>
                         </table>
-                        <div style="margin-left: 600px;margin-top: 80px" id="error">{{ $errors->first('nama') }}</div>
                     </div>
                 </center>
             </div>

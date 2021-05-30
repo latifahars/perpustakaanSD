@@ -18,3 +18,8 @@
         {{ session('pinjam') }}
     </div>
 @endif
+@if(session('struktur'))
+    <div class="alert alert-success mb-0" style="padding: 2px">
+        {{ session('struktur') }}
+    </div>
+@endif

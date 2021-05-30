@@ -33,7 +33,7 @@
                         <img src="{{asset('Contoh Import Buku.JPG')}}">
                         <h6 style="margin-top: 30px;color: red">Perhatikan cara menghapus baris pada excel!</h6>
                         <ol type="1" style="padding-left: 40px">
-                            Apabila ingin menghapus baris,s klik pada nomor baris pada bagian paling kiri (akan terpilih 1 baris), kemudian tekan "delete".
+                            Apabila ingin menghapus baris, klik pada nomor baris pada bagian paling kiri (akan terpilih 1 baris), kemudian tekan "delete".
                         </ol>
                     </div>
                 </div>

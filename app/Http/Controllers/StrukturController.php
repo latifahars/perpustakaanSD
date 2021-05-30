@@ -21,7 +21,7 @@ class StrukturController extends Controller
 	{
 		
 		$request->validate([
-	    'nama' => ['required', 'max:22'],
+	    'nama' => ['required', 'max:25'],
 	    'jabatan' => 'required'
 		]);
 		
@@ -30,6 +30,6 @@ class StrukturController extends Controller
 	    $struktur->jabatan=$request->jabatan;
 
 		$struktur->save();
-		return redirect('/struktur_org')->with('sukses', 'Edit Nama Berhasil!');
+		return redirect('/struktur_org')->with('struktur', 'Edit Nama Berhasil!');
 	}
 }

@@ -9,7 +9,7 @@
             <div class="card mb-4">
                 <div class="card-header">
                     <form method="post" action="">
-                        <a href="{{ url('data_buku') }}"><i class="fas fa-chevron-circle-left mt-2 mr-3"></i></a></i>Daftar Penerbit
+                        <a href="{{ url('data_buku') }}"><i class="fas fa-chevron-circle-left mt-2 mr-3"></i></a></i>Daftar Penerbit Buku
                         @csrf
                         <table style="float: right;">
                             <tr>
@@ -54,7 +54,7 @@
                                             data-kota="{{ $p->kota }}">
                                             <i class="fas fa-edit ml-3 mr-2"></i>
                                             </a>
-                                            <a href="{{ url('data_buku/hapus_penerbit/' . $p->id) }}" data-toggle="tooltip"  id="pesan"><i class="fas fa-trash-alt"></i></a>
+                                            <a href="{{ url('data_buku/hapus_penerbit/' . $p->id) }}" data-toggle="tooltip"  id="hpspenerbit"><i class="fas fa-trash-alt"></i></a>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -112,5 +112,25 @@
             $('#nama').val(nama);
             $('#edit_form').attr('action', '/data_buku/edit_penerbit/' + id);
       })
+      $(document).on('click', '#hpspenerbit', function(e){
+              e.preventDefault();
+              var link = $(this).attr('href');
+              
+              Swal.fire({
+                  title: 'Yakin Dihapus?',
+                  text: "Jika penerbit dihapus, maka buku dengan penerbit ini ikut terhapus!",
+                  icon: 'warning',
+                  showCancelButton: true,
+                  confirmButtonColor: '#d33',
+                  cancelButtonColor: '#grey',
+                  cancelButtonText: 'Batal',
+                  confirmButtonText: 'Hapus',
+                  reverseButtons: true
+                  }).then((result) => {
+                  if (result.isConfirmed) {
+                      window.location = link;
+                  }
+              })
+          })
     </script>
 @endsection

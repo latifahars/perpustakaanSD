@@ -42,7 +42,14 @@
                                     <div id="error">{{ $errors->first('judul') }}</div>
                                 </td>
                                 <td>
-                                    <input type="text" class="form-control cari-detail" name="kategori" placeholder="Kategori Buku">
+                                    <div class="form-group bk-c mb-0 cari-detail">
+                                        <select id="kategori" name="kategori" style="width: 100%;height: 100%;">
+                                                <option selected disabled>--- Pilih Kategori ---</option>
+                                            @foreach ($kategori as $k)
+                                                <option value="{{ $k->id }}">{{ $k->nama }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
                                     <div id="error">{{ $errors->first('kategori') }}</div>
                                 </td>
                                 <td>

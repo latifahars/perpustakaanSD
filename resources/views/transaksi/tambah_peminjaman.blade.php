@@ -29,7 +29,7 @@
                             <select id="buku" class="form-control" name="kode">
                                 <option value="">--- Pilih Buku ---</option>
                                 @foreach ($buku as $b)
-                                    <option value="{{ $b->kode }}" data-judul="{{ $b->judul }}">{{ $b->kode }} - {{ $b->judul }}</option>
+                                    <option value="{{ $b->kode }}" data-judul="{{ $b->judul }}">{{ $b->kode }} | {{ $b->judul }}</option>
                                 @endforeach
                             </select>
                             <div id="error">{{ $errors->first('kode') }}</div>

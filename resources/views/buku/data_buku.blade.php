@@ -67,7 +67,7 @@
                                     <td class="aksi-buku">
                                         <a href="{{ url('data_buku/detail_buku/' . $b->id) }}"><i class="fas fa-eye"></i></a>
                                     	<a href="{{ url('data_buku/edit_buku/' . $b->id) }}"><i class="fas fa-edit"></i></a>
-                                    	<a href="{{ url('data_buku/hapus_buku/' . $b->id) }}" data-toggle="tooltip"  id="pesan"><i class="fas fa-trash-alt"></i></a>
+                                    	<a href="{{ url('data_buku/hapus_buku/' . $b->id) }}" data-toggle="tooltip"  id="hpsbuku"><i class="fas fa-trash-alt"></i></a>
                                     </td>
                                 </tr>
                                 @endforeach
@@ -78,4 +78,26 @@
             </div>
         </div>
     </main>
+    <script type="text/javascript">
+        $(document).on('click', '#hpsbuku', function(e){
+                e.preventDefault();
+                var link = $(this).attr('href');
+                
+                Swal.fire({
+                    title: 'Yakin Dihapus?',
+                    text: "Jika buku dihapus, maka peminjaman dengan buku ini ikut terhapus!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#d33',
+                    cancelButtonColor: '#grey',
+                    cancelButtonText: 'Batal',
+                    confirmButtonText: 'Hapus',
+                    reverseButtons: true
+                    }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location = link;
+                    }
+                })
+            })
+    </script>
 @endsection
