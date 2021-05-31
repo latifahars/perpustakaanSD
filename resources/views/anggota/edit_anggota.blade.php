@@ -18,7 +18,7 @@
                                 <td width="10%"><label class="mb-1" for="nis">NIS</label></td>
                                 <td>
                                     <div class="form-group">
-                                        <input class="form-control py-3" id="nis" type="text" name="nis" value="{{ $anggota->nis }}" autofocus />
+                                        <input class="form-control py-3" id="nis" type="text" name="nis" value="{{ $anggota->nis }}" />
                                         <div id="error">{{ $errors->first('nis') }}</div>
                                     </div>
                                 </td>

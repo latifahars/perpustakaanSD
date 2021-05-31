@@ -112,7 +112,7 @@
                             @csrf                          
                         <div class="form-group">
                             <label class="mb-1" for="nama">Nama</label>
-                                <input class="form-control py-3" id="nama" name="nama" type="text" value="" />
+                                <input class="form-control py-3" id="nama" name="nama" type="text" value="" autofocus />
                                 <div id="error">{{ $errors->first('nama') }}</div>
                         </div>
                         <div class="form-group">
