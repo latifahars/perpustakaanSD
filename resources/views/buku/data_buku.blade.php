@@ -43,14 +43,14 @@
                             <thead>
                                 <tr>
                                     <th width="0%" style="display: none;">No</th>
-                                	<th width="11%">Kode</th>
-                                    <th width="23%">Judul Buku</th>
-                                    <th>Kategori</th>
-                                    <th width="14%">Penerbit</th>
+                                	<th width="8%">Kode</th>
+                                    <th width="25%">Judul Buku</th>
+                                    <th width="13%">Kategori</th>
+                                    <th width="13%">Penerbit</th>
                                     <th width="8%">Page</th>
-                                    <th width="10%">Jumlah</th>
-                                    <th width="11%">Asal</th>
-                                    <th width="11%">Aksi</th>
+                                    <th width="8%">Jumlah</th>
+                                    <th width="9%">Asal</th>
+                                    <th width="10%">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>

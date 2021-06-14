@@ -34,9 +34,9 @@
                         <table class=" table table-buku table-bordered table-striped" id="datatable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                	<th width="6%">No</th>
-                                	<th width="9%">Kode</th>
-                                    <th width="17%">Nama</th>
+                                	<th width="4%">No</th>
+                                	<th width="8%">Kode</th>
+                                    <th width="20%">Nama</th>
                                     <th width="12%">Kategori</th>
                                     <th width="8%">Jumlah</th>
                                     <th width="12%">Asal Perolehan</th>

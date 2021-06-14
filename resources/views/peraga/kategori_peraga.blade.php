@@ -30,9 +30,9 @@
                             <div id="error">{{ $errors->first('nama') }}</div>
                             <thead>
                                 <tr>
-                                	<th width="7%">No</th>
+                                	<th width="3%">No</th>
                                     <th width="40%">Nama Kategori</th>
-                                    <th width="7%">Aksi</th>
+                                    <th width="5%">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>

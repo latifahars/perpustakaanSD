@@ -30,11 +30,11 @@
                         <table class="table table-bordered table-striped" id="datatable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                    <th width="4%">No</th>
-                                    <th width="13%">NIS</th>
-                                    <th width="25%">Nama</th>
-                                    <th width="10%">Kelas</th>
-                                    <th width="8%">Aksi</th>
+                                    <th width="2%">No</th>
+                                    <th width="10%">NIS</th>
+                                    <th width="30%">Nama</th>
+                                    <th width="11%">Kelas</th>
+                                    <th width="6%">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>

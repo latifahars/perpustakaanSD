@@ -188,6 +188,6 @@ class BukuController extends Controller
         Excel::import(new ImportBuku, public_path('/Buku/' . $namaFile));
         File::delete(public_path('/Buku/' . $namaFile));
 
-        return redirect('/data_buku')->with('sukses', 'Import Data Buku Berhasil!');
+        return redirect('/data_buku');
     }
 }

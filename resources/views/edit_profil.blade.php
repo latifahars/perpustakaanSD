@@ -35,8 +35,8 @@
                             <div id="error">{{ $errors->first('email') }}</div>
     	                </div>
     	                <div class="form-group">
-    	                    <label class="mb-1" for="password">Password</label>
-    	                    <input class="form-control py-3" id="password" type="password" name="password" />
+    	                    <label class="mb-1" for="password">Password <span style="font-style: italic;">(Boleh kosong)</span></label>
+    	                    <input class="form-control py-3" id="password" type="password" name="password" placeholder="Isikan jika ingin mengganti password saja" />
                             <div id="error">{{ $errors->first('password') }}</div>
     	                </div>
                         <center>

@@ -95,7 +95,7 @@ class AnggotaController extends Controller
         Excel::import(new ImportAnggota, public_path('/Anggota/' . $namaFile));
         File::delete(public_path('/Anggota/' . $namaFile));
 
-        return redirect('/data_anggota')->with('sukses', 'Import Data Anggota Berhasil!');
+        return redirect('/data_anggota');
     }
     public function updateAnggota(Request $request)
     {
@@ -106,7 +106,7 @@ class AnggotaController extends Controller
         Excel::import(new UpdateAnggota, public_path('/Anggota/' . $namaFile));
         File::delete(public_path('/Anggota/' . $namaFile));
 
-        return redirect('/data_anggota')->with('sukses', 'Import Data Anggota Berhasil!');
+        return redirect('/data_anggota');
     }
 
     public function tampilCetakAnggota()
