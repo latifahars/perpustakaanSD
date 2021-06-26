@@ -31,7 +31,7 @@
                                 <tr>
                                     <th width="7%">Kode</th>
                                     <th width="40%">Asal Perolehan Alat Peraga</th>
-                                    <th width="7%">Aksi</th>
+                                    <th width="5%">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -47,7 +47,7 @@
                                             data-nama="{{ $s->nama }}">
                                             <i class="fas fa-edit ml-3 mr-2"></i>
                                             </a>
-                                            <a href="{{ url('data_buku/hapus_asal/' . $s->id) }}" data-toggle="tooltip"  id="hpssumberper"><i class="fas fa-trash-alt"></i></a>
+                                            <a href="{{ url('data_peraga/hapus_asal/' . $s->id) }}" data-toggle="tooltip"  id="hpssumberper"><i class="fas fa-trash-alt"></i></a>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -62,7 +62,7 @@
         <div id="modal-edit" class="modal-dialog modal-dialog-centered" role="document">
         <div id="modal-content" class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">EDIT ASAL BUKU</h5>
+            <h5 class="modal-title" id="exampleModalLabel">EDIT ASAL ALAT PERAGA</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -96,7 +96,7 @@
             let nama = $(this).data('nama');
             let id = $(this).data('id');
             $('#nama').val(nama);
-            $('#edit_form').attr('action', '/data_buku/edit_asal/' + id);
+            $('#edit_form').attr('action', '/data_peraga/edit_asal/' + id);
       })
       $(document).on('click', '#hpssumberper', function(e){
               e.preventDefault();

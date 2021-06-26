@@ -31,7 +31,7 @@
                                 <tr>
                                     <th width="7%">Kode</th>
                                     <th width="40%">Asal Perolehan Buku</th>
-                                    <th width="7%">Aksi</th>
+                                    <th width="4%">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>

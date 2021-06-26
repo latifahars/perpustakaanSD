@@ -28,13 +28,13 @@
             <table class="table table-bordered table-striped" id="datatable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
-                        <th width="10%">Kode</th>
+                        <th width="5%">Kode</th>
                         <th>Judul Buku</th>
-                        <th width="12%">Kategori</th>
-                        <th width="12%">Penerbit</th>
+                        <th width="10%">Kategori</th>
+                        <th width="10%">Penerbit</th>
                         <th width="18%">Pengarang</th>
-                        <th width="9%">Halaman</th>
-                        <th width="13%">Jumlah Tersedia</th>
+                        <th width="5%">Halaman</th>
+                        <th width="10%">Jumlah Tersedia</th>
                     </tr>
                 </thead>
                 <tbody>

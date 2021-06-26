@@ -16,6 +16,7 @@ class BuatTabelPengarang extends Migration
         Schema::create('pengarang', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
+            $table->string('email')->nullable();
             $table->timestamps();
         });
     }

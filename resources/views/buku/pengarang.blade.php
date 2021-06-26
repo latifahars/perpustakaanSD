@@ -17,6 +17,9 @@
                                     <input type="text" class="form-control" style="width: 250px" name="nama" placeholder="Nama Pengarang" required>
                                 </td>
                                 <td>
+                                    <input type="text" class="form-control" style="width: 230px" name="email" placeholder="Email">
+                                </td>
+                                <td>
                                     <button class="btn btn-pengarang pb-1 pt-1" type="submit"><i class="fas fa-plus"></i> Tambah</button>
                                 </td>
                             </tr>
@@ -31,6 +34,7 @@
                                 <tr>
                                     <th width="7%">Kode</th>
                                     <th width="40%">Nama Pengarang Buku</th>
+                                    <th>Email</th>
                                     <th width="7%">Aksi</th>
                                 </tr>
                             </thead>
@@ -39,12 +43,14 @@
                                     <tr>
                                         <td>{{ $p->id }}</td>
                                         <td>{{ $p->nama }}</td>
+                                        <td>{{ $p->email }}</td>
                                         <td> 
                                             <a style="cursor:pointer;" id="edit_item" 
                                             data-toggle="modal" 
                                             data-target="#edit-modal"
                                             data-id="{{ $p->id }}"
-                                            data-nama="{{ $p->nama }}">
+                                            data-nama="{{ $p->nama }}"
+                                            data-email="{{ $p->email }}" >
                                             <i class="fas fa-edit ml-3 mr-2"></i>
                                             </a>
                                             <a href="{{ url('data_buku/hapus_pengarang/' . $p->id) }}" data-toggle="tooltip"  id="hpspengarang"><i class="fas fa-trash-alt"></i></a>
@@ -76,6 +82,9 @@
                             <label class="mb-1" for="nama">Nama Pengarang</label>
                                 <input class="form-control py-3" id="nama" name="nama" type="text" value="" />
                                 <div id="error">{{ $errors->first('nama') }}</div>
+                            <label class="mb-1" for="email">Email</label>
+                                <input class="form-control py-3" id="email" name="email" type="text" value="" />
+                                <div id="error">{{ $errors->first('email') }}</div>
                         </div>
             
                         <div class="modal-footer">
@@ -94,8 +103,10 @@
     <script>
       $(document).on('click','#edit_item',function(){
             let nama = $(this).data('nama');
+            let email = $(this).data('email');
             let id = $(this).data('id');
             $('#nama').val(nama);
+            $('#email').val(email);
             $('#edit_form').attr('action', '/data_buku/edit_pengarang/' + id);
       })
       $(document).on('click', '#hpspengarang', function(e){

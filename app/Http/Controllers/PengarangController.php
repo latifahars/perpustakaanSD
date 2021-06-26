@@ -17,11 +17,12 @@ class PengarangController extends Controller
     public function tambahPengarang(Request $request)
 	{
 		$request->validate([
-	    'nama' => 'required|unique:App\Models\Pengarang,nama',
+	    'nama' => 'required',
 		]);
 
 		$pengarang = new Pengarang();
 		$pengarang->nama = $request->nama;
+		$pengarang->email = $request->email;
 		$pengarang->save();
 
 		return back()->with('sukses', 'Tambah Pengarang Buku Berhasil!');
@@ -30,12 +31,13 @@ class PengarangController extends Controller
 	public function editPengarang(Request $request, $idpengarang)
 	{
 		$request->validate([
-	    'nama' => 'required'
+	    'nama' => 'required',
 		]);
 
 		$pengarang = Pengarang::where('id', $idpengarang)
             ->update([
                 'nama' => $request->get('nama'),
+                'email' => $request->get('email'),
             ]);
 		return redirect('/data_buku/pengarang')->with('sukses', 'Edit Pengarang Buku Berhasil!');
 	}

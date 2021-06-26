@@ -4,7 +4,7 @@
     </div>
 @endif
 @if(session('hapus'))
-    <div class="alert alert-danger mb-1">
+    <div class="alert alert-success mb-1">
         {{ session('hapus') }}
     </div>
 @endif

@@ -36,7 +36,7 @@
                                     <th width="10%">Kode</th>
                                     <th width="40%">Nama Penerbit</th>
                                     <th width="28%">Kota Terbit</th>
-                                    <th width="11%">Aksi</th>
+                                    <th width="9%">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>

@@ -103,6 +103,9 @@ header{
 #error{
 	color: red;
 }
+.table{
+	table-layout: fixed;
+}
 
 /*navbar*/
 .left_area h3{

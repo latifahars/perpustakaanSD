@@ -71,13 +71,13 @@ class TransaksiController extends Controller
                         })->first();
 
         if($anggotapinjam->peminjaman_count == 3){
-            return back()->with('hapus', 'Anggota telah meminjam 3 buku!');
+            return back()->with('error', 'Anggota telah meminjam 3 buku!');
         }elseif($bukupinjam->kategori->nama != 'Buku Pelajaran' && $sudahpinjam){
-            return back()->with('hapus', 'Anggota belum mengembalikan buku yang dipinjam sebelumnya!');
+            return back()->with('error', 'Anggota belum mengembalikan buku yang dipinjam sebelumnya!');
         }elseif($bukupinjam->eksemplar == 0){
-            return back()->with('hapus', 'Buku sudah tidak tersedia!');
+            return back()->with('error', 'Buku sudah tidak tersedia!');
         }elseif($ceksama){
-            return back()->with('hapus', 'Anggota telah meminjam buku yang sama!');
+            return back()->with('error', 'Anggota telah meminjam buku yang sama!');
         }
         else{
             $bukupinjam->decrement('eksemplar', 1);
